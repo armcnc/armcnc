@@ -1,6 +1,6 @@
 # ARMCNC
 
-⚡ AI-based human-machine interaction CNC system ⚡
+⚡ CNC system for ARM platform ⚡
 
 ## License
 
