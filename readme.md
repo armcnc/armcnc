@@ -24,6 +24,6 @@ You can also manually install and deploy through the following steps to better u
 
 [Linuxcnc](https://github.com/LinuxCNC/linuxcnc)
 
-[EtherCAT](https://download.opensuse.org/repositories/home:/bone11111:/branches:/science:/EtherLab/Debian_12/arm64/)
+[EtherCAT](https://provo-mirror.opensuse.org/repositories/science:/EtherLab/Debian_12/arm64/)
 
 [Ubuntu](https://github.com/ubuntu)
