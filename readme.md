@@ -18,3 +18,12 @@ sudo curl -s https://mirrors.armcnc.net/ubuntu/armcnc.sh|bash
 
 You can also manually install and deploy through the following steps to better understand every aspect of the process.
 
+## Thank
+
+[D-Robotics](https://github.com/d-robotics)
+
+[Linuxcnc](https://github.com/LinuxCNC/linuxcnc)
+
+[EtherCAT](https://download.opensuse.org/repositories/home:/bone11111:/branches:/science:/EtherLab/Debian_12/arm64/)
+
+[Ubuntu](https://github.com/ubuntu)
