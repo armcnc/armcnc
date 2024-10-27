@@ -1,0 +1,14 @@
+[Unit]
+Description=armcnc_service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/armcnc/
+Environment="TERM=xterm-256color"
+ExecStart=/opt/armcnc/backend/release/main service
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

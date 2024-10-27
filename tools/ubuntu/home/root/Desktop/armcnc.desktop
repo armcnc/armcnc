@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Link
+Name=ARMCNC
+Name[zh_CN]=ARMCNC
+Comment=CNC system for ARM platform
+Icon=/usr/share/icons/armcnc/108x108/logo.png
+URL=https://www.armcnc.net/

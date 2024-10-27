@@ -1,0 +1,15 @@
+[Unit]
+Description=armcnc_launch
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=sunrise
+WorkingDirectory=/opt/armcnc/
+EnvironmentFile=/tmp/environment
+Environment="TERM=xterm-256color"
+ExecStart=/bin/bash -c 'source /opt/armcnc/.venv/bin/activate && python -B /opt/armcnc/configs/${MACHINE_PATH}/launch/launch.py'
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

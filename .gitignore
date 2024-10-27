@@ -3,3 +3,8 @@
 .git
 .vscode
 .DS_Store
+backend/release/*
+!backend/release/.gitkeep
+!backend/release/config.sample.yaml
+frontend/node_modules
+frontend/yarn.lock
