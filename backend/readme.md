@@ -1,35 +1,15 @@
-# ARMCNC FRONTEND
+# ARMCNC BACKEND
 
-⚡ Develop and compile the frontend web UI ⚡
+⚡ Develop and compile the backend service ⚡
 
 ## Environment requirements
 
-NodeJS: v20.14.0+
+Golang: go1.22.0+
 
 ## Secondary Development
 
-> You can complete development and compilation on your local computer.
+> We do not recommend running and debugging the program on your local computer. However, you can set up the necessary development environment locally for coding. When debugging and testing are needed, upload the code to the Ubuntu platform for execution.
 
-1、Install project dependencies
+## Compile and build
 
-```shell
-cd frontend
-```
-
-```shell
-yarn
-```
-
-2、Development and debugging
-
-```shell
-yarn dev
-```
-
-3、Compile and build
-
-```shell
-yarn build
-```
-
-> The compiled and built files will be generated in the release folder, which can be uploaded together to the Ubuntu platform for deb package creation.
+> You only need to ensure the correctness of the code after secondary development. When generating the deb installation file on Ubuntu, the backend executable will be automatically compiled and generated for you, so there’s no need to worry about this process.
