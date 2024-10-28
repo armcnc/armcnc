@@ -8,3 +8,6 @@ backend/release/*
 !backend/release/config.sample.yaml
 frontend/node_modules
 frontend/yarn.lock
+package/python_sdk/build
+package/python_sdk/dist
+package/python_sdk/armcnc.egg-info
