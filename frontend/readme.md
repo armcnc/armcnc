@@ -14,6 +14,9 @@ NodeJS: v20.14.0+
 
 ```shell
 cd frontend
+```
+
+```shell
 yarn
 ```
 
