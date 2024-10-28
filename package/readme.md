@@ -6,6 +6,76 @@
 
 > This includes the drivers and SDKs required for the operation and daily use of armcnc and linuxcnc. You can customize and develop them further based on your needs. After completing the development, simply upload to Ubuntu, and all changes will be automatically handled when generating the deb package. You don’t need to worry about these adjustments.
 
+### ethercat_master
+
+This is the EtherCAT Master suitable for the RDK X5 kernel.
+
+```shell
+wget https://gitlab.com/etherlab.org/ethercat/-/archive/1.6.2/ethercat-1.6.2.tar.gz
+cd ethercat-1.6.2
+```
+
+```shell
+./bootstrap
+./configure --prefix=/usr/local --disable-8139too --enable-generic --with-linux-dir=/usr/src/linux-headers-$(uname -r)
+```
+
+```shell
+make && make modules
+```
+
+```shell
+mkdir -p /tmp/ethercat-package
+```
+
+```shell
+make install DESTDIR=/tmp/ethercat-package
+make modules_install INSTALL_MOD_PATH=/tmp/ethercat-package
+```
+
+```shell
+find /tmp/ethercat-package
+```
+
+```shell
+sudo rm -rf /tmp/ethercat-package/lib/modules/6.1.83/modules.*
+```
+
+```shell
+mkdir /tmp/ethercat-package/DEBIAN
+```
+
+```shell
+vim /tmp/ethercat-package/DEBIAN/control
+# input
+Package: ethercat-master
+Version: 1.6.2-1
+Section: utils
+Priority: optional
+Architecture: arm64
+Maintainer: your@email.com
+Depends:
+Description: EtherCAT Master 1.6.2 EtherCAT master implementation version 1.6.2.
+```
+
+```shell
+sudo chown -R root:root /tmp/ethercat-package
+sudo chmod -R u+rw,go+r-w /tmp/ethercat-package
+```
+
+```shell
+cd /tmp
+dpkg-deb --build ethercat-package ethercat-master_1.6.2-1_arm64.deb
+```
+
+```shell
+dpkg -c ethercat-master_1.6.2-1_arm64.deb
+```
+
+```shell
+sudo dpkg -i ethercat-master_1.6.2-1_arm64.deb
+```
+
 ### python_sdk
 
 This is the Python SDK required for armcnc operation, which is used in the startup program of each machine.
