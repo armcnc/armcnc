@@ -6,9 +6,29 @@
 
 > This includes the drivers and SDKs required for the operation and daily use of armcnc and linuxcnc. You can customize and develop them further based on your needs. After completing the development, simply upload to Ubuntu, and all changes will be automatically handled when generating the deb package. You don’t need to worry about these adjustments.
 
-### python
+### python_sdk
 
 This is the Python SDK required for armcnc operation, which is used in the startup program of each machine.
+
+1、Install
+
+```shell
+pip3 install armcnc websocket-client==0.48.0 requests pyserial colorlog
+```
+
+2、Publish
+
+```shell
+pip3 install twine setuptools wheel
+```
+
+```shell
+python3 setup.py sdist bdist_wheel
+```
+
+```shell
+twine upload dist/*
+```
 
 ### rdk_x5_gpio
 
@@ -23,5 +43,5 @@ sudo halcompile --install rdk_x5_gpio.c | grep Linking
 # Example usage
 loadrt [KINS]KINEMATICS
 loadrt [EMCMOT]EMCMOT base_period_nsec=[EMCMOT]BASE_PERIOD servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
-loadrt armcncio pwm_types="p,p,p,p,p,f" in_pins="19,20,21" out_pins="4,5,6"
+loadrt rdk_x5_gpio pwm_types="p,p,p,p,p,f" in_pins="19,20,21" out_pins="4,5,6"
 ```
