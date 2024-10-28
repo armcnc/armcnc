@@ -1,4 +1,4 @@
-// Copyright 2024 ARMCNC, Inc.
+// Copyright 2024 GEEKROS, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,15 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type {Updater} from "@tanstack/vue-table";
-import {type ClassValue, clsx} from "clsx";
-import {twMerge} from "tailwind-merge";
-import type {Ref} from "vue";
+package command
 
-export function Merge(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs))
+import (
+	"github.com/gookit/color"
+	"github.com/spf13/cobra"
+	"log"
+)
+
+func Login() *cobra.Command {
+	command := &cobra.Command{
+		Use:     "login",
+		Short:   "Login to Cloud Account",
+		Long:    "Login to Cloud Account",
+		Example: "armcnc login [appid] [appkey]",
+		Run:     loginRun,
+	}
+	return command
 }
 
-export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
-    ref.value = typeof updaterOrValue === "function" ? updaterOrValue(ref.value) : updaterOrValue;
+func loginRun(cmd *cobra.Command, args []string) {
+	if len(args) == 0 {
+		log.Println(color.Yellow.Text("Your authorization key is invalid"))
+		return
+	}
 }

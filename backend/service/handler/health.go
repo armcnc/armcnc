@@ -1,4 +1,4 @@
-// Copyright 2024 ARMCNC, Inc.
+// Copyright 2024 GEEKROS, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,15 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type {Updater} from "@tanstack/vue-table";
-import {type ClassValue, clsx} from "clsx";
-import {twMerge} from "tailwind-merge";
-import type {Ref} from "vue";
+package handler
 
-export function Merge(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs))
-}
+import (
+	"github.com/armcnc/armcnc/backend/utils"
+	"github.com/gin-gonic/gin"
+)
 
-export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
-    ref.value = typeof updaterOrValue === "function" ? updaterOrValue(ref.value) : updaterOrValue;
+func Health(c *gin.Context) {
+	utils.Success(c, utils.EmptyData{})
+	return
 }
