@@ -15,8 +15,6 @@
 package command
 
 import (
-	"github.com/armcnc/armcnc/backend/package/config"
-	"github.com/armcnc/armcnc/backend/package/version"
 	"github.com/armcnc/armcnc/backend/service"
 	"github.com/armcnc/armcnc/backend/service/crontab"
 	"github.com/spf13/cobra"
@@ -34,9 +32,7 @@ func Service() *cobra.Command {
 }
 
 func serviceRun(cmd *cobra.Command, args []string) {
-	version.Get = version.New()
 	service.Get = service.New()
-	config.Get = config.New().LoadConfig()
 	crontab.Get = crontab.New().Start()
 	service.Get.Start()
 }

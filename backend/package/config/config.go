@@ -38,7 +38,6 @@ type service struct {
 }
 
 type auth struct {
-	Sign  string `yaml:"sign"`
 	Token string `yaml:"token"`
 }
 
@@ -81,21 +80,6 @@ func (c *Config) LoadConfig() *Config {
 	}
 
 	c.Auth.Token = string(file)
-
-	_, err = os.Stat(c.Workspace + "/runtime/auth_sign")
-	if err != nil {
-		if os.IsNotExist(err) {
-			return c
-		}
-		return c
-	}
-
-	file, err = os.ReadFile(c.Workspace + "/runtime/auth_sign")
-	if err != nil {
-		return c
-	}
-
-	c.Auth.Sign = string(file)
 
 	return c
 }

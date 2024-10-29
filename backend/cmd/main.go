@@ -17,18 +17,22 @@ package main
 import (
 	"fmt"
 	"github.com/armcnc/armcnc/backend/cmd/command"
+	"github.com/armcnc/armcnc/backend/package/config"
 	"github.com/armcnc/armcnc/backend/package/version"
 	"github.com/spf13/cobra"
 	"os"
 )
 
 func main() {
-	Version := version.New()
+
+	version.Get = version.New()
+
+	config.Get = config.New().LoadConfig()
 
 	cmd := &cobra.Command{
-		Use:   Version.Name,
-		Short: Version.Describe,
-		Long:  fmt.Sprintf("%s - %s %s (%s)", Version.Name, Version.Describe, Version.Version, Version.Site),
+		Use:   version.Get.Name,
+		Short: version.Get.Describe,
+		Long:  fmt.Sprintf("%s - %s %s (%s)", version.Get.Name, version.Get.Describe, version.Get.Version, version.Get.Site),
 	}
 
 	cmd.CompletionOptions.HiddenDefaultCmd = true

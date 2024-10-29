@@ -52,11 +52,5 @@ fi
 
 sudo ldconfig
 sudo systemctl daemon-reload > /dev/null 2>&1
-sudo systemctl enable armcnc_linuxcnc.service > /dev/null 2>&1
-sudo systemctl restart armcnc_linuxcnc.service
 sudo systemctl enable armcnc_service.service > /dev/null 2>&1
 sudo systemctl restart armcnc_service.service
-sudo systemctl enable armcnc_launch.service > /dev/null 2>&1
-sudo systemctl restart armcnc_launch.service
-sudo systemctl enable armcnc_chromium.service > /dev/null 2>&1
-sudo systemctl restart armcnc_chromium.service
