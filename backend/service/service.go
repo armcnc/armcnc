@@ -64,7 +64,7 @@ func (s *Service) Start() {
 		write := fileUtils.WriteFile("MACHINE_PATH="+config.Get.Machine.Path, filepath.Join(config.Get.Runtime, "/environment"))
 		if write == nil {
 			check := machine.Get.Info(config.Get.Machine.Path)
-			fmt.Println(color.Yellow.Text(fmt.Sprintf("%q %s", machine.Get, check.Emc.Version)))
+			fmt.Println(color.Yellow.Text(fmt.Sprintf("%q %s", machine.Get, check)))
 			if check.Emc.Version != "" {
 				launch.Get.Start()
 			} else {

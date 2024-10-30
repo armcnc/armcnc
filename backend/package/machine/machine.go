@@ -28,15 +28,15 @@ type Machine struct {
 
 func New(workspace string) *Machine {
 	return &Machine{
-		Path: filepath.Join(workspace, "/configs/"),
+		Path: filepath.Join(workspace, "/configs"),
 	}
 }
 
 func (machine *Machine) Info(path string) INI {
 	data := INI{}
-	exists, _ := fileUtils.PathExist(machine.Path + path + "/machine.ini")
+	exists, _ := fileUtils.PathExist(machine.Path + "/" + path + "/machine.ini")
 	if exists {
-		iniFile, err := iniUtils.Load(machine.Path + path + "/machine.ini")
+		iniFile, err := iniUtils.Load(machine.Path + "/" + path + "/machine.ini")
 		if err == nil {
 			err = iniUtils.MapTo(iniFile, &data)
 			data = machine.Default(data)
