@@ -15,7 +15,6 @@
 package crontab
 
 import (
-	"github.com/armcnc/armcnc/backend/package/config"
 	"github.com/robfig/cron/v3"
 )
 
@@ -32,7 +31,7 @@ func New() *Crontab {
 func (c *Crontab) Start() *Crontab {
 	c.cron = cron.New(cron.WithSeconds())
 	_, _ = c.cron.AddFunc("*/1 * * * * *", func() {
-		config.Get = config.New().LoadConfig()
+		// log.Println(color.White.Text(fmt.Sprintf("%s", "crontab 1 second")))
 	})
 	_, _ = c.cron.AddFunc("*/10 * * * * *", func() {
 		// log.Println(color.White.Text(fmt.Sprintf("%s", "crontab 10 second")))
