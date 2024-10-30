@@ -32,7 +32,7 @@ func main() {
 	cmd := &cobra.Command{
 		Use:   version.Get.Name,
 		Short: version.Get.Describe,
-		Long:  fmt.Sprintf("%s - %s %s (%s) (%s)", version.Get.Name, version.Get.Describe, version.Get.Version, version.Get.Site, config.Get.Auth.Getaway),
+		Long:  fmt.Sprintf("%s - %s %s (%s)", version.Get.Name, version.Get.Describe, version.Get.Version, version.Get.Site),
 	}
 
 	cmd.CompletionOptions.HiddenDefaultCmd = true
