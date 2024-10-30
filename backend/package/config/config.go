@@ -15,8 +15,6 @@
 package config
 
 import (
-	"fmt"
-	"github.com/gookit/color"
 	"gopkg.in/yaml.v3"
 	"os"
 	"path/filepath"
@@ -75,8 +73,6 @@ func (c *Config) Init() *Config {
 	if err != nil {
 		return c
 	}
-
-	fmt.Println(color.Yellow.Text(fmt.Sprintf("%s", c.Machine.Path)))
 
 	return c
 }
