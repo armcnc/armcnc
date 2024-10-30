@@ -52,7 +52,7 @@ func New() *Config {
 	runtime := "/opt/armcnc/runtime"
 
 	envValue := os.Getenv("ARMCNC_WORKSPACE_PATH")
-	if envValue == "" {
+	if envValue != "" {
 		workspace = envValue
 		runtime = filepath.Join(envValue, "/runtime")
 	}
