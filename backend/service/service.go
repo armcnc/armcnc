@@ -54,15 +54,11 @@ func (s *Service) Start() {
 		MaxHeaderBytes: 1 << 20,
 	}
 
-	fmt.Println(color.Yellow.Text(fmt.Sprintf("%s", config.Get.Machine.Path)))
-
 	go func() {
 		if err := s.HttpServer.ListenAndServe(); err != nil {
 			log.Println(color.Yellow.Text(fmt.Sprintf("%v", err)))
 		}
 	}()
-
-	fmt.Println(color.Yellow.Text(fmt.Sprintf("%s", config.Get.Machine.Path)))
 
 	if config.Get.Machine.Path != "" {
 		write := fileUtils.WriteFile("MACHINE_PATH="+config.Get.Machine.Path, filepath.Join(config.Get.Runtime, "/environment"))
