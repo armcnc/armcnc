@@ -60,7 +60,7 @@ func (s *Service) Start() {
 		}
 	}()
 
-	fmt.Println(color.Yellow.Text(fmt.Sprintf("%s", "111111111111111111111111")))
+	fmt.Println(color.Yellow.Text(fmt.Sprintf("%s %s", "111111111111111111111111", config.Get.Machine.Path)))
 
 	if config.Get.Machine.Path != "" {
 		write := fileUtils.WriteFile("MACHINE_PATH="+config.Get.Machine.Path, filepath.Join(config.Get.Runtime, "/environment"))
