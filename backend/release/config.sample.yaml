@@ -4,4 +4,7 @@ server:
     read_timeout: 60s
     write_timeout: 60s
 auth:
+    getaway: https://gateway.armcnc.net
     token:
+machine:
+    path: default_ethercat_sim

@@ -1,4 +1,4 @@
-// Copyright 2024 GEEKROS, Inc.
+// Copyright 2024 ARMCNC, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,28 +12,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package command
+package iniUtils
 
-import (
-	"github.com/gookit/color"
-	"github.com/spf13/cobra"
-	"log"
-)
+import "gopkg.in/ini.v1"
 
-func Login() *cobra.Command {
-	command := &cobra.Command{
-		Use:     "login",
-		Short:   "Login to Cloud Account",
-		Long:    "Login to Cloud Account",
-		Example: "armcnc login [appid] [appkey]",
-		Run:     loginRun,
-	}
-	return command
+func Empty() *ini.File {
+	iniFile := ini.Empty()
+	return iniFile
 }
 
-func loginRun(cmd *cobra.Command, args []string) {
-	if len(args) == 0 {
-		log.Println(color.Yellow.Text("Your authorization key is invalid"))
-		return
-	}
+func ReflectFrom(cfg *ini.File, v interface{}) error {
+	err := ini.ReflectFrom(cfg, v)
+	return err
+}
+
+func Load(source interface{}) (*ini.File, error) {
+	iniFile, err := ini.Load(source)
+	return iniFile, err
+}
+
+func SaveTo(cfg *ini.File, filename string) error {
+	err := cfg.SaveTo(filename)
+	return err
+}
+
+func MapTo(cfg *ini.File, v interface{}) error {
+	err := cfg.MapTo(v)
+	return err
 }

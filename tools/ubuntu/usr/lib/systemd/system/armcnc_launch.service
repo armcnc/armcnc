@@ -6,7 +6,7 @@ After=syslog.target network.target
 Type=simple
 User=sunrise
 WorkingDirectory=/opt/armcnc/
-EnvironmentFile=/tmp/environment
+EnvironmentFile=/opt/armcnc/runtime/environment
 Environment="TERM=xterm-256color"
 ExecStart=/bin/bash -c 'source /opt/armcnc/.venv/bin/activate && python -B /opt/armcnc/configs/${MACHINE_PATH}/launch/launch.py'
 Restart=on-failure

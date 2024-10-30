@@ -1,4 +1,4 @@
-// Copyright 2024 GEEKROS, Inc.
+// Copyright 2024 ARMCNC, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,10 +24,11 @@ import (
 var Get = &Config{}
 
 type Config struct {
-	Path      string  `yaml:"-"`
 	Workspace string  `yaml:"-"`
+	Runtime   string  `yaml:"-"`
 	Server    service `yaml:"server"`
 	Auth      auth    `yaml:"auth"`
+	Machine   machine `yaml:"machine"`
 }
 
 type service struct {
@@ -38,25 +39,32 @@ type service struct {
 }
 
 type auth struct {
-	Token string `yaml:"token"`
+	Getaway string `yaml:"getaway"`
+	Token   string `yaml:"token"`
+}
+
+type machine struct {
+	Path string `yaml:"path"`
 }
 
 func New() *Config {
 	workspace := "/opt/armcnc"
+	runtime := "/opt/armcnc/runtime"
 
-	configPath := os.Getenv("CLIENT_CONFIG_PATH")
-	if configPath == "" {
-		configPath = filepath.Join(workspace, "/backend/release/config.sample.yaml")
+	envValue := os.Getenv("ARMCNC_WORKSPACE_PATH")
+	if envValue == "" {
+		workspace = envValue
+		runtime = filepath.Join(envValue, "/runtime")
 	}
 
 	return &Config{
-		Path:      configPath,
 		Workspace: workspace,
+		Runtime:   runtime,
 	}
 }
 
-func (c *Config) LoadConfig() *Config {
-	file, err := os.ReadFile(c.Path)
+func (c *Config) Init() *Config {
+	file, err := os.ReadFile(filepath.Join(c.Workspace, "/backend/release/config.sample.yaml"))
 	if err != nil {
 		return c
 	}
@@ -66,20 +74,24 @@ func (c *Config) LoadConfig() *Config {
 		return c
 	}
 
-	_, err = os.Stat(c.Workspace + "/runtime/auth_token")
-	if err != nil {
-		if os.IsNotExist(err) {
-			return c
-		}
-		return c
-	}
+	return c
+}
 
-	file, err = os.ReadFile(c.Workspace + "/runtime/auth_token")
+func (c *Config) Update() *Config {
+	data, err := yaml.Marshal(c)
 	if err != nil {
 		return c
 	}
 
-	c.Auth.Token = string(file)
+	configDir := filepath.Join(c.Workspace, "/backend/release")
+	if err := os.MkdirAll(configDir, 0755); err != nil {
+		return c
+	}
+
+	configPath := filepath.Join(configDir, "config.sample.yaml")
+	if err := os.WriteFile(configPath, data, 0644); err != nil {
+		return c
+	}
 
 	return c
 }

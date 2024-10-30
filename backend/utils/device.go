@@ -1,4 +1,4 @@
-// Copyright 2024 GEEKROS, Inc.
+// Copyright 2024 ARMCNC, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -102,4 +102,13 @@ func GetSocUid(path string) (string, error) {
 		return strings.TrimSpace(parts[1]), nil
 	}
 	return "", fmt.Errorf("soc_uid not found in the output")
+}
+
+func IsGraphicalTargetActive() bool {
+	cmd := exec.Command("systemctl", "is-active", "graphical.target")
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		return false
+	}
+	return string(output) == "active\n"
 }

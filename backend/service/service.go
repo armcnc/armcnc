@@ -1,4 +1,4 @@
-// Copyright 2024 GEEKROS, Inc.
+// Copyright 2024 ARMCNC, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,12 +18,16 @@ import (
 	"context"
 	"fmt"
 	"github.com/armcnc/armcnc/backend/package/config"
+	"github.com/armcnc/armcnc/backend/package/launch"
+	"github.com/armcnc/armcnc/backend/package/machine"
 	"github.com/armcnc/armcnc/backend/service/router"
+	"github.com/armcnc/armcnc/backend/utils/file"
 	"github.com/gookit/color"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
+	"path/filepath"
 	"time"
 )
 
@@ -56,9 +60,25 @@ func (s *Service) Start() {
 		}
 	}()
 
+	if config.Get.Machine.Path != "" {
+		write := fileUtils.WriteFile("MACHINE_PATH="+config.Get.Machine.Path, filepath.Join(config.Get.Runtime, "/environment"))
+		if write == nil {
+			check := machine.Get.Info(config.Get.Machine.Path)
+			if check.Emc.Version != "" {
+				launch.Get.Start()
+			} else {
+				launch.Get.Stop()
+			}
+		} else {
+			launch.Get.Stop()
+		}
+	}
+
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt)
 	<-quit
+
+	launch.Get.Stop()
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()

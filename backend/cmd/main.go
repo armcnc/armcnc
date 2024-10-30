@@ -1,4 +1,4 @@
-// Copyright 2024 GEEKROS, Inc.
+// Copyright 2024 ARMCNC, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ func main() {
 
 	version.Get = version.New()
 
-	config.Get = config.New().LoadConfig()
+	config.Get = config.New().Init()
 
 	cmd := &cobra.Command{
 		Use:   version.Get.Name,
@@ -38,8 +38,6 @@ func main() {
 	cmd.CompletionOptions.HiddenDefaultCmd = true
 
 	cmd.AddCommand(command.Service())
-
-	cmd.AddCommand(command.Login())
 
 	cmd.AddCommand(command.Version())
 
