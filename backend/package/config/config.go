@@ -88,7 +88,7 @@ func (c *Config) Update() *Config {
 		return c
 	}
 
-	configPath := filepath.Join(configDir, "config.sample.yaml")
+	configPath := filepath.Join(configDir, "/config.sample.yaml")
 	if err := os.WriteFile(configPath, data, 0644); err != nil {
 		return c
 	}
