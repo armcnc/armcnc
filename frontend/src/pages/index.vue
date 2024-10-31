@@ -12,9 +12,9 @@
             <div class="w-full h-full grid items-center justify-center">
                 <div class="w-[350px] text-center p-4 rounded-md border border-zinc-900 space-y-4">
                     <div class="w-full">
-                        <InfoCircledIcon class="w-6 h-6 mx-auto text-muted-foreground/60" />
+                        <InfoCircledIcon class="w-8 h-8 mx-auto text-muted-foreground/60" />
                     </div>
-                    <div class="w-full text-muted-foreground/60 text-xs">This feature is not yet open</div>
+                    <div class="w-full text-muted-foreground/60 text-ms">This feature is not yet open</div>
                 </div>
             </div>
         </div>
