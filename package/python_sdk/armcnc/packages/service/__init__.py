@@ -28,7 +28,7 @@ class Service:
     def service_task(self):
         websocket.enableTrace(False)
         self.socket = websocket.WebSocketApp(
-            "ws://127.0.0.1:1081/message",
+            "ws://127.0.0.1:1081/message/index",
             on_message=self.service_message,
             on_error=self.service_error,
             on_close=self.service_close
