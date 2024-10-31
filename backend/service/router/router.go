@@ -46,5 +46,9 @@ func (r *Router) AuthMiddleware() gin.HandlerFunc {
 func (r *Router) InitHandler() *gin.Engine {
 	r.engine.GET("/", handler.Index)
 	r.engine.GET("/health", handler.Health)
+	message := r.engine.Group("/message")
+	{
+		message.GET("/index", handler.MessageIndex)
+	}
 	return r.engine
 }
