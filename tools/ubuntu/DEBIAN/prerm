@@ -34,5 +34,6 @@ if [ -f "/etc/nginx/nginx.conf" ]; then
 fi
 
 sudo systemctl daemon-reload > /dev/null 2>&1
+sudo systemctl restart lightdm.service
 
 exit 0
