@@ -14,6 +14,8 @@
 
 import sys
 import signal
+from .utils import Utils
+from .packages import Packages
 from threading import Thread, Event
 
 class Framework:
@@ -21,6 +23,8 @@ class Framework:
     def __init__(self):
         signal.signal(signal.SIGINT, self.sigint_handler)
         signal.signal(signal.SIGTERM, self.sigint_handler)
+        self.utils = Utils()
+        self.packages = Packages()
         self.quit_event = Event()
         self.quit_thread = Thread(name="quit_thread_task", target=self.quit_task)
         self.quit_thread.daemon = True
@@ -33,6 +37,3 @@ class Framework:
     def sigint_handler(self, signum, frame):
         self.quit_event.set()
         sys.exit()
-        
-
-
