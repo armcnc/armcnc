@@ -70,7 +70,7 @@ func (s *Service) Start() {
 				display.Get.Switch()
 				launch.Get.Start()
 				go func() {
-					time.Sleep(5 * time.Second)
+					time.Sleep(50 * time.Second)
 					display.Get.Switch()
 				}()
 			} else {
