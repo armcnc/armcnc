@@ -67,11 +67,11 @@ func (s *Service) Start() {
 			check := machine.Get.Info(config.Get.Machine.Path)
 			fmt.Println(color.Yellow.Text(fmt.Sprintf("%q %s", machine.Get, check)))
 			if check.Emc.Version != "" {
-				display.Get.Switch()
+				display.Get.Switch("off")
 				launch.Get.Start()
 				go func() {
 					time.Sleep(50 * time.Second)
-					display.Get.Switch()
+					display.Get.Switch("on")
 				}()
 			} else {
 				launch.Get.Stop()

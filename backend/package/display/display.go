@@ -28,23 +28,11 @@ func New() *Display {
 	}
 }
 
-func (display *Display) Switch() {
-	if display.Status == "on" {
-		display.Status = "off"
-		cmd := exec.Command("systemctl", "restart", "armcnc_display_off.service")
-		_, err := cmd.Output()
-		if err != nil {
-			return
-		}
-		return
-	}
-	if display.Status == "off" {
-		display.Status = "on"
-		cmd := exec.Command("systemctl", "restart", "armcnc_display_on.service")
-		_, err := cmd.Output()
-		if err != nil {
-			return
-		}
+func (display *Display) Switch(status string) {
+	display.Status = status
+	cmd := exec.Command("systemctl", "restart", "armcnc_display_"+status+".service")
+	_, err := cmd.Output()
+	if err != nil {
 		return
 	}
 }
