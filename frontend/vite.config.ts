@@ -14,7 +14,7 @@ const timestamp = (length: number)=>{
 	return result;
 };
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({mode}) => ({
 	root: __dirname,
 	define: {
 		__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "true"
@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => ({
 		port: Package.env.VITE_DEV_SERVER_PORT,
 		proxy: {
 			"/backend": {
-				target: "https://backend.geekros.com",
+				target: "https://cnc.armcnc.net",
 				secure: false,
 				changeOrigin: true,
 				rewrite: (path: any) => path.replace(/^\/backend/, '')
