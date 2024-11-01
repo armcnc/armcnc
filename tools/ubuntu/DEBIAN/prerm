@@ -18,6 +18,8 @@
 
 sudo rm -rf /usr/local/bin/armcnc
 
+sudo systemctl stop armcnc_display_off.service
+sudo systemctl disable armcnc_display_off.service > /dev/null 2>&1
 sudo systemctl stop armcnc_chromium.service
 sudo systemctl disable armcnc_chromium.service > /dev/null 2>&1
 sudo systemctl stop armcnc_launch.service
