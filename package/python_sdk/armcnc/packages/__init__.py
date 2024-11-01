@@ -20,4 +20,3 @@ class Packages:
     def __init__(self):
         self.machine = Machine()
         self.service = Service()
-        pass

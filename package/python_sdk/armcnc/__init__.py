@@ -12,11 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
 import sys
 import signal
 from .utils import Utils
 from .packages import Packages
 from threading import Thread, Event
+import launch as launch_file
 
 class Framework:
 
@@ -31,9 +33,21 @@ class Framework:
         self.quit_thread.start()
 
     def quit_task(self):
+        armcnc_start = "armcnc_start"
+        if armcnc_start in dir(launch_file):
+            var_name = "MACHINE_PATH"
+            if var_name in os.environ:
+                env_var = os.environ[var_name]
+                if env_var != "":
+                    pass
+            getattr(launch_file, armcnc_start)(self)
         while not self.quit_event.is_set():
             pass
+        self.sigint_handler(False, False)
 
     def sigint_handler(self, signum, frame):
+        armcnc_exit = "armcnc_exit"
+        if armcnc_exit in dir(launch_file):
+            getattr(launch_file, armcnc_exit)(self)
         self.quit_event.set()
         sys.exit()

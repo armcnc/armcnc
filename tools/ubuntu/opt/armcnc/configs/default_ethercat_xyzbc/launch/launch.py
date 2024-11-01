@@ -1,17 +1,18 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import armcnc as sdk
+from armcnc import Framework
 
-def armcnc_start(cnc):
-    while True:
+def armcnc_start(sdk):
+    sdk.utils.log.ignore("armcnc_start")
+    while not sdk.quit_event.is_set():
         pass
 
-def armcnc_message(cnc, message):
-    pass
+def armcnc_message(sdk, message):
+    sdk.utils.log.ignore("armcnc_message")
 
-def armcnc_exit(cnc):
-    pass
+def armcnc_exit(sdk):
+    sdk.utils.log.ignore("armcnc_exit")
 
-if __name__ == '__main__':
-    sdk.Init()
+if __name__ == "__main__":
+    framework = Framework()

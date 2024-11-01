@@ -16,7 +16,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="armcnc",
-    version="2.0.0",
+    version="2.0.1",
     author="MakerYang",
     author_email="admin@wileho.com",
     description="Python development framework for armcnc.",
