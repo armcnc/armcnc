@@ -36,6 +36,7 @@ func (display *Display) Switch() {
 		if err != nil {
 			return
 		}
+		return
 	}
 	if display.Status == "off" {
 		display.Status = "on"
@@ -44,5 +45,6 @@ func (display *Display) Switch() {
 		if err != nil {
 			return
 		}
+		return
 	}
 }
