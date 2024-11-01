@@ -1,6 +1,7 @@
 [Unit]
 Description=armcnc_display_on
-After=syslog.target network.target
+After=graphical.target
+Requires=graphical.target
 
 [Service]
 Type=simple
@@ -11,4 +12,4 @@ ExecStart=/usr/bin/xrandr --output DSI-1 --auto
 Restart=on-failure
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical.target
