@@ -30,9 +30,26 @@ const props: any = defineProps<{
 }>();
 
 function onService(){
-    setTimeout(()=>{
-        props.data.backend.status = true;
-    }, 3000);
+    props.data.tools.request("/backend", "GET", {}, {}).then((request: any) => {
+        if(request.status === 200){
+            if (request.data.code === 0) {
+                const data = request.data.data;
+                props.data.backend.status = true;
+            }else{
+                props.data.tools.toast({
+                    title: props.data.tools.language.t("status.toast.title"),
+                    description: props.data.tools.language.t("status." + props.data.tools.language.f(request.data.message)),
+                    variant: "warning",
+                });
+            }
+        }else{
+            props.data.tools.toast({
+                title: props.data.tools.language.t("status.toast.title"),
+                description: props.data.tools.language.t("status.service_exception"),
+                variant: "error",
+            });
+        }
+    });
 }
 
 onBeforeMount(() => {});
