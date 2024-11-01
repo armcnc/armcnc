@@ -18,6 +18,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/armcnc/armcnc/backend/package/config"
+	"github.com/armcnc/armcnc/backend/package/display"
 	"github.com/armcnc/armcnc/backend/package/launch"
 	"github.com/armcnc/armcnc/backend/package/machine"
 	"github.com/armcnc/armcnc/backend/service/router"
@@ -59,6 +60,8 @@ func (s *Service) Start() {
 			log.Println(color.Yellow.Text(fmt.Sprintf("%v", err)))
 		}
 	}()
+
+	display.Get.Switch()
 
 	if config.Get.Machine.Path != "" {
 		write := fileUtils.WriteFile("MACHINE_PATH="+config.Get.Machine.Path, filepath.Join(config.Get.Runtime, "/environment"))
