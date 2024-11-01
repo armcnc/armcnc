@@ -1,6 +1,6 @@
 [Unit]
 Description=armcnc_display_off
-After=graphical.target
+After=multi-user.target
 
 [Service]
 Type=simple
