@@ -53,7 +53,5 @@ fi
 sudo ldconfig
 sudo systemctl daemon-reload > /dev/null 2>&1
 sudo systemctl restart lightdm.service
-sudo systemctl enable armcnc_display_off.service > /dev/null 2>&1
-sudo systemctl restart armcnc_display_off.service
 sudo systemctl enable armcnc_service.service > /dev/null 2>&1
 sudo systemctl restart armcnc_service.service
