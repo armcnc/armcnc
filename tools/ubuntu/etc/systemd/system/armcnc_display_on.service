@@ -4,7 +4,7 @@ After=graphical.target
 
 [Service]
 Type=simple
-User=sunrise
+User=root
 WorkingDirectory=/opt/armcnc/
 Environment=DISPLAY=:0.0
 ExecStart=/usr/bin/xrandr --output DSI-1 --auto
