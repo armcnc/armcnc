@@ -1,6 +1,6 @@
 [Unit]
 Description=armcnc_display_off
-After=syslog.target network.target
+After=graphical.target
 
 [Service]
 Type=simple
