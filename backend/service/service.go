@@ -69,6 +69,10 @@ func (s *Service) Start() {
 			if check.Emc.Version != "" {
 				display.Get.Switch()
 				launch.Get.Start()
+				go func() {
+					time.Sleep(5 * time.Second)
+					display.Get.Switch()
+				}()
 			} else {
 				launch.Get.Stop()
 			}
