@@ -1,0 +1,14 @@
+[Unit]
+Description=armcnc_display_off
+After=syslog.target network.target
+
+[Service]
+Type=oneshot
+User=sunrise
+WorkingDirectory=/opt/armcnc/
+ExecStart=/usr/bin/xrandr --output DSI-1 --off
+Restart=on-failure
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
