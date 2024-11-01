@@ -7,7 +7,6 @@ Type=simple
 User=sunrise
 WorkingDirectory=/opt/armcnc/
 Environment=DISPLAY=:0.0
-Environment=XAUTHORITY=/home/sunrise/.Xauthority
 ExecStart=/usr/bin/xrandr --output DSI-1 --off
 Restart=on-failure
 
