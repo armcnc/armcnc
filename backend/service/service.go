@@ -66,7 +66,6 @@ func (s *Service) Start() {
 			check := machine.Get.Info(config.Get.Machine.Path)
 			fmt.Println(color.Yellow.Text(fmt.Sprintf("%q %s", machine.Get, check)))
 			if check.Emc.Version != "" {
-				// display.Get.Switch("off")
 				launch.Get.Start()
 			} else {
 				launch.Get.Stop()
