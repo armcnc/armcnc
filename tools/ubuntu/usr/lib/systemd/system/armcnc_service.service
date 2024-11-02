@@ -1,7 +1,6 @@
 [Unit]
 Description=armcnc_service
-After=graphical.target
-Requires=graphical.target
+After=display-manager.service
 
 [Service]
 Type=simple
