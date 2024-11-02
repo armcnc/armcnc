@@ -8,6 +8,7 @@ User=root
 WorkingDirectory=/opt/armcnc/
 Environment="TERM=xterm-256color"
 Environment=DISPLAY=:0.0
+Environment=XAUTHORITY=/home/sunrise/.Xauthority
 ExecStartPre=/usr/bin/sudo -E -u sunrise /usr/bin/xrandr --output DSI-1 --off
 ExecStart=/opt/armcnc/backend/release/main service
 Restart=on-failure
