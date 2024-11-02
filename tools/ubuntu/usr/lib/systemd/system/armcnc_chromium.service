@@ -10,7 +10,6 @@ EnvironmentFile=/opt/armcnc/runtime/environment
 Environment="TERM=xterm-256color"
 Environment=DISPLAY=:0.0
 ExecStart=/usr/bin/chromium-browser --disable-popup-blocking --no-first-run --disable-desktop-notifications --incognito --kiosk --disable-pinch "http://127.0.0.1:1088"
-ExecStartPost=/bin/bash -c "sleep 1 && /usr/bin/xrandr --output DSI-1 --auto"
 Restart=on-failure
 
 [Install]
