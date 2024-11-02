@@ -1,6 +1,6 @@
 [Unit]
 Description=armcnc_service
-After=display-manager.service
+After=syslog.target network.target
 
 [Service]
 Type=simple
@@ -11,4 +11,4 @@ ExecStart=/opt/armcnc/backend/release/main service
 Restart=on-failure
 
 [Install]
-WantedBy=graphical.target
+WantedBy=multi-user.target
