@@ -1,9 +1,6 @@
 [Unit]
 Description=armcnc_service
 After=graphical.target
-DefaultDependencies=no
-StartLimitIntervalSec=0
-StartLimitBurst=0
 
 [Service]
 Type=simple
