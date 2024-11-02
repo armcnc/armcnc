@@ -1,6 +1,10 @@
 [Unit]
 Description=armcnc_service
-After=syslog.target network.target
+After=display-manager.service
+Before=graphical.target
+DefaultDependencies=no
+StartLimitIntervalSec=0
+StartLimitBurst=0
 
 [Service]
 Type=simple
@@ -8,7 +12,10 @@ User=root
 WorkingDirectory=/opt/armcnc/
 Environment="TERM=xterm-256color"
 ExecStart=/opt/armcnc/backend/release/main service
-Restart=on-failure
+Restart=always
+RestartSec=1
+Nice=-10
+TimeoutStartSec=10
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=display-manager.service
