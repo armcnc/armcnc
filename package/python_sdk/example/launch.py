@@ -3,7 +3,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from armcnc import Framework
+import armcnc
 
 def armcnc_start(sdk):
     sdk.utils.log.ignore("armcnc_start")
@@ -17,4 +17,4 @@ def armcnc_exit(sdk):
     sdk.utils.log.ignore("armcnc_exit")
 
 if __name__ == "__main__":
-    framework = Framework()
+    armcnc.Framework()
