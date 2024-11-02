@@ -1,7 +1,6 @@
 [Unit]
 Description=armcnc_launch
-After=default.target
-Requires=default.target
+After=syslog.target network.target
 
 [Service]
 Type=simple
@@ -13,4 +12,4 @@ ExecStart=/bin/bash -c 'source /opt/armcnc/.venv/bin/activate && python -B /opt/
 Restart=on-failure
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target

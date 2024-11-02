@@ -1,7 +1,6 @@
 [Unit]
 Description=armcnc_linuxcnc
-After=default.target
-Requires=default.target
+After=syslog.target network.target
 
 [Service]
 Type=simple
@@ -14,4 +13,4 @@ ExecStart=/usr/bin/linuxcnc /opt/armcnc/configs/${MACHINE_PATH}/machine.ini
 Restart=on-failure
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target

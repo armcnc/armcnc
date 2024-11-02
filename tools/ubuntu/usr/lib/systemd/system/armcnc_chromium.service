@@ -1,7 +1,6 @@
 [Unit]
 Description=armcnc_chromium
-After=default.target
-Requires=default.target
+After=syslog.target network.target
 
 [Service]
 Type=simple
@@ -14,4 +13,4 @@ ExecStart=/usr/bin/chromium-browser --disable-popup-blocking --no-first-run --di
 Restart=on-failure
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
