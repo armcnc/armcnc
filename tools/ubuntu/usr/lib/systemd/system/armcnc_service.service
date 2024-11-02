@@ -4,7 +4,7 @@ After=syslog.target network.target
 
 [Service]
 Type=simple
-User=sunrise
+User=root
 WorkingDirectory=/opt/armcnc/
 Environment="TERM=xterm-256color"
 Environment=DISPLAY=:0.0
