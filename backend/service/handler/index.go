@@ -15,7 +15,6 @@
 package handler
 
 import (
-	"github.com/armcnc/armcnc/backend/package/display"
 	"github.com/armcnc/armcnc/backend/package/version"
 	"github.com/armcnc/armcnc/backend/utils"
 	"github.com/gin-gonic/gin"
@@ -35,7 +34,7 @@ func Index(c *gin.Context) {
 	returnData.Version = version.Get.Version
 	returnData.Describe = version.Get.Describe
 
-	display.Get.Switch("on")
+	// display.Get.Switch("on")
 
 	utils.Success(c, returnData)
 	return

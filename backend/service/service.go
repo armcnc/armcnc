@@ -18,7 +18,6 @@ import (
 	"context"
 	"fmt"
 	"github.com/armcnc/armcnc/backend/package/config"
-	"github.com/armcnc/armcnc/backend/package/display"
 	"github.com/armcnc/armcnc/backend/package/launch"
 	"github.com/armcnc/armcnc/backend/package/machine"
 	"github.com/armcnc/armcnc/backend/service/router"
@@ -67,7 +66,7 @@ func (s *Service) Start() {
 			check := machine.Get.Info(config.Get.Machine.Path)
 			fmt.Println(color.Yellow.Text(fmt.Sprintf("%q %s", machine.Get, check)))
 			if check.Emc.Version != "" {
-				display.Get.Switch("off")
+				// display.Get.Switch("off")
 				launch.Get.Start()
 			} else {
 				launch.Get.Stop()

@@ -1,21 +1,19 @@
 [Unit]
 Description=armcnc_service
-After=display-manager.service
-Before=graphical.target
+After=graphical.target
 DefaultDependencies=no
 StartLimitIntervalSec=0
 StartLimitBurst=0
 
 [Service]
 Type=simple
-User=root
+User=sunrise
 WorkingDirectory=/opt/armcnc/
 Environment="TERM=xterm-256color"
+Environment=DISPLAY=:0.0
+ExecStartPre=/usr/bin/xrandr --output DSI-1 --off
 ExecStart=/opt/armcnc/backend/release/main service
-Restart=always
-RestartSec=1
-Nice=-10
-TimeoutStartSec=10
+Restart=on-failure
 
 [Install]
 WantedBy=display-manager.service
