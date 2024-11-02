@@ -1,6 +1,7 @@
 [Unit]
 Description=armcnc_linuxcnc
-After=syslog.target network.target
+After=multi-user.target
+Requires=multi-user.target
 
 [Service]
 Type=simple

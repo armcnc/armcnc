@@ -1,7 +1,7 @@
 [Unit]
 Description=armcnc_service
-After=graphical.target
-Requires=graphical.target
+After=multi-user.target
+Requires=multi-user.target
 
 [Service]
 Type=simple
@@ -12,4 +12,4 @@ ExecStart=/opt/armcnc/backend/release/main service
 Restart=on-failure
 
 [Install]
-WantedBy=graphical.target
+WantedBy=multi-user.target
