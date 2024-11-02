@@ -1,6 +1,6 @@
 [Unit]
 Description=armcnc_chromium
-After=syslog.target network.target
+After=graphical.target
 
 [Service]
 Type=simple
@@ -10,7 +10,8 @@ EnvironmentFile=/opt/armcnc/runtime/environment
 Environment="TERM=xterm-256color"
 Environment=DISPLAY=:0.0
 ExecStart=/usr/bin/chromium-browser --disable-popup-blocking --no-first-run --disable-desktop-notifications --incognito --kiosk --disable-pinch "http://127.0.0.1:1088"
+ExecStartPost=/usr/bin/xrandr --output DSI-1 --auto
 Restart=on-failure
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=display-manager.service
