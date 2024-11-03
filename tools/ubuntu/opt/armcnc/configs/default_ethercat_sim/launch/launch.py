@@ -16,4 +16,3 @@ def armcnc_exit(sdk):
 
 if __name__ == "__main__":
     armcnc.Framework()
-
