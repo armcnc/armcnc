@@ -38,7 +38,7 @@ export default defineConfig(({mode}) => ({
 		port: Package.env.VITE_DEV_SERVER_PORT,
 		proxy: {
 			"/backend": {
-				target: "https://cnc.armcnc.net",
+				target: "http://192.168.31.58:1081",
 				secure: false,
 				changeOrigin: true,
 				rewrite: (path: any) => path.replace(/^\/backend/, '')
