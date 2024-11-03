@@ -71,4 +71,4 @@ sudo sh -c 'echo "Description: CNC system for ARM platform" >> debian/DEBIAN/con
 
 sudo dpkg --build debian && dpkg-name debian.deb
 
-echo "sudo scp armcnc_*.deb root@ip:/data/wwwroot/mirrors/ubuntu/pool/main/jammy/ && sudo rm -rf *.deb && sudo rm -rf debian"
+echo "sudo scp armcnc_*.deb root@ip:/data/wwwroot/mirrors.com/ubuntu/pool/main/jammy/ && sudo rm -rf *.deb && sudo rm -rf debian"
