@@ -7,17 +7,12 @@
             </svg>
         </div>
     </div>
-    <div class="relative flex w-full flex-col items-center" v-else>
-        <div class="w-full md:h-[550px] h-[400px] relative flex w-full flex-col items-center z-1">
-            <div class="w-full h-full grid items-center justify-center">
-                <div class="w-[350px] text-center p-4 rounded-md border border-zinc-900 space-y-4">
-                    <div class="w-full">
-                        <InfoCircledIcon class="w-8 h-8 mx-auto text-muted-foreground/60" />
-                    </div>
-                    <div class="w-full text-muted-foreground/60 text-ms">This feature is not yet open</div>
-                </div>
-            </div>
+    <div class="relative flex w-full h-screen flex-col items-center text-sm" v-else>
+        <div class="w-full h-[50px] border-b border-zinc-900">1</div>
+        <div class="w-full h-[calc(100%-80px)]">
+            <div class="w-full h-full">2</div>
         </div>
+        <div class="w-full h-[30px] border-t border-zinc-900">3</div>
     </div>
 </template>
 
