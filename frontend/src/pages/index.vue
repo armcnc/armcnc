@@ -8,19 +8,19 @@
         </div>
     </div>
     <div class="relative flex w-full h-screen flex-col items-center text-base" v-else>
-        <div class="w-full h-[70px] border-b border-zinc-900">1</div>
-        <div class="w-full h-[calc(100%-110px)]">
+        <div class="w-full h-[60px] border-b border-zinc-900">1</div>
+        <div class="w-full h-[calc(100%-95px)]">
             <div class="w-full h-full p-4 space-y-4">
                 <div class="w-full space-x-2">
-                    <Button class="text-xs" as="a" href="" variant="outline">
+                    <Button class="text-xs" variant="outline">
                         <GithubLogoIcon class="w-4 h-4 mr-2" />
                         <span class="uppercase text-muted-foreground hover:text-foreground">View source</span>
                     </Button>
-                    <Button class="text-sm" as="a" href="" variant="outline">
+                    <Button class="text-sm" variant="outline">
                         <GithubLogoIcon class="w-4 h-4 mr-2" />
                         <span class="uppercase text-muted-foreground hover:text-foreground">View source</span>
                     </Button>
-                    <Button class="text-base" as="a" href="" variant="outline">
+                    <Button class="text-base" variant="outline">
                         <GithubLogoIcon class="w-4 h-4 mr-2" />
                         <span class="uppercase text-muted-foreground hover:text-foreground">View source</span>
                     </Button>
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full h-[40px] border-t border-zinc-900">3</div>
+        <div class="w-full h-[35px] border-t border-zinc-900">3</div>
     </div>
 </template>
 
