@@ -8,7 +8,9 @@
         </div>
     </div>
     <div class="relative flex w-full h-screen flex-col items-center text-base" v-else>
-        <div class="w-full h-[65px] border-b border-zinc-900">1</div>
+        <div class="w-full h-[65px] border-b border-zinc-900">
+            <CommonHeader ref="commonHeader" :data="props.data" />
+        </div>
         <div class="w-full h-[calc(100%-100px)]">
             <div class="w-full h-full p-4 space-y-4">
                 <div class="w-full space-x-2">
@@ -44,6 +46,7 @@
 
 <script setup lang="ts">
 import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "vue";
+import CommonHeader from "./common/header.vue";
 import {Button} from "../packages/york";
 import {GithubLogoIcon} from "@radix-icons/vue";
 
