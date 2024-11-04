@@ -29,6 +29,10 @@ const data: any = ref({
         request: Request,
         toast: toast
     },
+    screen: {
+        width: "-",
+        height: "-"
+    },
     backend: {
         status: false
     }

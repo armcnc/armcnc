@@ -1,10 +1,13 @@
 <template>
-    <div class="w-full h-[65px] flex flex-row items-center px-2">
+    <div class="w-full h-full flex flex-row items-center px-2">
         <div class="w-full flex flex-row items-center space-x-2">
             <div class="w-auto">
                 <img src="/images/logo.png" class="w-10" alt="">
             </div>
-            <div class="w-auto h-9 rounded-md border border-zinc-900 px-4 text-sm text-muted-foreground leading-9">本机设备</div>
+            <Button class="text-muted-foreground" variant="outline" size="default">
+                <Link2Icon class="w-4 h-4 mr-2" />
+                <span>本机设备</span>
+            </Button>
         </div>
         <div class="w-full flex flex-row items-center justify-center space-x-3">
             <div class="w-auto">
@@ -49,7 +52,7 @@
 <script setup lang="ts">
 import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "vue";
 import {Button} from "../../packages/york";
-import {MapPinOffIcon, PlayIcon, PowerIcon, PowerOffIcon, PauseIcon, OctagonMinusIcon} from "lucide-vue-next";
+import {Link2Icon, MapPinOffIcon, PlayIcon, PowerIcon, PowerOffIcon, PauseIcon, OctagonMinusIcon} from "lucide-vue-next";
 
 const props: any = defineProps<{
     data: any
