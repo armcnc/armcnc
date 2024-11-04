@@ -7,3 +7,10 @@
     font-display: swap;
     src: url("../fonts/geist/geist-sans.woff2") format("woff2");
 }
+
+@font-face {
+    font-family: "HarmonyOS Sans";
+    src: url("../fonts/HarmonyOS_SansSC_Regular.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
