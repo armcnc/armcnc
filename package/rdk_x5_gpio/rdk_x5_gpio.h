@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef __ARMCNCIO__
-#define __ARMCNCIO_
+#ifndef __ARMCNC_GPIO__
+#define __ARMCNC_GPIO__
 
 #include "rtapi.h"
 #include "rtapi_app.h"
