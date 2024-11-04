@@ -40,7 +40,7 @@ if [ ! -f "/usr/lib/linuxcnc/modules/rdk_x5_gpio.so" ]; then
     cd ../package/rdk_x5_gpio
     sudo halcompile --install rdk_x5_gpio.c | grep Linking
     cp /usr/lib/linuxcnc/modules/rdk_x5_gpio.so ../../tools/debian/usr/lib/linuxcnc/modules/
-    cd ../tools
+    cd ../../tools
 else
     cp /usr/lib/linuxcnc/modules/rdk_x5_gpio.so ./debian/usr/lib/linuxcnc/modules/
 fi
