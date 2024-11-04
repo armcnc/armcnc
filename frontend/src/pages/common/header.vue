@@ -4,7 +4,7 @@
             <div class="w-auto">
                 <img src="/images/logo.png" class="w-10" alt="">
             </div>
-            <div class="w-auto h-9 rounded-md border border-zinc-900 px-4 text-xs text-muted-foreground leading-9">本机设备</div>
+            <div class="w-auto h-9 rounded-md border border-zinc-900 px-4 text-sm text-muted-foreground leading-9">本机设备</div>
         </div>
         <div class="w-full flex flex-row items-center justify-center space-x-3">
             <div class="w-auto">
