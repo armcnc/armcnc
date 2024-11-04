@@ -29,6 +29,7 @@ const data: any = ref({
         request: Request,
         toast: toast
     },
+    varsion: "-",
     platform: GetPlatform(),
     screen: {
         width: "-",

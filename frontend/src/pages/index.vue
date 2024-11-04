@@ -85,6 +85,7 @@ onBeforeMount(() => {});
 onMounted(() => {
     nextTick(() => {
         console.log("[pages:index]", props);
+        props.data.version = __APP_VERSION__;
         props.data.screen.width = window.innerWidth;
         props.data.screen.height = window.innerHeight;
         onService();

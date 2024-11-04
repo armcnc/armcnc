@@ -15,6 +15,7 @@
 export {Request} from "./request";
 export {Router} from "./router";
 export {Language, useI18n, Format} from "./language";
+export {Simulation} from "./simulation";
 
 export function RemoveTrim(value: string): string {
     return (value.replace(/[\n\r]/g, "")).trim();
@@ -27,7 +28,6 @@ export function CheckEmail(email: string): boolean {
 
 export function GetPlatform(): string {
     const userAgent = (navigator as any).userAgent;
-    const platform = (navigator as any).platform;
     if (userAgent.includes("Windows")) {
         return "Windows";
     }

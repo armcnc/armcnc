@@ -1,15 +1,32 @@
 <template>
     <div class="w-full h-full flex flex-row items-center px-2 text-xs text-muted-foreground/60">
-        <div class="w-full text-left">1</div>
-        <div class="w-full">2</div>
-        <div class="w-full text-right">
-            {{props.data.platform}} {{props.data.screen.width + " " + props.data.screen.height}}
+        <div class="w-full flex flex-row items-center space-x-3">
+            <div class="w-auto flex flex-row items-center">
+                <ListCheckIcon class="w-3 h-3 mr-1" />
+                <span>12/6500</span>
+            </div>
+        </div>
+        <div class="w-full"></div>
+        <div class="w-full flex flex-row items-center justify-end space-x-3">
+            <div class="w-auto flex flex-row items-center">
+                <MessageSquareMoreIcon class="w-3 h-3 mr-1" />
+                <span>已连接</span>
+            </div>
+            <div class="w-auto flex flex-row items-center">
+                <MonitorIcon class="w-3 h-3 mr-1" />
+                <span>{{props.data.platform}} {{props.data.screen.width + " " + props.data.screen.height}}</span>
+            </div>
+            <div class="w-auto flex flex-row items-center">
+                <ShieldIcon class="w-3 h-3 mr-1" />
+                <span>{{props.data.version}}</span>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "vue";
+import {ListCheckIcon, MessageSquareMoreIcon, MonitorIcon, ShieldIcon} from "lucide-vue-next";
 
 const props: any = defineProps<{
     data: any
