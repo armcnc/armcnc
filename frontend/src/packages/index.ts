@@ -24,3 +24,18 @@ export function CheckEmail(email: string): boolean {
     const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(email);
 }
+
+export function GetPlatform(): string {
+    const userAgent = (navigator as any).userAgent;
+    const platform = (navigator as any).platform;
+    if (userAgent.includes("Windows")) {
+        return "Windows";
+    }
+    if (userAgent.includes("Mac")) {
+        return "MacOS";
+    }
+    if (userAgent.includes("Linux")) {
+        return "Linux";
+    }
+    return "-";
+}

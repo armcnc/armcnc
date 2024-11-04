@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import {onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, nextTick, ref} from "vue";
 import {useRoute, useRouter} from "vue-router";
-import {Request, useI18n, Format} from "./packages";
+import {Request, useI18n, Format, GetPlatform} from "./packages";
 import {Toaster, useToast} from "./packages/york";
 
 const i18n = useI18n();
@@ -29,6 +29,7 @@ const data: any = ref({
         request: Request,
         toast: toast
     },
+    platform: GetPlatform(),
     screen: {
         width: "-",
         height: "-"
