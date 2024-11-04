@@ -1,9 +1,13 @@
 <template>
-    <div class="w-full h-[65px] flex flex-row items-center">
-        <div class="w-full">1</div>
+    <div class="w-full h-[65px] flex flex-row items-center px-2">
+        <div class="w-full flex flex-row space-x-2">
+            <div class="w-auto">
+                <img src="/images/logo.png" class="w-8" alt="">
+            </div>
+        </div>
         <div class="w-full flex flex-row justify-center space-x-3">
             <div class="w-auto">
-                <Button class="text-muted-foreground hover:bg-primary/0 focus:bg-primary/0 focus-visible:bg-primary/0" variant="outline" size="default">
+                <Button class="text-muted-foreground" variant="outline" size="default">
                     <PlayIcon class="w-4 h-4" />
                 </Button>
             </div>
@@ -18,10 +22,10 @@
                 </Button>
             </div>
         </div>
-        <div class="w-full flex flex-row justify-end space-x-2 pr-2">
+        <div class="w-full flex flex-row justify-end space-x-2">
             <div class="w-auto">
-                <Button class="text-white hover:bg-primary/0 focus:bg-primary/0 focus-visible:bg-primary/0" variant="destructive" size="sm">
-                    <PowerOffIcon class="w-3 h-3 mr-2" />
+                <Button class="text-white" variant="destructive" size="default">
+                    <PowerOffIcon class="w-4 h-4 mr-2" />
                     <span>急停</span>
                 </Button>
             </div>
@@ -32,8 +36,8 @@
                 </Button>
             </div>
             <div class="w-auto">
-                <Button class="text-muted-foreground" variant="outline" size="sm">
-                    <MapPinOffIcon class="w-3 h-3 mr-2" />
+                <Button class="text-muted-foreground" variant="outline" size="default">
+                    <MapPinOffIcon class="w-4 h-4 mr-2" />
                     <span>忽略限位</span>
                 </Button>
             </div>
