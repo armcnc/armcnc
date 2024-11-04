@@ -1,11 +1,12 @@
 <template>
     <div class="w-full h-[65px] flex flex-row items-center px-2">
-        <div class="w-full flex flex-row space-x-2">
+        <div class="w-full flex flex-row items-center space-x-2">
             <div class="w-auto">
-                <img src="/images/logo.png" class="w-8" alt="">
+                <img src="/images/logo.png" class="w-10" alt="">
             </div>
+            <div class="w-auto h-9 rounded-md border border-zinc-900 px-4 text-xs text-muted-foreground leading-9">本机设备</div>
         </div>
-        <div class="w-full flex flex-row justify-center space-x-3">
+        <div class="w-full flex flex-row items-center justify-center space-x-3">
             <div class="w-auto">
                 <Button class="text-muted-foreground" variant="outline" size="default">
                     <PlayIcon class="w-4 h-4" />
@@ -22,7 +23,7 @@
                 </Button>
             </div>
         </div>
-        <div class="w-full flex flex-row justify-end space-x-2">
+        <div class="w-full flex flex-row items-center justify-end space-x-2">
             <div class="w-auto">
                 <Button class="text-white" variant="destructive" size="default">
                     <PowerOffIcon class="w-4 h-4 mr-2" />
