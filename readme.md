@@ -11,7 +11,7 @@
 Running the script below will automatically complete everything for you.
 
 ```shell
-sudo curl -s https://mirrors.geekros.com/debian/install.sh|bash
+sudo curl -s https://mirrors.armcnc.net/debian/install.sh|bash
 ```
 
 ## Manual installation and deployment
