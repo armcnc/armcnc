@@ -15,7 +15,7 @@
 #include "rdk_x5_gpio.h"
 
 #ifdef RTAPI
-MODULE_AUTHOR("armcncio");
-MODULE_DESCRIPTION("Driver for ARMCNC");
+MODULE_AUTHOR("rdk_x5_gpio");
+MODULE_DESCRIPTION("RDK X5 GPIO for ARMCNC");
 MODULE_LICENSE("GPL");
 #endif
