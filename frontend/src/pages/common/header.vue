@@ -4,7 +4,7 @@
             <div class="w-auto">
                 <img src="/images/logo.png" class="w-10" alt="">
             </div>
-            <Button class="text-muted-foreground" variant="outline" size="default">
+            <Button class="text-muted-foreground" variant="outline" size="default" disabled>
                 <Link2Icon class="w-4 h-4 mr-2" />
                 <span>本机设备</span>
             </Button>
