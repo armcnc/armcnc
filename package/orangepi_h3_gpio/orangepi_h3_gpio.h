@@ -1216,7 +1216,10 @@ int32_t shmem_init(const char *comp_name)
     uint32_t addr, off, port, ch, name, *p;
 
     // 打开物理内存文件
-    seteuid(0);  // 临时切换到root权限
+    // 临时切换到root权限
+    if (seteuid(0) != 0) {
+        PRINT_ERROR_AND_RETURN("ERROR: seteuid failed\n",-1);
+    }
     setfsuid( geteuid() );
     mem_fd = open("/dev/mem", O_RDWR|O_SYNC);  // 以读写和同步方式打开
     if ( mem_fd  < 0 ) PRINT_ERROR_AND_RETURN("ERROR: can't open /dev/mem file\n",-1);
