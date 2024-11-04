@@ -76,6 +76,22 @@ dpkg -c ethercat-master_1.6.2-1_arm64.deb
 sudo dpkg -i ethercat-master_1.6.2-1_arm64.deb
 ```
 
+### orangepi_h3_gpio
+
+This is the driver adapted for the Orangepi H3's 40 GPIO pins, used to control the machine's hardware modules.
+
+```shell
+# Compile and Build
+sudo halcompile --install orangepi_h3_gpio.c | grep Linking
+```
+
+```shell
+# Example usage
+loadrt [KINS]KINEMATICS
+loadrt [EMCMOT]EMCMOT base_period_nsec=[EMCMOT]BASE_PERIOD servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
+loadrt orangepi_h3_gpio pwm_types="p,p,p,p,p,f" in_pins="19,20,21" out_pins="4,5,6"
+```
+
 ### python_sdk
 
 This is the Python SDK required for armcnc operation, which is used in the startup program of each machine.
