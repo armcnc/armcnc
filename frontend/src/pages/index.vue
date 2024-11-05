@@ -35,8 +35,8 @@ function onService(){
             if (request.data.code === 0) {
                 const data = request.data.data;
                 props.data.backend.status = true;
-                props.data.screen.width = screen.width;
-                props.data.screen.height = screen.height;
+                props.data.screen.width = window.innerWidth;
+                props.data.screen.height = window.innerHeight;
             }else{
                 props.data.tools.toast({
                     title: props.data.tools.language.t("status.toast.title"),
