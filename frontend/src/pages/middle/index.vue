@@ -30,33 +30,33 @@
                             </TableHeader>
                             <TableBody class="text-base">
                                 <TableRow class="border-none hover:bg-violet-700/5">
-                                    <TableCell class="h-10 text-center">X</TableCell>
-                                    <TableCell class="h-10 text-center">-33.462</TableCell>
-                                    <TableCell class="h-10">
+                                    <TableCell class="h-12 text-center">X</TableCell>
+                                    <TableCell class="h-12 text-center">-33.462</TableCell>
+                                    <TableCell class="h-12">
                                         <MapPinIcon class="w-5 h-5 mx-auto" />
                                     </TableCell>
-                                    <TableCell class="h-10 text-center p-1">
-                                        <div class="w-full h-8 rounded-md border border-violet-900/50 leading-7 text-center text-sm">0.000</div>
+                                    <TableCell class="h-12 text-center p-1">
+                                        <div class="w-full h-8 rounded-md border border-violet-900/20 leading-7 text-center text-sm">0.000</div>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow class="border-none hover:bg-violet-700/5">
-                                    <TableCell class="h-10 text-center">Y</TableCell>
-                                    <TableCell class="h-10 text-center">-0.037</TableCell>
-                                    <TableCell class="h-10">
+                                    <TableCell class="h-12 text-center">Y</TableCell>
+                                    <TableCell class="h-12 text-center">-0.037</TableCell>
+                                    <TableCell class="h-12">
                                         <MapPinIcon class="w-5 h-5 mx-auto" />
                                     </TableCell>
-                                    <TableCell class="h-10 text-center p-1">
-                                        <div class="w-full h-8 rounded-md border border-violet-900/50 leading-7 text-center text-sm">0.000</div>
+                                    <TableCell class="h-12 text-center p-1">
+                                        <div class="w-full h-8 rounded-md border border-violet-900/20 leading-7 text-center text-sm">0.000</div>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow class="border-none hover:bg-violet-700/5">
                                     <TableCell class="text-center">Z</TableCell>
-                                    <TableCell class="h-10 text-center">0.273</TableCell>
-                                    <TableCell class="h-10">
+                                    <TableCell class="h-12 text-center">0.273</TableCell>
+                                    <TableCell class="h-12">
                                         <MapPinIcon class="w-5 h-5 mx-auto" />
                                     </TableCell>
-                                    <TableCell class="h-10 text-center p-1">
-                                        <div class="w-full h-8 rounded-md border border-violet-900/50 leading-7 text-center text-sm">0.000</div>
+                                    <TableCell class="h-12 text-center p-1">
+                                        <div class="w-full h-8 rounded-md border border-violet-900/20 leading-7 text-center text-sm">0.000</div>
                                     </TableCell>
                                 </TableRow>
                             </TableBody>
