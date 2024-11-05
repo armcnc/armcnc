@@ -26,7 +26,7 @@
                 </Button>
             </div>
         </div>
-        <div class="w-full flex flex-row items-center justify-end space-x-2 pr-4">
+        <div class="w-full flex flex-row items-center justify-end space-x-2 pr-[14px]">
             <div class="w-auto">
                 <Button class="px-7 text-muted-foreground" variant="outline" size="lg">
                     <PowerOffIcon class="w-4 h-4 mr-2 text-red-500" />
