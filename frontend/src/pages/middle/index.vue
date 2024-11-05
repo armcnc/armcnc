@@ -2,14 +2,65 @@
     <div class="w-full h-full flex flex-row">
         <div class="w-[calc(100%-400px)] flex flex-col">
             <div class="w-full h-[calc(100%-260px)]"></div>
-            <div class="w-full h-[260px] border-t border-zinc-900"></div>
+            <div class="w-full h-[260px] border-t border-zinc-900">
+                <div class="w-full h-[36px] bg-muted/20 border-b border-zinc-900">
+
+                </div>
+            </div>
         </div>
-        <div class="w-[400px] border-l border-zinc-900"></div>
+        <div class="w-[400px] border-l border-zinc-900">
+            <div class="w-full h-full overflow-y-auto p-2">
+                <div class="w-full text-sm text-muted-foreground space-y-3">
+                    <div class="w-full bg-violet-700/10 border border-violet-900/50 rounded-md">
+                        <Table>
+                            <TableCaption class="hidden"></TableCaption>
+                            <TableHeader class="h-8 bg-violet-700/10 border border-violet-900/50 border-none">
+                                <TableRow class="h-8 border-none text-xs">
+                                    <TableHead class="h-8 w-[50px]">轴</TableHead>
+                                    <TableHead class="h-8 w-[100px]">坐标(mm)</TableHead>
+                                    <TableHead class="h-8 text-center">回零</TableHead>
+                                    <TableHead class="h-8 text-center">原点偏移</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                <TableRow class="border-none text-xs">
+                                    <TableCell>X</TableCell>
+                                    <TableCell>-33.462</TableCell>
+                                    <TableCell>
+                                        <MapPinIcon class="w-3 h-3 mx-auto" />
+                                    </TableCell>
+                                    <TableCell></TableCell>
+                                </TableRow>
+                                <TableRow class="border-none text-xs">
+                                    <TableCell>Y</TableCell>
+                                    <TableCell>-0.037</TableCell>
+                                    <TableCell>
+                                        <MapPinIcon class="w-3 h-3 mx-auto" />
+                                    </TableCell>
+                                    <TableCell></TableCell>
+                                </TableRow>
+                                <TableRow class="border-none text-xs">
+                                    <TableCell>Z</TableCell>
+                                    <TableCell>0.273</TableCell>
+                                    <TableCell>
+                                        <MapPinIcon class="w-3 h-3 mx-auto" />
+                                    </TableCell>
+                                    <TableCell></TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div class="w-full"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "vue";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption} from "../../packages/york";
+import {MapPinIcon} from "lucide-vue-next";
 
 const props: any = defineProps<{
     data: any
