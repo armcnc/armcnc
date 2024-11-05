@@ -16,36 +16,42 @@
                             <TableCaption class="hidden"></TableCaption>
                             <TableHeader class="h-8 bg-violet-700/10 border border-violet-900/50 border-none">
                                 <TableRow class="h-8 border-none text-xs">
-                                    <TableHead class="h-8 w-[50px]">轴</TableHead>
+                                    <TableHead class="h-8 w-[50px] text-center">轴</TableHead>
                                     <TableHead class="h-8 w-[100px]">坐标(mm)</TableHead>
-                                    <TableHead class="h-8 text-center">回零</TableHead>
-                                    <TableHead class="h-8 text-center">原点偏移</TableHead>
+                                    <TableHead class="h-8 w-[80px] text-center">回零</TableHead>
+                                    <TableHead class="h-8 w-[100px] text-center">原点偏移</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody class="text-sm">
-                                <TableRow class="border-none">
-                                    <TableCell>X</TableCell>
-                                    <TableCell>-33.462</TableCell>
-                                    <TableCell>
+                                <TableRow class="border-none hover:bg-violet-700/5">
+                                    <TableCell class="h-9 text-center">X</TableCell>
+                                    <TableCell class="h-9">-33.462</TableCell>
+                                    <TableCell class="h-9">
                                         <MapPinIcon class="w-4 h-4 mx-auto" />
                                     </TableCell>
-                                    <TableCell></TableCell>
+                                    <TableCell class="h-9 text-center">
+                                        <span>0.000</span>
+                                    </TableCell>
                                 </TableRow>
-                                <TableRow class="border-none">
-                                    <TableCell>Y</TableCell>
-                                    <TableCell>-0.037</TableCell>
-                                    <TableCell>
+                                <TableRow class="border-none hover:bg-violet-700/5">
+                                    <TableCell class="h-9 text-center">Y</TableCell>
+                                    <TableCell class="h-9">-0.037</TableCell>
+                                    <TableCell class="h-9">
                                         <MapPinIcon class="w-4 h-4 mx-auto" />
                                     </TableCell>
-                                    <TableCell></TableCell>
+                                    <TableCell class="h-9 text-center">
+                                        <span>0.000</span>
+                                    </TableCell>
                                 </TableRow>
-                                <TableRow class="border-none">
-                                    <TableCell>Z</TableCell>
-                                    <TableCell>0.273</TableCell>
-                                    <TableCell>
+                                <TableRow class="border-none hover:bg-violet-700/5">
+                                    <TableCell class="text-center">Z</TableCell>
+                                    <TableCell class="h-9">0.273</TableCell>
+                                    <TableCell class="h-9">
                                         <MapPinIcon class="w-4 h-4 mx-auto" />
                                     </TableCell>
-                                    <TableCell></TableCell>
+                                    <TableCell class="h-9 text-center">
+                                        <span class="text-xs">0.000</span>
+                                    </TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>
@@ -59,6 +65,7 @@
 
 <script setup lang="ts">
 import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "vue";
+import {Input} from "../../packages/york";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption} from "../../packages/york";
 import {MapPinIcon} from "lucide-vue-next";
 
