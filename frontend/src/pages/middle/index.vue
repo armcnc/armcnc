@@ -1,9 +1,16 @@
 <template>
     <div class="w-full h-full flex flex-row">
         <div class="w-[calc(100%-400px)] flex flex-col">
-            <div class="w-full h-[calc(100%-300px)]"></div>
+            <div class="w-full h-[calc(100%-300px)]">
+                <div class="w-full h-full">1</div>
+            </div>
             <div class="w-full h-[300px] border-t border-zinc-900">
-                <div class="w-full h-[45px] bg-muted/20 border-b border-zinc-900">1</div>
+                <div class="w-full h-[45px] border-b border-zinc-900">
+                    <div class="w-full h-full flex flex-row items-center">
+                        <div class="w-full">1</div>
+                        <div class="w-full">2</div>
+                    </div>
+                </div>
                 <div class="w-full h-[calc(100%-45px)]">2</div>
             </div>
         </div>
@@ -28,8 +35,8 @@
                                     <TableCell class="h-10">
                                         <MapPinIcon class="w-5 h-5 mx-auto" />
                                     </TableCell>
-                                    <TableCell class="h-10 text-center">
-                                        <span>0.000</span>
+                                    <TableCell class="h-10 text-center p-1">
+                                        <Input class="w-full h-full" value="0.000" />
                                     </TableCell>
                                 </TableRow>
                                 <TableRow class="border-none hover:bg-violet-700/5">
@@ -38,8 +45,8 @@
                                     <TableCell class="h-10">
                                         <MapPinIcon class="w-5 h-5 mx-auto" />
                                     </TableCell>
-                                    <TableCell class="h-10 text-center">
-                                        <span>0.000</span>
+                                    <TableCell class="h-10 text-center p-1">
+                                        <Input class="w-full h-full" value="0.000" />
                                     </TableCell>
                                 </TableRow>
                                 <TableRow class="border-none hover:bg-violet-700/5">
@@ -48,14 +55,14 @@
                                     <TableCell class="h-10">
                                         <MapPinIcon class="w-5 h-5 mx-auto" />
                                     </TableCell>
-                                    <TableCell class="h-10 text-center">
-                                        <span>0.000</span>
+                                    <TableCell class="h-10 text-center p-1">
+                                        <Input class="w-full h-full" value="0.000" />
                                     </TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>
                     </div>
-                    <div class="w-full"></div>
+                    <div class="w-full">1</div>
                 </div>
             </div>
         </div>
