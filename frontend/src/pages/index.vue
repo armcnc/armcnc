@@ -16,27 +16,27 @@
                 <div class="w-[65px] border-r border-zinc-900">
                     <div class="w-full h-full space-y-5 py-2">
                         <div class="w-full">
-                            <div class="w-12 h-12 bg-muted/0 rounded-md py-[14px] mx-auto text-muted-foreground" :class="props.data.middle.current === 'index' ? 'bg-muted/50 text-white' : ''" @click="onMiddleCurrent('index')">
+                            <div class="w-12 h-12 bg-muted/0 rounded-md py-[12px] mx-auto text-muted-foreground" :class="props.data.middle.current === 'index' ? 'bg-muted/50 text-white' : ''" @click="onMiddleCurrent('index')">
                                 <GaugeIcon class="w-6 h-6 mx-auto" />
                             </div>
                         </div>
                         <div class="w-full">
-                            <div class="w-12 h-12 bg-muted/0 rounded-md py-[14px] mx-auto text-muted-foreground" :class="props.data.middle.current === 'machine' ? 'bg-muted/50 text-white' : ''" @click="onMiddleCurrent('machine')">
+                            <div class="w-12 h-12 bg-muted/0 rounded-md py-[12px] mx-auto text-muted-foreground" :class="props.data.middle.current === 'machine' ? 'bg-muted/50 text-white' : ''" @click="onMiddleCurrent('machine')">
                                 <FileCogIcon class="w-6 h-6 mx-auto" />
                             </div>
                         </div>
                         <div class="w-full">
-                            <div class="w-12 h-12 bg-muted/0 rounded-md py-[14px] mx-auto text-muted-foreground" :class="props.data.middle.current === 'program' ? 'bg-muted/50 text-white' : ''" @click="onMiddleCurrent('program')">
+                            <div class="w-12 h-12 bg-muted/0 rounded-md py-[12px] mx-auto text-muted-foreground" :class="props.data.middle.current === 'program' ? 'bg-muted/50 text-white' : ''" @click="onMiddleCurrent('program')">
                                 <FileCode2Icon class="w-6 h-6 mx-auto" />
                             </div>
                         </div>
                         <div class="w-full">
-                            <div class="w-12 h-12 bg-muted/0 rounded-md py-[14px] mx-auto text-muted-foreground" :class="props.data.middle.current === 'plugin' ? 'bg-muted/50 text-white' : ''" @click="onMiddleCurrent('plugin')">
+                            <div class="w-12 h-12 bg-muted/0 rounded-md py-[12px] mx-auto text-muted-foreground" :class="props.data.middle.current === 'plugin' ? 'bg-muted/50 text-white' : ''" @click="onMiddleCurrent('plugin')">
                                 <LayoutGridIcon class="w-6 h-6 mx-auto" />
                             </div>
                         </div>
                         <div class="w-full">
-                            <div class="w-12 h-12 bg-muted/0 rounded-md py-[14px] mx-auto text-muted-foreground" :class="props.data.middle.current === 'store' ? 'bg-muted/50 text-white' : ''" @click="onMiddleCurrent('store')">
+                            <div class="w-12 h-12 bg-muted/0 rounded-md py-[12px] mx-auto text-muted-foreground" :class="props.data.middle.current === 'store' ? 'bg-muted/50 text-white' : ''" @click="onMiddleCurrent('store')">
                                 <ShoppingBagIcon class="w-6 h-6 mx-auto" />
                             </div>
                         </div>
