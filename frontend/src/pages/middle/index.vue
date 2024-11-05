@@ -22,28 +22,28 @@
                                     <TableHead class="h-8 text-center">原点偏移</TableHead>
                                 </TableRow>
                             </TableHeader>
-                            <TableBody>
-                                <TableRow class="border-none text-xs">
+                            <TableBody class="text-sm">
+                                <TableRow class="border-none">
                                     <TableCell>X</TableCell>
                                     <TableCell>-33.462</TableCell>
                                     <TableCell>
-                                        <MapPinIcon class="w-3 h-3 mx-auto" />
+                                        <MapPinIcon class="w-4 h-4 mx-auto" />
                                     </TableCell>
                                     <TableCell></TableCell>
                                 </TableRow>
-                                <TableRow class="border-none text-xs">
+                                <TableRow class="border-none">
                                     <TableCell>Y</TableCell>
                                     <TableCell>-0.037</TableCell>
                                     <TableCell>
-                                        <MapPinIcon class="w-3 h-3 mx-auto" />
+                                        <MapPinIcon class="w-4 h-4 mx-auto" />
                                     </TableCell>
                                     <TableCell></TableCell>
                                 </TableRow>
-                                <TableRow class="border-none text-xs">
+                                <TableRow class="border-none">
                                     <TableCell>Z</TableCell>
                                     <TableCell>0.273</TableCell>
                                     <TableCell>
-                                        <MapPinIcon class="w-3 h-3 mx-auto" />
+                                        <MapPinIcon class="w-4 h-4 mx-auto" />
                                     </TableCell>
                                     <TableCell></TableCell>
                                 </TableRow>
