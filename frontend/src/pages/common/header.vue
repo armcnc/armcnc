@@ -2,7 +2,7 @@
     <div class="w-full h-full flex flex-row items-center px-2">
         <div class="w-full flex flex-row items-center space-x-2">
             <div class="w-auto">
-                <img src="/images/logo.png" class="w-10" alt="">
+                <img src="/images/logo.png" class="w-10" alt="" @click="onRefresh">
             </div>
             <Button class="text-muted-foreground" variant="outline" size="default" disabled>
                 <Link2Icon class="w-4 h-4 mr-2" />
@@ -57,6 +57,10 @@ import {Link2Icon, MapPinOffIcon, PlayIcon, PowerIcon, PowerOffIcon, PauseIcon, 
 const props: any = defineProps<{
     data: any
 }>();
+
+function onRefresh(){
+    location.reload();
+}
 
 onBeforeMount(() => {});
 
