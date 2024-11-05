@@ -28,20 +28,20 @@
         </div>
         <div class="w-full flex flex-row items-center justify-end space-x-2">
             <div class="w-auto">
-                <Button class="text-white" variant="destructive" size="default">
-                    <PowerOffIcon class="w-4 h-4 mr-2" />
+                <Button class="text-muted-foreground" variant="outline" size="default">
+                    <PowerOffIcon class="w-4 h-4 mr-2 text-red-500" />
                     <span>急停</span>
                 </Button>
             </div>
             <div class="w-auto">
                 <Button class="text-muted-foreground" variant="outline" size="default">
-                    <PowerIcon class="w-4 h-4 mr-2" />
+                    <PowerIcon class="w-4 h-4 mr-2 text-primary" />
                     <span>启动</span>
                 </Button>
             </div>
             <div class="w-auto">
                 <Button class="text-muted-foreground" variant="outline" size="default">
-                    <MapPinOffIcon class="w-4 h-4 mr-2" />
+                    <MapPinOffIcon class="w-4 h-4 mr-2 text-amber-500" />
                     <span>忽略限位</span>
                 </Button>
             </div>
