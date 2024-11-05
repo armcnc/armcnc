@@ -4,43 +4,43 @@
             <div class="w-[65px]">
                 <img src="/images/logo.png" class="w-10 mx-auto" alt="" @click="onRefresh">
             </div>
-            <Button class="text-muted-foreground" variant="outline" size="default" disabled>
+            <Button class="text-muted-foreground" variant="outline" size="lg" disabled>
                 <Link2Icon class="w-4 h-4 mr-2" />
                 <span>本机设备</span>
             </Button>
         </div>
         <div class="w-full flex flex-row items-center justify-center space-x-3">
             <div class="w-auto">
-                <Button class="text-muted-foreground" variant="outline" size="default">
+                <Button class="text-muted-foreground" variant="outline" size="lg">
                     <PlayIcon class="w-4 h-4" />
                 </Button>
             </div>
             <div class="w-auto">
-                <Button class="text-muted-foreground" variant="outline" size="default">
+                <Button class="text-muted-foreground" variant="outline" size="lg">
                     <PauseIcon class="w-4 h-4" />
                 </Button>
             </div>
             <div class="w-auto">
-                <Button class="text-muted-foreground" variant="outline" size="default">
+                <Button class="text-muted-foreground" variant="outline" size="lg">
                     <OctagonMinusIcon class="w-4 h-4" />
                 </Button>
             </div>
         </div>
         <div class="w-full flex flex-row items-center justify-end space-x-2 pr-2">
             <div class="w-auto">
-                <Button class="text-muted-foreground" variant="outline" size="default">
+                <Button class="text-muted-foreground" variant="outline" size="lg">
                     <PowerOffIcon class="w-4 h-4 mr-2 text-red-500" />
                     <span>急停</span>
                 </Button>
             </div>
             <div class="w-auto">
-                <Button class="text-muted-foreground" variant="outline" size="default">
+                <Button class="text-muted-foreground" variant="outline" size="lg">
                     <PowerIcon class="w-4 h-4 mr-2 text-primary" />
                     <span>启动</span>
                 </Button>
             </div>
             <div class="w-auto">
-                <Button class="text-muted-foreground" variant="outline" size="default">
+                <Button class="text-muted-foreground" variant="outline" size="lg">
                     <MapPinOffIcon class="w-4 h-4 mr-2 text-amber-500" />
                     <span>忽略限位</span>
                 </Button>
