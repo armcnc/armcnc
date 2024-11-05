@@ -18,6 +18,7 @@ export default defineConfig(({mode}) => ({
 	root: __dirname,
 	define: {
 		__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "true",
+		__APP_NAME__: JSON.stringify(Package.title),
 		__APP_VERSION__: JSON.stringify(Package.version),
 	},
 	esbuild: {
