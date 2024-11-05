@@ -36,7 +36,7 @@
                                         <MapPinIcon class="w-5 h-5 mx-auto" />
                                     </TableCell>
                                     <TableCell class="h-10 text-center p-1">
-                                        <Input class="w-full h-full" value="0.000" />
+                                        <div class="w-full h-8 rounded-md border border-violet-900/50 leading-7 text-center text-sm">0.000</div>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow class="border-none hover:bg-violet-700/5">
@@ -46,7 +46,7 @@
                                         <MapPinIcon class="w-5 h-5 mx-auto" />
                                     </TableCell>
                                     <TableCell class="h-10 text-center p-1">
-                                        <Input class="w-full h-full" value="0.000" />
+                                        <div class="w-full h-8 rounded-md border border-violet-900/50 leading-7 text-center text-sm">0.000</div>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow class="border-none hover:bg-violet-700/5">
@@ -56,7 +56,7 @@
                                         <MapPinIcon class="w-5 h-5 mx-auto" />
                                     </TableCell>
                                     <TableCell class="h-10 text-center p-1">
-                                        <Input class="w-full h-full" value="0.000" />
+                                        <div class="w-full h-8 rounded-md border border-violet-900/50 leading-7 text-center text-sm">0.000</div>
                                     </TableCell>
                                 </TableRow>
                             </TableBody>
