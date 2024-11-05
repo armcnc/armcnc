@@ -41,7 +41,7 @@
             </div>
             <div class="w-auto">
                 <Button class="px-7 text-muted-foreground" variant="outline" size="lg">
-                    <MapPinOffIcon class="w-5 h-5 mr-2 text-amber-500" />
+                    <MapPinOffIcon class="w-4 h-4 mr-2 text-amber-500" />
                     <span>忽略限位</span>
                 </Button>
             </div>
