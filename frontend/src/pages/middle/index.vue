@@ -85,16 +85,16 @@
                     </div>
                     <div class="w-full bg-zinc-900/80 rounded-md p-2 space-y-1">
                         <div class="w-full h-8 leading-8 text-muted-foreground/50">步进长度(mm)</div>
-                        <div class="w-full grid grid-cols-6 gap-2 text-center text-xs">
-                            <div class="w-auto h-7 leading-7 bg-zinc-950/40 rounded-md px-3">10</div>
-                            <div class="w-auto h-7 leading-7 bg-zinc-950/40 rounded-md px-3">5</div>
-                            <div class="w-auto h-7 leading-7 bg-zinc-950/40 rounded-md px-3">1</div>
-                            <div class="w-auto h-7 leading-7 bg-zinc-950/40 rounded-md px-3">0.5</div>
-                            <div class="w-auto h-7 leading-7 bg-zinc-950/40 rounded-md px-3">0.1</div>
-                            <div class="w-auto h-7 leading-7 bg-zinc-950/40 rounded-md px-3">0.05</div>
-                            <div class="w-auto h-7 leading-7 bg-zinc-950/40 rounded-md px-3">0.01</div>
-                            <div class="w-auto h-7 leading-7 bg-zinc-950/40 rounded-md px-3">0.005</div>
-                            <div class="w-auto h-7 leading-7 bg-zinc-950 rounded-md px-3">连续</div>
+                        <div class="w-full grid grid-cols-6 gap-2 text-center text-sm">
+                            <div class="w-auto h-8 leading-8 bg-zinc-950/40 rounded-md px-3">10</div>
+                            <div class="w-auto h-8 leading-8 bg-zinc-950/40 rounded-md px-3">5</div>
+                            <div class="w-auto h-8 leading-8 bg-zinc-950/40 rounded-md px-3">1</div>
+                            <div class="w-auto h-8 leading-8 bg-zinc-950/40 rounded-md px-3">0.5</div>
+                            <div class="w-auto h-8 leading-8 bg-zinc-950/40 rounded-md px-3">0.1</div>
+                            <div class="w-auto h-8 leading-8 bg-zinc-950/40 rounded-md px-3">0.05</div>
+                            <div class="w-auto h-8 leading-8 bg-zinc-950/40 rounded-md px-3">0.01</div>
+                            <div class="w-auto h-8 leading-8 bg-zinc-950/40 rounded-md px-3">0.005</div>
+                            <div class="w-auto h-8 leading-8 bg-zinc-950 rounded-md px-3">连续</div>
                         </div>
                     </div>
                 </div>
