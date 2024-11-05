@@ -37,6 +37,9 @@ const data: any = ref({
     },
     backend: {
         status: false
+    },
+    middle: {
+        current: "index"
     }
 });
 

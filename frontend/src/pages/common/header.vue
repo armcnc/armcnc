@@ -1,8 +1,8 @@
 <template>
-    <div class="w-full h-full flex flex-row items-center px-2">
+    <div class="w-full h-full flex flex-row items-center">
         <div class="w-full flex flex-row items-center space-x-2">
-            <div class="w-auto">
-                <img src="/images/logo.png" class="w-10" alt="" @click="onRefresh">
+            <div class="w-[65px]">
+                <img src="/images/logo.png" class="w-10 mx-auto" alt="" @click="onRefresh">
             </div>
             <Button class="text-muted-foreground" variant="outline" size="default" disabled>
                 <Link2Icon class="w-4 h-4 mr-2" />
@@ -26,7 +26,7 @@
                 </Button>
             </div>
         </div>
-        <div class="w-full flex flex-row items-center justify-end space-x-2">
+        <div class="w-full flex flex-row items-center justify-end space-x-2 pr-2">
             <div class="w-auto">
                 <Button class="text-muted-foreground" variant="outline" size="default">
                     <PowerOffIcon class="w-4 h-4 mr-2 text-red-500" />

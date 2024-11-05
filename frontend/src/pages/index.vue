@@ -13,37 +13,37 @@
         </div>
         <div class="w-full h-[calc(100%-100px)]">
             <div class="w-full h-full flex flex-row">
-                <div class="w-[55px] border-r border-zinc-900">
-                    <div class="w-full h-full space-y-2 py-2">
+                <div class="w-[65px] border-r border-zinc-900">
+                    <div class="w-full h-full space-y-3 py-2">
                         <div class="w-full">
-                            <div class="w-10 h-10 bg-muted/50 rounded-md py-3 mx-auto text-muted-foreground">
+                            <div class="w-10 h-10 bg-muted/0 rounded-md py-3 mx-auto text-muted-foreground" :class="props.data.middle.current === 'index' ? 'bg-muted/50' : ''" @click="onMiddleCurrent('index')">
                                 <GaugeIcon class="w-4 h-4 mx-auto" />
                             </div>
                         </div>
                         <div class="w-full">
-                            <div class="w-10 h-10 bg-muted/0 rounded-md py-3 mx-auto text-muted-foreground">
+                            <div class="w-10 h-10 bg-muted/0 rounded-md py-3 mx-auto text-muted-foreground" :class="props.data.middle.current === 'machine' ? 'bg-muted/50' : ''" @click="onMiddleCurrent('machine')">
                                 <FileCogIcon class="w-4 h-4 mx-auto" />
                             </div>
                         </div>
                         <div class="w-full">
-                            <div class="w-10 h-10 bg-muted/0 rounded-md py-3 mx-auto text-muted-foreground">
+                            <div class="w-10 h-10 bg-muted/0 rounded-md py-3 mx-auto text-muted-foreground" :class="props.data.middle.current === 'program' ? 'bg-muted/50' : ''" @click="onMiddleCurrent('program')">
                                 <FileCode2Icon class="w-4 h-4 mx-auto" />
                             </div>
                         </div>
                         <div class="w-full">
-                            <div class="w-10 h-10 bg-muted/0 rounded-md py-3 mx-auto text-muted-foreground">
+                            <div class="w-10 h-10 bg-muted/0 rounded-md py-3 mx-auto text-muted-foreground" :class="props.data.middle.current === 'plugin' ? 'bg-muted/50' : ''" @click="onMiddleCurrent('plugin')">
                                 <LayoutGridIcon class="w-4 h-4 mx-auto" />
                             </div>
                         </div>
                         <div class="w-full">
-                            <div class="w-10 h-10 bg-muted/0 rounded-md py-3 mx-auto text-muted-foreground">
+                            <div class="w-10 h-10 bg-muted/0 rounded-md py-3 mx-auto text-muted-foreground" :class="props.data.middle.current === 'store' ? 'bg-muted/50' : ''" @click="onMiddleCurrent('store')">
                                 <ShoppingBagIcon class="w-4 h-4 mx-auto" />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="w-[calc(100%-55px)]">
-                    <MiddleIndex ref="middleIndex" :data="props.data" />
+                <div class="w-[calc(100%-65px)]">
+                    <MiddleIndex ref="middleIndex" :data="props.data" v-if="props.data.middle.current === 'index'" />
                 </div>
             </div>
         </div>
@@ -63,6 +63,12 @@ import {GaugeIcon, FileCogIcon, FileCode2Icon, LayoutGridIcon, ShoppingBagIcon} 
 const props: any = defineProps<{
     data: any
 }>();
+
+function onMiddleCurrent(value: string){
+    if(props.data.middle.current !== value){
+        props.data.middle.current = value;
+    }
+}
 
 function onService(){
     props.data.tools.request("/backend", "GET", {}, {}).then((request: any) => {
