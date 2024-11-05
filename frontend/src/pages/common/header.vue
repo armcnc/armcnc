@@ -29,19 +29,19 @@
         <div class="w-full flex flex-row items-center justify-end space-x-2 pr-[14px]">
             <div class="w-auto">
                 <Button class="px-7 text-muted-foreground" variant="outline" size="lg">
-                    <PowerOffIcon class="w-4 h-4 mr-2 text-red-500" />
+                    <PowerOffIcon class="w-3 h-3 mr-2 text-red-500" />
                     <span>急停</span>
                 </Button>
             </div>
             <div class="w-auto">
                 <Button class="px-7 text-muted-foreground" variant="outline" size="lg">
-                    <PowerIcon class="w-4 h-4 mr-2 text-primary" />
+                    <PowerIcon class="w-3 h-3 mr-2 text-primary" />
                     <span>启动</span>
                 </Button>
             </div>
             <div class="w-auto">
                 <Button class="px-7 text-muted-foreground" variant="outline" size="lg">
-                    <MapPinOffIcon class="w-4 h-4 mr-2 text-amber-500" />
+                    <MapPinOffIcon class="w-3 h-3 mr-2 text-amber-500" />
                     <span>忽略限位</span>
                 </Button>
             </div>
