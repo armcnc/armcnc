@@ -1,10 +1,10 @@
 <template>
     <div class="w-full h-full flex flex-row">
         <div class="w-[calc(100%-400px)] flex flex-col">
-            <div class="w-full h-[calc(100%-260px)]"></div>
-            <div class="w-full h-[260px] border-t border-zinc-900">
-                <div class="w-full h-[40px] bg-muted/20 border-b border-zinc-900">1</div>
-                <div class="w-full h-[calc(100%-40px)]">2</div>
+            <div class="w-full h-[calc(100%-300px)]"></div>
+            <div class="w-full h-[300px] border-t border-zinc-900">
+                <div class="w-full h-[45px] bg-muted/20 border-b border-zinc-900">1</div>
+                <div class="w-full h-[calc(100%-45px)]">2</div>
             </div>
         </div>
         <div class="w-[400px] border-l border-zinc-900">
