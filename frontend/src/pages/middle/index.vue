@@ -62,7 +62,27 @@
                             </TableBody>
                         </Table>
                     </div>
-                    <div class="w-full">1</div>
+                    <div class="w-full bg-zinc-900/80 rounded-md p-2">
+                        <div class="w-full flex flex-row items-center space-x-2">
+                            <div class="w-full">
+                                <Button class="w-full px-3 text-muted-foreground" variant="outline" size="lg">
+                                    <MapPinIcon class="w-4 h-4 mr-2 text-orange-500" />
+                                    <span>全部回零</span>
+                                </Button>
+                            </div>
+                            <div class="w-full">
+                                <Button class="w-full px-3 text-muted-foreground" variant="outline" size="lg">
+                                    <span>P1 G54</span>
+                                </Button>
+                            </div>
+                            <div class="w-full">
+                                <Button class="w-full px-3 text-muted-foreground" variant="outline" size="lg">
+                                    <MapPinnedIcon class="w-4 h-4 mr-2 text-orange-500" />
+                                    <span>设置原点</span>
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,9 +91,9 @@
 
 <script setup lang="ts">
 import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "vue";
-import {Input} from "../../packages/york";
+import {Button} from "../../packages/york";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption} from "../../packages/york";
-import {MapPinIcon} from "lucide-vue-next";
+import {MapPinIcon, PowerOffIcon, MapPinnedIcon} from "lucide-vue-next";
 
 const props: any = defineProps<{
     data: any
