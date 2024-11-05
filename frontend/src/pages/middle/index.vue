@@ -15,42 +15,42 @@
                         <Table>
                             <TableCaption class="hidden"></TableCaption>
                             <TableHeader class="h-8 bg-violet-700/10 border border-violet-900/50 border-none">
-                                <TableRow class="h-8 border-none text-xs">
+                                <TableRow class="h-8 border-none text-sm">
                                     <TableHead class="h-8 w-[50px] text-center">轴</TableHead>
                                     <TableHead class="h-8 w-[100px]">坐标(mm)</TableHead>
                                     <TableHead class="h-8 w-[80px] text-center">回零</TableHead>
                                     <TableHead class="h-8 w-[100px] text-center">原点偏移</TableHead>
                                 </TableRow>
                             </TableHeader>
-                            <TableBody class="text-sm">
+                            <TableBody class="text-base">
                                 <TableRow class="border-none hover:bg-violet-700/5">
-                                    <TableCell class="h-9 text-center">X</TableCell>
-                                    <TableCell class="h-9">-33.462</TableCell>
-                                    <TableCell class="h-9">
+                                    <TableCell class="h-10 text-center">X</TableCell>
+                                    <TableCell class="h-10">-33.462</TableCell>
+                                    <TableCell class="h-10">
                                         <MapPinIcon class="w-4 h-4 mx-auto" />
                                     </TableCell>
-                                    <TableCell class="h-9 text-center">
+                                    <TableCell class="h-10 text-center">
                                         <span>0.000</span>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow class="border-none hover:bg-violet-700/5">
-                                    <TableCell class="h-9 text-center">Y</TableCell>
-                                    <TableCell class="h-9">-0.037</TableCell>
-                                    <TableCell class="h-9">
+                                    <TableCell class="h-10 text-center">Y</TableCell>
+                                    <TableCell class="h-10">-0.037</TableCell>
+                                    <TableCell class="h-10">
                                         <MapPinIcon class="w-4 h-4 mx-auto" />
                                     </TableCell>
-                                    <TableCell class="h-9 text-center">
+                                    <TableCell class="h-10 text-center">
                                         <span>0.000</span>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow class="border-none hover:bg-violet-700/5">
                                     <TableCell class="text-center">Z</TableCell>
-                                    <TableCell class="h-9">0.273</TableCell>
-                                    <TableCell class="h-9">
+                                    <TableCell class="h-10">0.273</TableCell>
+                                    <TableCell class="h-10">
                                         <MapPinIcon class="w-4 h-4 mx-auto" />
                                     </TableCell>
-                                    <TableCell class="h-9 text-center">
-                                        <span class="text-xs">0.000</span>
+                                    <TableCell class="h-10 text-center">
+                                        <span>0.000</span>
                                     </TableCell>
                                 </TableRow>
                             </TableBody>
