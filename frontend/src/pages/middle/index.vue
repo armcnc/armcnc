@@ -2,7 +2,7 @@
     <div class="w-full h-full flex flex-row">
         <div class="w-[calc(100%-400px)] flex flex-col">
             <div class="w-full h-[calc(100%-300px)]">
-                <div class="w-full h-full">1</div>
+                <MiddleModuleSimulation ref="middleModuleSimulation" :data="props.data" />
             </div>
             <div class="w-full h-[300px] border-t border-zinc-900">
                 <div class="w-full h-[45px] border-b border-zinc-900 px-2">
@@ -270,7 +270,7 @@
                                 </Button>
                             </div>
                         </div>
-                        <div class="w-full">1</div>
+                        <div class="w-full"></div>
                     </div>
                 </div>
             </div>
@@ -280,6 +280,7 @@
 
 <script setup lang="ts">
 import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "vue";
+import MiddleModuleSimulation from "./module/simulation.vue";
 import {Button} from "../../packages/york";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption} from "../../packages/york";
 import {MapPinIcon, MapPinnedIcon, FileCogIcon, RefreshCwIcon, ListEndIcon, ListVideoIcon} from "lucide-vue-next";

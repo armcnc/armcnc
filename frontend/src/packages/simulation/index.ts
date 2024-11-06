@@ -24,7 +24,7 @@ import Gcode from "./gcode";
 
 export class Simulation {
 
-    constructor(platform: string, loading_callback: any) {
+    constructor(world: any, platform: string, loading_callback: any) {
         const _this: any = this;
         _this.platform = platform;
         _this.loading_callback = loading_callback;
@@ -33,7 +33,7 @@ export class Simulation {
         }, (url: any, loaded: any, total: any)=>{
             loading_callback({type: "resource:loading:progress", progress: parseFloat(((loaded * 100) / total).toFixed(2))});
         });
-        _this.container = document.getElementById("world");
+        _this.container = world;
         _this.engine = {
             scene: false,
             clock: false,
@@ -63,7 +63,7 @@ export class Simulation {
 
         _this.engine.scene = new THREE.Scene();
         _this.engine.scene.name = "default_scene";
-        _this.engine.scene.background = new THREE.Color("rgb(30, 31, 34)");
+        _this.engine.scene.background = new THREE.Color("rgb(9, 9, 11)");
 
         _this.engine.clock = new THREE.Clock();
         _this.engine.clock_delta = 0.00;
