@@ -3,7 +3,7 @@
         <div class="w-full flex flex-row items-center space-x-3">
             <div class="w-auto flex flex-row items-center">
                 <ListCheckIcon class="w-3 h-3 mr-1" />
-                <span>1205/6500</span>
+                <span>1200/6500</span>
             </div>
         </div>
         <div class="w-full"></div>

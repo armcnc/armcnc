@@ -13,7 +13,7 @@
                 </div>
                 <div class="w-full h-[calc(100%-45px)] overflow-y-auto">
                     <div class="w-full p-1 text-muted-foreground/50">
-                        <div class="w-full h-6 flex flex-row items-center text-sm">
+                        <div class="w-full h-6 flex flex-row items-center text-sm text-muted-foreground">
                             <div class="w-full">G1 F1000 X6.7039 Y9.0616 Z-1.0000 S1200</div>
                             <div class="w-auto text-xs">1200</div>
                         </div>
@@ -21,7 +21,7 @@
                             <div class="w-full">G1 F1000 X10.4246 Y19.4013 Z-1.0000 S1200</div>
                             <div class="w-auto text-xs">1201</div>
                         </div>
-                        <div class="w-full h-6 flex flex-row items-center text-xs text-muted-foreground">
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
                             <div class="w-full">G1 F1000 X10.4246 Y19.4013 Z-1.0000 S1200</div>
                             <div class="w-auto text-xs">1202</div>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="w-full">G1 F1000 X6.7039 Y9.0616 Z-2.0000 S1200</div>
                             <div class="w-auto text-xs">1204</div>
                         </div>
-                        <div class="w-full h-6 flex flex-row items-center text-sm text-muted-foreground">
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
                             <div class="w-full">G1 F1000 X14.2106 Y9.0616 Z-2.0000 S1200</div>
                             <div class="w-auto text-xs">1205</div>
                         </div>
@@ -41,7 +41,7 @@
                             <div class="w-full">G1 F1000 X10.4246 Y19.4013 Z-2.0000 S1200</div>
                             <div class="w-auto text-xs">1206</div>
                         </div>
-                        <div class="w-full h-6 flex flex-row items-center text-xs">
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
                             <div class="w-full">G1 F1000 X10.4246 Y19.4013 Z-2.0000 S1200</div>
                             <div class="w-auto text-xs">1207</div>
                         </div>
