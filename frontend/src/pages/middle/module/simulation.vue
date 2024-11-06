@@ -29,7 +29,12 @@ onMounted(() => {
     });
 });
 
-onBeforeUnmount(() => {});
+onBeforeUnmount(() => {
+    if((window as any).simulation){
+        (window as any).simulation.onEngineDestroy();
+        (window as any).simulation = false;
+    }
+});
 
 onUnmounted(() => {});
 </script>
