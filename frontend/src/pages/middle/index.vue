@@ -250,7 +250,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full p-2"></div>
+                    <div class="w-full bg-zinc-900/50 rounded-md p-2 space-y-1">
+                        <div class="w-full flex flex-row items-center space-x-2">
+                            <div class="w-full">
+                                <Button class="w-full px-3 text-muted-foreground" variant="outline" size="lg">
+                                    <UndoIcon class="w-4 h-4 mr-2 text-orange-500" />
+                                    <span>反转</span>
+                                </Button>
+                            </div>
+                            <div class="w-full">
+                                <Button class="w-full px-3 text-muted-foreground" variant="outline" size="lg">
+                                    <span>启动主轴</span>
+                                </Button>
+                            </div>
+                            <div class="w-full">
+                                <Button class="w-full px-3 text-muted-foreground" variant="outline" size="lg">
+                                    <RedoIcon class="w-4 h-4 mr-2 text-orange-500" />
+                                    <span>正转</span>
+                                </Button>
+                            </div>
+                        </div>
+                        <div class="w-full">1</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -263,6 +284,7 @@ import {Button} from "../../packages/york";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption} from "../../packages/york";
 import {MapPinIcon, MapPinnedIcon, FileCogIcon, RefreshCwIcon, ListEndIcon, ListVideoIcon} from "lucide-vue-next";
 import {ChevronUpIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon} from "lucide-vue-next";
+import {UndoIcon, RedoIcon} from "lucide-vue-next";
 
 const props: any = defineProps<{
     data: any
