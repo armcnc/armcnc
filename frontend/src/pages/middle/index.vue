@@ -11,7 +11,54 @@
                         <div class="w-full">2</div>
                     </div>
                 </div>
-                <div class="w-full h-[calc(100%-45px)]">2</div>
+                <div class="w-full h-[calc(100%-45px)] overflow-y-auto">
+                    <div class="w-full p-1 text-muted-foreground/50">
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
+                            <div class="w-full">G1 F1000 X6.7039 Y9.0616 Z-1.0000 S1200</div>
+                            <div class="w-auto text-xs">1200</div>
+                        </div>
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
+                            <div class="w-full">G1 F1000 X10.4246 Y19.4013 Z-1.0000 S1200</div>
+                            <div class="w-auto text-xs">1201</div>
+                        </div>
+                        <div class="w-full h-6 flex flex-row items-center text-xs text-muted-foreground">
+                            <div class="w-full">G1 F1000 X10.4246 Y19.4013 Z-1.0000 S1200</div>
+                            <div class="w-auto text-xs">1202</div>
+                        </div>
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
+                            <div class="w-full">G1 F300 Z-2.0000</div>
+                            <div class="w-auto text-xs">1203</div>
+                        </div>
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
+                            <div class="w-full">G1 F1000 X6.7039 Y9.0616 Z-2.0000 S1200</div>
+                            <div class="w-auto text-xs">1204</div>
+                        </div>
+                        <div class="w-full h-6 flex flex-row items-center text-sm text-muted-foreground">
+                            <div class="w-full">G1 F1000 X14.2106 Y9.0616 Z-2.0000 S1200</div>
+                            <div class="w-auto text-xs">1205</div>
+                        </div>
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
+                            <div class="w-full">G1 F1000 X10.4246 Y19.4013 Z-2.0000 S1200</div>
+                            <div class="w-auto text-xs">1206</div>
+                        </div>
+                        <div class="w-full h-6 flex flex-row items-center text-xs">
+                            <div class="w-full">G1 F1000 X10.4246 Y19.4013 Z-2.0000 S1200</div>
+                            <div class="w-auto text-xs">1207</div>
+                        </div>
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
+                            <div class="w-full"></div>
+                            <div class="w-auto text-xs">1208</div>
+                        </div>
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
+                            <div class="w-full">G0 Z3</div>
+                            <div class="w-auto text-xs">1209</div>
+                        </div>
+                        <div class="w-full h-6 flex flex-row items-center text-sm">
+                            <div class="w-full">G0 X24.5894 Y19.3882</div>
+                            <div class="w-auto text-xs">1210</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="w-[400px] border-l border-zinc-900">
@@ -97,6 +144,9 @@
                             <div class="w-auto h-9 leading-9 bg-zinc-950 rounded-md px-3">连续</div>
                         </div>
                     </div>
+                    <div class="w-full p-2">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,7 +157,7 @@
 import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "vue";
 import {Button} from "../../packages/york";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption} from "../../packages/york";
-import {MapPinIcon, PowerOffIcon, MapPinnedIcon} from "lucide-vue-next";
+import {MapPinIcon, MapPinnedIcon} from "lucide-vue-next";
 
 const props: any = defineProps<{
     data: any
