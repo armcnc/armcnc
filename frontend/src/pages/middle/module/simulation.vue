@@ -25,7 +25,9 @@ onBeforeMount(() => {});
 onMounted(() => {
     nextTick(() => {
         console.log("[pages:middle:module:simulation]", props);
-        onSimulation();
+        setTimeout(()=>{
+            onSimulation();
+        }, 2000);
     });
 });
 
