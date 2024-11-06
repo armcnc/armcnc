@@ -39,6 +39,11 @@ body {
     height: 4px;
     border-radius: 3px;
 }
+.scrollbar-hide::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    border-radius: 3px;
+}
 
 #app {
     width: 100%;

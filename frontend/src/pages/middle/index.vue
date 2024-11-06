@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full h-[calc(100%-45px)] overflow-y-auto">
+                <div class="w-full h-[calc(100%-45px)] overflow-y-auto scrollbar-hide">
                     <div class="w-full p-1 text-muted-foreground/50">
                         <div class="w-full h-6 flex flex-row items-center text-sm text-muted-foreground">
                             <div class="w-full">G1 F1000 X6.7039 Y9.0616 Z-1.0000 S1200</div>
@@ -99,7 +99,7 @@
             </div>
         </div>
         <div class="w-[400px] border-l border-zinc-900">
-            <div class="w-full h-full overflow-y-auto p-2">
+            <div class="w-full h-full overflow-y-auto p-2 scrollbar-hide">
                 <div class="w-full text-sm text-muted-foreground space-y-3">
                     <div class="w-full bg-violet-700/10 border border-violet-900/50 rounded-md">
                         <Table>
@@ -254,7 +254,7 @@
                         <div class="w-full flex flex-row items-center space-x-2">
                             <div class="w-full">
                                 <Button class="w-full px-3 text-muted-foreground" variant="outline" size="lg">
-                                    <UndoIcon class="w-4 h-4 mr-2 text-orange-500" />
+                                    <UndoIcon class="w-4 h-4 mr-2" />
                                     <span>反转</span>
                                 </Button>
                             </div>
@@ -265,7 +265,7 @@
                             </div>
                             <div class="w-full">
                                 <Button class="w-full px-3 text-muted-foreground" variant="outline" size="lg">
-                                    <RedoIcon class="w-4 h-4 mr-2 text-orange-500" />
+                                    <RedoIcon class="w-4 h-4 mr-2" />
                                     <span>正转</span>
                                 </Button>
                             </div>
