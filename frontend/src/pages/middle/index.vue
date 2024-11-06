@@ -173,15 +173,18 @@
                     <div class="w-full bg-zinc-900/50 rounded-md p-2 space-y-1">
                         <div class="w-full h-8 leading-8 text-muted-foreground/50">步进长度(mm)</div>
                         <div class="w-full grid grid-cols-6 gap-2 text-center text-sm">
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3">10</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3">5</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3">1</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3">0.5</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3">0.1</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3">0.05</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3">0.01</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3">0.005</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950 rounded-md px-3">连续</div>
+                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">10</div>
+                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">5</div>
+                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">1</div>
+                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">0.5</div>
+                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">0.1</div>
+                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">0.05</div>
+                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">0.01</div>
+                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">0.005</div>
+                            <div class="w-auto h-9 leading-9 bg-zinc-950 rounded-md px-3 relative">
+                                <span>连续</span>
+                                <span class="absolute w-[60%] rounded-md h-[2px] bg-primary left-0 right-0 bottom-1 mx-auto"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="w-full p-2">1</div>
