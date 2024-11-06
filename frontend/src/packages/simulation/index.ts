@@ -126,6 +126,10 @@ export class Simulation {
         _this.onEngineResize();
         _this.onEngineEvent();
         _this.onEngineAnimate()
+
+        _this.loading_callback({
+            type: "init:engine:complete"
+        });
     }
 
     onLoadCode(lines: any){
