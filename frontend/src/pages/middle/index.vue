@@ -5,10 +5,47 @@
                 <div class="w-full h-full">1</div>
             </div>
             <div class="w-full h-[300px] border-t border-zinc-900">
-                <div class="w-full h-[45px] border-b border-zinc-900">
+                <div class="w-full h-[45px] border-b border-zinc-900 px-2">
                     <div class="w-full h-full flex flex-row items-center">
-                        <div class="w-full">1</div>
-                        <div class="w-full">2</div>
+                        <div class="w-full flex flex-row items-center space-x-2">
+                            <div class="w-auto">
+                                <Button class="w-auto px-2 text-muted-foreground" variant="outline" size="sm">
+                                    <FileCogIcon class="w-4 h-4 mr-1" />
+                                    <span class="min-w-[120px] line-clamp-1 text-left">default_ethercat_sim</span>
+                                </Button>
+                            </div>
+                            <div class="w-auto">
+                                <Button class="w-auto px-2 text-muted-foreground" variant="outline" size="sm">
+                                    <RefreshCwIcon class="w-4 h-4" />
+                                </Button>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-row items-center justify-center space-x-2">
+                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm">
+                                <span>X</span>
+                            </Button>
+                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm">
+                                <span>Y</span>
+                            </Button>
+                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm">
+                                <span>Z</span>
+                            </Button>
+                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm">
+                                <span>P</span>
+                            </Button>
+                        </div>
+                        <div class="w-full flex flex-row items-center justify-end space-x-2">
+                            <div class="w-auto">
+                                <Button class="w-auto px-2 text-muted-foreground" variant="outline" size="sm">
+                                    <ListEndIcon class="w-4 h-4" />
+                                </Button>
+                            </div>
+                            <div class="w-auto">
+                                <Button class="w-auto px-2 text-muted-foreground" variant="outline" size="sm">
+                                    <ListVideoIcon class="w-4 h-4" />
+                                </Button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="w-full h-[calc(100%-45px)] overflow-y-auto">
@@ -130,6 +167,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="w-full p-2">
+
+                    </div>
                     <div class="w-full bg-zinc-900/50 rounded-md p-2 space-y-1">
                         <div class="w-full h-8 leading-8 text-muted-foreground/50">步进长度(mm)</div>
                         <div class="w-full grid grid-cols-6 gap-2 text-center text-sm">
@@ -144,9 +184,7 @@
                             <div class="w-auto h-9 leading-9 bg-zinc-950 rounded-md px-3">连续</div>
                         </div>
                     </div>
-                    <div class="w-full p-2">
-
-                    </div>
+                    <div class="w-full p-2">1</div>
                 </div>
             </div>
         </div>
@@ -157,7 +195,7 @@
 import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "vue";
 import {Button} from "../../packages/york";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption} from "../../packages/york";
-import {MapPinIcon, MapPinnedIcon} from "lucide-vue-next";
+import {MapPinIcon, MapPinnedIcon, FileCogIcon, RefreshCwIcon, ListEndIcon, ListVideoIcon} from "lucide-vue-next";
 
 const props: any = defineProps<{
     data: any
