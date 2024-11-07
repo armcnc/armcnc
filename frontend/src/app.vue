@@ -40,7 +40,28 @@ const data: any = ref({
         status: false
     },
     middle: {
-        current: "index"
+        current: "index",
+        index: {
+            simulation: {
+                current_velocity: 0,
+                velocity: [],
+                g92_offset: [],
+                g5x_offset: [],
+                g_offset: [],
+                dtg_offset: [],
+                box: {
+                    x: 0,
+                    y: 0,
+                    z_min: 0,
+                    z_max: 0
+                },
+                tool: {
+                    id: 0,
+                    offset: 0.000,
+                    diameter: 0
+                }
+            }
+        }
     }
 });
 
