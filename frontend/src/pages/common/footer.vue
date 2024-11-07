@@ -22,7 +22,7 @@
             </div>
             <div class="w-auto flex flex-row items-center">
                 <ShieldIcon class="w-3 h-3 mr-1" />
-                <span>{{props.data.version}} {{props.data.mode}}</span>
+                <span>{{props.data.version}}{{props.data.mode ? " D" : ""}}</span>
             </div>
         </div>
     </div>
