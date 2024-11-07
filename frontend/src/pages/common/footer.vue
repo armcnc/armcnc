@@ -14,7 +14,7 @@
         <div class="w-full flex flex-row items-center justify-end space-x-3">
             <div class="w-auto flex flex-row items-center">
                 <MessageSquareMoreIcon class="w-3 h-3 mr-1" />
-                <span>已连接</span>
+                <span>{{props.data.backend.socket.status ? "已连接" : "未连接"}}</span>
             </div>
             <div class="w-auto flex flex-row items-center">
                 <MonitorIcon class="w-3 h-3 mr-1" />
