@@ -7,4 +7,4 @@ auth:
     getaway: https://gateway.armcnc.net
     token:
 machine:
-    path: default_ethercat_sim
+    path: default_gpio_sim
