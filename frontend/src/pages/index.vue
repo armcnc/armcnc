@@ -86,7 +86,7 @@ function onSocket(){
     const host = window.location.hostname;
     const port = window.location.port;
     if(!props.data.backend.socket.status){
-        props.data.backend.socket.connect = new WebSocket(props.data.mode ? "ws://192.168.31.58:1081/message/index" : `${protocol}://${host}${port ? ':' + port : ''}/backend/message/index`, undefined);
+        props.data.backend.socket.connect = new WebSocket(props.data.mode ? `ws://192.168.31.58:1081/message/index` : `ws://${host}:${port}/backend/message/index`, undefined);
         props.data.backend.socket.connect.onopen = function () {
             props.data.backend.socket.status = true;
         }
