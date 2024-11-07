@@ -1,6 +1,6 @@
 <template>
     <router-view ref="routerView" v-slot="{Component}">
-        <component :is="Component" :data="data" />
+        <component class="max-w-[1280px] max-h-[800px] mx-auto top-[calc(50%-400px)] border border-zinc-900" :is="Component" :data="data" />
     </router-view>
     <Toaster ref="toaster"></Toaster>
 </template>
