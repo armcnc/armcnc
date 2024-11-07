@@ -21,6 +21,7 @@ class Service:
     def __init__(self):
         self.socket = None
         self.status = False
+        self.handle = None
         self.task = threading.Thread(name="service_task", target=self.service_task)
         self.task.daemon = True
         self.task.start()
@@ -47,7 +48,8 @@ class Service:
         if self.socket is not None and self.status:
             message_json = json.loads(message)
             if message_json["command"]:
-                pass
+                if self.handle:
+                    self.handle(message_json)
 
     def service_error(self, ws, error):
         self.socket = None

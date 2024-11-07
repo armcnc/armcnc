@@ -78,7 +78,7 @@ function onDisconnectDevice(){
         props.data.backend.socket.connect = false;
         props.data.backend.socket.status = false;
     }
-    props.data.middle.current = "console";
+    props.data.middle.current = "dashboard";
 }
 
 function onSocket(){
@@ -87,10 +87,32 @@ function onSocket(){
         props.data.backend.socket.connect = new WebSocket(props.data.mode ? `ws://192.168.31.58:1081/message/index` : `ws://${host}:1081/message/index`, undefined);
         props.data.backend.socket.connect.onopen = function () {
             props.data.backend.socket.status = true;
+            props.data.middle.current = "dashboard";
         }
         props.data.backend.socket.connect.onmessage = function (message: any) {
-            let message_json = JSON.parse(message.data);
-            console.log(message_json);
+            let message_json: {command: string, data: any, message: any} = JSON.parse(message.data);
+            if(message_json.command){
+                if(message_json.command === "launch:restart"){
+
+                }
+                if(message_json.command === "program:open"){
+
+                }
+                if(message_json.command === "machine:info"){
+
+                }
+                if(message_json.command === "error"){
+                    let kind = [11];
+                    if(kind.includes(message_json.data)){
+                        let new_message = message_json.message.split(":");
+                        props.data.tools.toast({
+                            title: props.data.tools.language.t("status.toast.title"),
+                            description: (new_message.length > 1 ? new_message[1] : message_json.message),
+                            variant: "warning",
+                        });
+                    }
+                }
+            }
         };
         props.data.backend.socket.connect.onerror = function () {
             if(props.data.backend.socket.status){

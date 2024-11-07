@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import configparser
+import linuxcnc
+import threading
 
-class Machine:
+class Interface:
 
     def __init__(self):
-        self.user = "sunrise"
-        self.path = ""
-        self.workspace = "/opt/armcnc"
-        self.is_alive = False
-        self.info = None
+        self.service = None
+        self.machine = None
+
+

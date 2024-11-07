@@ -16,10 +16,13 @@ package handler
 
 import (
 	"encoding/json"
+	"github.com/armcnc/armcnc/backend/package/config"
+	"github.com/armcnc/armcnc/backend/package/launch"
 	"github.com/armcnc/armcnc/backend/package/socket"
 	"github.com/armcnc/armcnc/backend/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
+	"os"
 )
 
 func MessageIndex(c *gin.Context) {
@@ -53,6 +56,18 @@ func MessageIndex(c *gin.Context) {
 		err = json.Unmarshal(data, &message)
 		if err == nil {
 			if message.Command != "" {
+				if message.Command == "launch:restart" {
+					go func() {
+						launch.Get.Restart()
+					}()
+				}
+				if message.Command == "runtime:delete:file" {
+					go func() {
+						err := os.Remove(config.Get.Runtime + "/" + message.Data.(string))
+						if err != nil {
+						}
+					}()
+				}
 				socket.Get.SendMessage(message.Command, message.Message, message.Data)
 			}
 		}
