@@ -1,6 +1,6 @@
 <template>
     <router-view ref="routerView" v-slot="{Component}">
-        <component class="max-w-[1280px] max-h-[800px] mx-auto top-[calc(50%-400px)] border border-zinc-900" :is="Component" :data="data" />
+        <component :is="Component" :data="data" />
     </router-view>
     <Toaster ref="toaster"></Toaster>
 </template>
@@ -37,10 +37,14 @@ const data: any = ref({
         height: "-"
     },
     backend: {
-        status: false
+        status: false,
+        socket: {
+            status: false,
+            connect: false,
+        },
     },
     middle: {
-        current: "index",
+        current: "dashboard",
         index: {
             simulation: {
                 current_velocity: 0,
