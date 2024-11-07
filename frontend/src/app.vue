@@ -30,6 +30,7 @@ const data: any = ref({
         simulation: Simulation,
         toast: toast
     },
+    mode: import.meta.env.DEV ? "D" : "P",
     version: "-",
     platform: GetPlatform(),
     screen: {
