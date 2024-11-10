@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 import armcnc
 
 def armcnc_start(sdk):
-    print(2)
+    print(f"2")
     sdk.utils.log.ignore("armcnc_start")
     while not sdk.quit_event.is_set():
         pass
