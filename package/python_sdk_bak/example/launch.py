@@ -21,7 +21,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 import armcnc
 
 def armcnc_start(sdk):
-    print(2)
     sdk.utils.log.ignore("armcnc_start")
     while not sdk.quit_event.is_set():
         pass
@@ -30,9 +29,7 @@ def armcnc_message(sdk, message):
     sdk.utils.log.ignore("armcnc_message")
 
 def armcnc_exit(sdk):
-    print(3)
     sdk.utils.log.ignore("armcnc_exit")
 
 if __name__ == "__main__":
-    print(1)
     armcnc.Framework()

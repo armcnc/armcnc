@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 # Copyright 2024 ARMCNC, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,24 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import armcnc
+from .machine import Machine
+from .service import Service
 
-def armcnc_start(sdk):
-    print(2)
-    sdk.utils.log.ignore("armcnc_start")
-    while not sdk.quit_event.is_set():
-        pass
+class Packages:
 
-def armcnc_message(sdk, message):
-    sdk.utils.log.ignore("armcnc_message")
-
-def armcnc_exit(sdk):
-    print(3)
-    sdk.utils.log.ignore("armcnc_exit")
-
-if __name__ == "__main__":
-    print(1)
-    armcnc.Framework()
+    def __init__(self):
+        self.machine = Machine()
+        self.service = Service()

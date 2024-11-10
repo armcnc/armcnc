@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 # Copyright 2024 ARMCNC, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,24 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import armcnc
+class Config:
 
-def armcnc_start(sdk):
-    print(2)
-    sdk.utils.log.ignore("armcnc_start")
-    while not sdk.quit_event.is_set():
-        pass
+    def __init__(self):
+        self.workspace = "/opt/armcnc"
+        self.runtime = "{}/runtime".format(self.workspace)
+        self.path = ""
 
-def armcnc_message(sdk, message):
-    sdk.utils.log.ignore("armcnc_message")
+    def get_workspace(self):
+        return self.workspace
 
-def armcnc_exit(sdk):
-    print(3)
-    sdk.utils.log.ignore("armcnc_exit")
+    def get_runtime(self):
+        return self.runtime
 
-if __name__ == "__main__":
-    print(1)
-    armcnc.Framework()
+    def get_path(self):
+        return self.path
+
+    def set_path(self, path):
+        self.path = path
