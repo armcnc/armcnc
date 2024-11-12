@@ -16,7 +16,7 @@ class Config:
 
     def __init__(self):
         self.workspace = "/opt/armcnc"
-        self.runtime = "{}/runtime".format(self.workspace)
+        self.runtime = f"{self.workspace}/runtime"
         self.path = ""
 
     def get_workspace(self):

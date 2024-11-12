@@ -21,5 +21,4 @@ import (
 
 func Health(c *gin.Context) {
 	utils.Success(c, utils.EmptyData{})
-	return
 }

@@ -16,10 +16,11 @@ package command
 
 import (
 	"fmt"
+	"log"
+
 	"github.com/armcnc/armcnc/backend/package/version"
 	"github.com/gookit/color"
 	"github.com/spf13/cobra"
-	"log"
 )
 
 func Version() *cobra.Command {

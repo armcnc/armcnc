@@ -38,5 +38,4 @@ func Index(c *gin.Context) {
 	display.Get.Switch("on")
 
 	utils.Success(c, returnData)
-	return
 }

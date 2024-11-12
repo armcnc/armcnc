@@ -16,13 +16,14 @@ package handler
 
 import (
 	"encoding/json"
+	"os"
+
 	"github.com/armcnc/armcnc/backend/package/config"
 	"github.com/armcnc/armcnc/backend/package/launch"
 	"github.com/armcnc/armcnc/backend/package/socket"
 	"github.com/armcnc/armcnc/backend/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
-	"os"
 )
 
 func MessageIndex(c *gin.Context) {
@@ -74,5 +75,4 @@ func MessageIndex(c *gin.Context) {
 	}
 
 	utils.Log(c, "socket connection", utils.EmptyData{})
-	return
 }

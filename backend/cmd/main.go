@@ -16,11 +16,12 @@ package main
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/armcnc/armcnc/backend/cmd/command"
 	"github.com/armcnc/armcnc/backend/package/config"
 	"github.com/armcnc/armcnc/backend/package/version"
 	"github.com/spf13/cobra"
-	"os"
 )
 
 func main() {

@@ -16,9 +16,10 @@ package socket
 
 import (
 	"encoding/json"
-	"github.com/gorilla/websocket"
 	"net/http"
 	"sync"
+
+	"github.com/gorilla/websocket"
 )
 
 var Get = &Socket{}
