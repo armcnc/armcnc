@@ -42,8 +42,8 @@ class Framework:
         armcnc_start = "armcnc_start"
         if armcnc_start in dir(launch_file):
             var_name = "MACHINE_PATH"
+            print(os.environ)
             if var_name in os.environ:
-                print(os.environ)
                 env_var = os.environ[var_name]
                 if env_var != "":
                     self.config.set_path(env_var)
