@@ -17,6 +17,7 @@
 
 import os
 import sys
+sys.path.append("/usr/lib/python3/dist-packages")
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import armcnc
 
