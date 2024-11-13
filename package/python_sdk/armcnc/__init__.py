@@ -14,6 +14,7 @@
 
 import os
 import sys
+sys.path.append("/usr/lib/python3/dist-packages")
 import signal
 import threading
 import linuxcnc
@@ -22,8 +23,6 @@ from .utils import Utils
 from .service import Service
 from .machine import Machine
 import launch as launch_file
-
-sys.path.append("/usr/lib/python3/dist-packages")
 
 class Framework:
 
