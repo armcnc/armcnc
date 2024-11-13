@@ -58,10 +58,10 @@ class Machine:
                 except linuxcnc.error as detail:
                     self.service.service_write({"command": "machine:error", "message": detail, "data": False})
                 
-                # error = self.linuxcnc.error_channel().poll()
-                # if error:
-                #     kind, text = error
-                #     self.service.service_write({"command": "machine:error", "message": text, "data": kind})
+                error = self.linuxcnc.error_channel().poll()
+                if error:
+                    kind, text = error
+                    self.service.service_write({"command": "machine:error", "message": text, "data": kind})
 
                 self.info = {}
 
