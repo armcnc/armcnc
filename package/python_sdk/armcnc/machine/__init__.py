@@ -52,6 +52,7 @@ class Machine:
 
     def task_work(self):
         while True:
+            print(self.config)
             if self.status and self.config is not None and self.service is not None:
                 try:
                     self.stat.poll()
