@@ -18,6 +18,7 @@ class Config:
         self.workspace = "/opt/armcnc"
         self.runtime = f"{self.workspace}/runtime"
         self.path = ""
+        self.user = "sunrise"
 
     def get_workspace(self):
         return self.workspace

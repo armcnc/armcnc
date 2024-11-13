@@ -19,6 +19,7 @@ import threading
 from .config import Config
 from .utils import Utils
 from .service import Service
+from .machine import Machine
 import launch as launch_file
 
 class Framework:
@@ -29,6 +30,7 @@ class Framework:
         self.config = Config()
         self.utils = Utils()
         self.service = Service()
+        self.machine = Machine()
         self.quit_event = threading.Event()
         self.task = threading.Thread(name="task_work", target=self.task_work)
         self.task.daemon = True
@@ -44,11 +46,16 @@ class Framework:
                     self.config.set_path(env_var)
             getattr(launch_file, armcnc_start)(self)
         self.service.message_handle = self.server_message_handle
+        self.machine.config = self.config
+        self.machine.service = self.service
+        self.machine.start()
         while not self.quit_event.is_set():
             pass
         self.sigint_handler(False, False)
 
     def server_message_handle(self, message):
+        if message and message["command"] and message["command"] != "":
+            pass
         armcnc_message = "armcnc_message"
         if armcnc_message in dir(launch_file):
             getattr(launch_file, armcnc_message)(self, message)
