@@ -12,12 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import hal
 import time
 import copy
 import subprocess
 import threading
 import configparser
 import linuxcnc
+from .command import Command
 
 class Machine:
 
@@ -25,7 +27,9 @@ class Machine:
         self.config = None
         self.service = None
         self.linuxcnc = linuxcnc
+        self.hal = hal
         self.stat = self.linuxcnc.stat()
+        self.command = Command()
         self.info = None
         self.axes = []
         self.axes_tmp = ""
@@ -42,6 +46,8 @@ class Machine:
         linuxcnc_pid_result = linuxcnc_pid.communicate()[0]
         if len(linuxcnc_pid_result) != 0:
             self.status = True
+            self.command.machine = self
+            self.command.stat = self.stat
             self.service.service_write({"command": "machine:restart", "message": "", "data": True})
 
     def task_work(self):
@@ -52,6 +58,11 @@ class Machine:
                 except linuxcnc.error as detail:
                     self.service.service_write({"command": "machine:error", "message": detail, "data": False})
                 
+                error = self.linuxcnc.error_channel().poll()
+                if error:
+                    kind, text = error
+                    self.service.service_write({"command": "machine:error", "message": text, "data": kind})
+
                 self.info = {}
 
                 for item in dir(self.stat):
@@ -179,19 +190,19 @@ class Machine:
 
     def get_user_config_value(self, father, value):
         config = configparser.ConfigParser()
-        config.read(self.config.workspace + "/configs/" + self.config.path + "/machine.user")
+        config.read(f"{self.config.workspace}/configs/{self.config.path}/machine.user")
         return config[father][value].strip()
     
     def get_user_config_array(self, father):
         config = configparser.ConfigParser()
-        config.read(self.config.workspace + "/configs/" + self.config.path + "/machine.user")
+        config.read(f"{self.config.workspace}/configs/{self.config.path}/machine.user")
         items = config.items(father)
         return items
 
     def get_user_config_items(self, father):
         configs = {}
         config = configparser.ConfigParser()
-        config.read(self.config.workspace + "/configs/" + self.config.path + "/machine.user")
+        config.read(f"{self.config.workspace}/configs/{self.config.path}/machine.user")
         items = config.items(father)
         for key, val in items:
             key = key.upper()
