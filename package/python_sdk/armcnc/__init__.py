@@ -23,6 +23,8 @@ from .service import Service
 from .machine import Machine
 import launch as launch_file
 
+sys.path.append("/usr/lib/python3/dist-packages")
+
 class Framework:
 
     def __init__(self):
