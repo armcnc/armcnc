@@ -33,10 +33,10 @@ class Framework:
         self.utils = Utils()
         self.service = Service()
         self.machine = Machine()
-        self.quit_event = threading.Event()
-        self.task = threading.Thread(name="task_work", target=self.task_work)
-        self.task.daemon = True
-        self.task.start()
+        # self.task = threading.Thread(name="task_work", target=self.task_work)
+        # self.task.daemon = True
+        # self.task.start()
+        self.task_work()
 
     def task_work(self):
         armcnc_start = "armcnc_start"
@@ -46,14 +46,12 @@ class Framework:
                 env_var = os.environ[var_name]
                 if env_var != "":
                     self.config.set_path(env_var)
+                    self.service.message_handle = self.server_message_handle
+                    self.machine.config = self.config
+                    self.machine.service = self.service
+                    self.machine.start()
             getattr(launch_file, armcnc_start)(self)
-        self.service.message_handle = self.server_message_handle
-        self.machine.config = self.config
-        self.machine.service = self.service
-        self.machine.start()
-        while not self.quit_event.is_set():
-            pass
-        self.sigint_handler(False, False)
+        self.signal_handler(False, False)
 
     def server_message_handle(self, message):
         self.machine_message_handle(message)
@@ -154,14 +152,15 @@ class Framework:
                     if self.machine.stat.task_state == linuxcnc.STATE_OFF or self.machine.stat.task_state == linuxcnc.STATE_ESTOP_RESET:
                         self.machine.command.api.state(linuxcnc.STATE_ON)
                 self.machine.command.api.wait_complete(0.5)
-            if message["command"] == "desktop:control:mdi":
+            if message["command"] == "client:machine:mdi":
                 value = message["data"]["value"]
                 if value != "":
                     self.machine.command.set_mdi(value)
 
     def sigint_handler(self, signum, frame):
+        self.service.service_write({"command": "client:restart", "message": "", "data": False})
         armcnc_exit = "armcnc_exit"
         if armcnc_exit in dir(launch_file):
             getattr(launch_file, armcnc_exit)(self)
-        self.quit_event.set()
+        self.machine.status = False
         sys.exit()
