@@ -44,6 +44,7 @@ class Framework:
             var_name = "MACHINE_PATH"
             if var_name in os.environ:
                 env_var = os.environ[var_name]
+                print(env_var)
                 if env_var != "":
                     self.config.set_path(env_var)
                     self.service.message_handle = self.server_message_handle
