@@ -5,7 +5,7 @@ import armcnc
 
 def armcnc_start(sdk):
     sdk.utils.log.ignore("armcnc_start")
-    while not sdk.quit_event.is_set():
+    while True:
         pass
 
 def armcnc_message(sdk, message):
