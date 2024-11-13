@@ -114,6 +114,8 @@ python3 setup.py sdist bdist_wheel
 
 ```shell
 twine upload dist/*
+# or
+python3 -m twine upload dist/*
 ```
 
 ### rdk_x5_gpio
