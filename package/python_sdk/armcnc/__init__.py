@@ -33,12 +33,9 @@ class Framework:
         self.utils = Utils()
         self.service = Service()
         self.machine = Machine()
-        # self.task = threading.Thread(name="task_work", target=self.task_work)
-        # self.task.daemon = True
-        # self.task.start()
-        self.task_work()
+        self.start()
 
-    def task_work(self):
+    def start(self):
         armcnc_start = "armcnc_start"
         if armcnc_start in dir(launch_file):
             var_name = "MACHINE_PATH"
