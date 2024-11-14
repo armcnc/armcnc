@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import sys
 import logging
 import colorlog
 
@@ -31,8 +32,9 @@ class Loging:
             "CRITICAL": "purple",
         }
         console_formatter = colorlog.ColoredFormatter(fmt=console_fmt, log_colors=color_config)
-        console_handler = logging.StreamHandler()
+        console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setFormatter(console_formatter)
+        console_handler.setStream(sys.stdout) 
         self.logger.addHandler(console_handler)
 
     def ignore(self, log):
