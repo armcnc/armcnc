@@ -100,6 +100,7 @@ function onSocket(){
                 }
                 if(message_json.command === "machine:data"){
                     props.data.backend.status = true;
+                    props.data.middle.index.simulation.time = message_json.data.format_data.time;
                 }
                 if(message_json.command === "machine:error"){
                     let kind = [11];

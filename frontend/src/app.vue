@@ -64,7 +64,8 @@ const data: any = ref({
                     id: 0,
                     offset: 0.000,
                     diameter: 0
-                }
+                },
+                time: Math.floor(Date.now() / 1000)
             }
         }
     }
