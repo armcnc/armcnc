@@ -163,6 +163,8 @@ class Machine:
                     else:
                         self.task_state = False
                     
+                    info_data["time"] = time.time()
+                    
                     self.info["format_data"] = info_data
 
                     self.service.service_write({"command": "machine:data", "message": "", "data": self.info})

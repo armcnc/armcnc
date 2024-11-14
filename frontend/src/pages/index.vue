@@ -99,7 +99,7 @@ function onSocket(){
 
                 }
                 if(message_json.command === "machine:data"){
-                    
+                    props.data.backend.status = true;
                 }
                 if(message_json.command === "machine:error"){
                     let kind = [11];
@@ -133,7 +133,6 @@ function onService(){
             if (request.data.code === 0) {
                 const data = request.data.data;
                 onSocket();
-                props.data.backend.status = true;
                 setTimeout(()=>{
                     props.data.screen.width = window.innerWidth;
                     props.data.screen.height = window.innerHeight;
