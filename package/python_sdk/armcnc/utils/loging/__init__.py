@@ -40,7 +40,7 @@ class Loging:
     def ignore(self, log):
         self.logger.debug(log)
         if self.service is not None:
-            self.service.service_write({"command": "log:debug", "message": log, "data": False})
+            self.service.service_write({"command": "log:ignore", "message": log, "data": False})
 
     def debug(self, log):
         self.logger.debug(log)
