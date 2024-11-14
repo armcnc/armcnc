@@ -92,16 +92,16 @@ function onSocket(){
         props.data.backend.socket.connect.onmessage = function (message: any) {
             let message_json: {command: string, data: any, message: any} = JSON.parse(message.data);
             if(message_json.command){
-                if(message_json.command === "launch:restart"){
+                if(message_json.command === "machine:restart"){
 
                 }
                 if(message_json.command === "program:open"){
 
                 }
-                if(message_json.command === "machine:info"){
-
+                if(message_json.command === "machine:data"){
+                    console.log(message_json.data);
                 }
-                if(message_json.command === "error"){
+                if(message_json.command === "machine:error"){
                     let kind = [11];
                     if(kind.includes(message_json.data)){
                         let new_message = message_json.message.split(":");
