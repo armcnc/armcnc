@@ -17,7 +17,7 @@ import colorlog
 
 class Loging:
 
-    def __init__(self, utils):
+    def __init__(self):
         self.service = None
         self.logger = logging.getLogger(None)
         self.logger.handlers = []

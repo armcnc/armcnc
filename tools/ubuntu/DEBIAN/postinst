@@ -25,14 +25,14 @@ if [ ! -d "/opt/armcnc/.venv" ]; then
     cd /opt/armcnc
     python3 -m venv .venv
     source .venv/bin/activate && pip install --upgrade pip
-    pip install logging numpy==1.26.4 openai pyserial pyusb requests websocket-client==0.48.0
+    pip install colorlog logging numpy==1.26.4 openai pyserial pyusb requests websocket-client==0.48.0
     pip install --upgrade armcnc -i https://mirrors.aliyun.com/pypi/simple
     deactivate
 else
     # shellcheck disable=SC2164
     cd /opt/armcnc
     source .venv/bin/activate && pip install --upgrade pip
-    pip install logging numpy==1.26.4 openai pyserial pyusb requests websocket-client==0.48.0
+    pip install colorlog logging numpy==1.26.4 openai pyserial pyusb requests websocket-client==0.48.0
     pip install --upgrade armcnc -i https://mirrors.aliyun.com/pypi/simple
     deactivate
 fi
