@@ -163,7 +163,7 @@ class Machine:
                     else:
                         self.task_state = False
                     
-                    info_data["time"] = time.time()
+                    info_data["time"] = int(time.time() * 1000)
                     
                     self.info["format_data"] = info_data
 
