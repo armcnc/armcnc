@@ -16,7 +16,6 @@ import os
 import sys
 sys.path.append("/usr/lib/python3/dist-packages")
 import signal
-import threading
 import linuxcnc
 from .config import Config
 from .utils import Utils
