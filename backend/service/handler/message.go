@@ -38,7 +38,7 @@ func MessageIndex(c *gin.Context) {
 		utils.Warning(c, 10000, "Failed to upgrade to socket", utils.EmptyData{})
 		return
 	}
-	defer conn.Close()
+	// defer conn.Close()
 
 	if !socket.Get.Status {
 		socket.Get.User = make(map[*websocket.Conn]bool)
