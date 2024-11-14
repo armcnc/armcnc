@@ -18,6 +18,7 @@ class Command:
 
     def __init__(self):
         self.linuxcnc = linuxcnc
+        self.service = None
         self.machine = None
         self.stat = None
         self.api = self.linuxcnc.command()

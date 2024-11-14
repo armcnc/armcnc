@@ -43,6 +43,7 @@ class Framework:
                 env_var = os.environ[var_name]
                 if env_var != "":
                     self.config.set_path(env_var)
+                    self.utils.log.service = self.service
                     self.service.message_handle = self.server_message_handle
                     self.machine.config = self.config
                     self.machine.service = self.service

@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import sys
 import hal
 import time
 import copy
@@ -20,6 +21,7 @@ import threading
 import configparser
 import linuxcnc
 from .command import Command
+from .error import Error
 
 class Machine:
 
@@ -30,6 +32,7 @@ class Machine:
         self.hal = hal
         self.stat = self.linuxcnc.stat()
         self.command = Command()
+        self.error = Error()
         self.info = None
         self.axes = []
         self.axes_tmp = ""
@@ -37,32 +40,34 @@ class Machine:
         self.data = {"index": 0, "position": {}, "velocity": {}, "g_offset": {}, "g5x_offset": {}, "g92_offset": {}, "dtg_offset": {}, "tool": {}, "options": []}
         self.status = False
         self.task_state = False
-        self.task = threading.Thread(name="task_work", target=self.task_work)
-        self.task_time_sleep = 0.05
+        self.task = threading.Thread(name="machine_task_work", target=self.machine_task_work)
+        self.task_time_sleep = 0.02
         self.task.daemon = True
         self.task.start()
     
     def start(self):
         linuxcnc_pid = subprocess.Popen(["pidof", "-x", "linuxcnc"], stdout=subprocess.PIPE)
         linuxcnc_pid_result = linuxcnc_pid.communicate()[0]
-        if len(linuxcnc_pid_result) != 0:
-            self.status = True
+        if len(linuxcnc_pid_result) == 0:
+            self.service.service_write({"command": "machine:error", "message": "", "data": False})
+            sys.exit()
+        else:
             self.command.machine = self
+            self.command.service = self.service
             self.command.stat = self.stat
+            self.error.machine = self
+            self.error.service = self.service
+            self.error.stat = self.stat
+            self.status = True
             self.service.service_write({"command": "machine:restart", "message": "", "data": True})
 
-    def task_work(self):
+    def machine_task_work(self):
         while True:
             if self.status and self.config is not None and self.service is not None:
                 try:
                     self.stat.poll()
                 except linuxcnc.error as detail:
                     self.service.service_write({"command": "machine:error", "message": detail, "data": False})
-                
-                error = self.linuxcnc.error_channel().poll()
-                if error:
-                    kind, text = error
-                    self.service.service_write({"command": "machine:error", "message": text, "data": kind})
 
                 self.info = {}
 

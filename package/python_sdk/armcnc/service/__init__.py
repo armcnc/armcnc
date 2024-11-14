@@ -22,11 +22,11 @@ class Service:
         self.socket = None
         self.status = False
         self.message_handle = None
-        self.task = threading.Thread(name="task_work", target=self.task_work)
+        self.task = threading.Thread(name="service_task_work", target=self.service_task_work)
         self.task.daemon = True
         self.task.start()
 
-    def task_work(self):
+    def service_task_work(self):
         websocket.enableTrace(False)
         self.socket = websocket.WebSocketApp(
             "ws://127.0.0.1:1081/message/index",
