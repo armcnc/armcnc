@@ -9,7 +9,7 @@ def armcnc_start(sdk):
         pass
 
 def armcnc_message(sdk, message):
-    sdk.utils.log.ignore("armcnc_message")
+    pass
 
 def armcnc_exit(sdk):
     sdk.utils.log.ignore("armcnc_exit")

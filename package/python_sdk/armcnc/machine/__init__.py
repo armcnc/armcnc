@@ -41,7 +41,7 @@ class Machine:
         self.status = False
         self.task_state = False
         self.task = threading.Thread(name="machine_task_work", target=self.machine_task_work)
-        self.task_time_sleep = 0.02
+        self.task_time_sleep = 0.05
         self.task.daemon = True
         self.task.start()
     
@@ -166,7 +166,6 @@ class Machine:
                     self.info["format_data"] = info_data
 
                     self.service.service_write({"command": "machine:data", "message": "", "data": self.info})
-            
             time.sleep(self.task_time_sleep)
 
     def set_data(self, index):

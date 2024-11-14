@@ -25,7 +25,7 @@ class Error:
         self.stat = None
         self.api = self.linuxcnc.error_channel()
         self.task = threading.Thread(name="machine_error_task_work", target=self.machine_error_task_work)
-        self.task_time_sleep = 0.05
+        self.task_time_sleep = 0.02
         self.task.daemon = True
         self.task.start()
     
@@ -36,6 +36,5 @@ class Error:
                 if error:
                     kind, text = error
                     self.service.service_write({"command": "machine:error", "message": text, "data": kind})
-
             time.sleep(self.task_time_sleep)
 

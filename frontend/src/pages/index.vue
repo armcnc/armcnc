@@ -91,6 +91,7 @@ function onSocket(){
         }
         props.data.backend.socket.connect.onmessage = function (message: any) {
             let message_json: {command: string, data: any, message: any} = JSON.parse(message.data);
+            console.log(message_json);
             if(message_json.command){
                 if(message_json.command === "machine:restart"){
 
@@ -99,7 +100,7 @@ function onSocket(){
 
                 }
                 if(message_json.command === "machine:data"){
-                    console.log(message_json.data);
+                    
                 }
                 if(message_json.command === "machine:error"){
                     let kind = [11];
