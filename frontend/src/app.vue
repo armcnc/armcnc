@@ -2,7 +2,7 @@
     <router-view ref="routerView" v-slot="{Component}">
         <component :is="Component" :data="data" />
     </router-view>
-    <Toaster ref="toaster"></Toaster>
+    <Toaster class="z-[50000]" ref="toaster"></Toaster>
 </template>
 
 <script setup lang="ts">
