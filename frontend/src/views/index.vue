@@ -78,7 +78,7 @@ function onDisconnectDevice(){
         props.data.backend.socket.connect = false;
         props.data.backend.socket.status = false;
     }
-    props.data.middle.current = "dashboard";
+    props.data.current = "dashboard";
 }
 
 function onProgram(file: string){
@@ -106,7 +106,8 @@ function onSocket(){
                 }
                 if(message_json.command === "machine:program:open"){
                     if(message_json.data.status){
-
+                        props.data.machine.data.file = message_json.data.file;
+                        onProgram(props.data.machine.data.file);
                     }else{
                         props.data.tools.toast({
                             title: props.data.tools.language.t("status.toast.title"),
@@ -118,6 +119,7 @@ function onSocket(){
                 if(message_json.command === "machine:data"){
                     props.data.backend.status = true;
                     props.data.machine.data = message_json.data;
+                    props.data.machine.path = props.data.machine.data.format_data.machine_path;
                     props.data.machine.current_velocity = parseFloat(props.data.machine.data.format_data.current_velocity) * 60;
                     props.data.machine.velocity = props.data.machine.data.format_data.data.velocity;
                     props.data.machine.g92_offset = props.data.machine.data.format_data.data.g92_offset;
@@ -234,13 +236,12 @@ function onSocket(){
                         if(props.data.machine.data.file === ""){
                             props.data.machine.data.file = "armcnc.ngc";
                             let file_part = props.data.machine.data.file.split("/");
-                            props.data.machine.data.file = file_part.pop();
-                            let message = {command: "client:program:open", data: props.data.machine.data.file};
+                            props.data.machine.file = file_part.pop();
+                            let message = {command: "client:machine:program:open", data: props.data.machine.data.file};
                             props.data.backend.socket.connect.send(JSON.stringify(message));
                         }else{
                             let file_part = props.data.machine.data.file.split("/");
-                            props.data.machine.data.file = file_part.pop();
-                            // TODO 请求G代码
+                            props.data.machine.file = file_part.pop();
                             onProgram(props.data.machine.data.file);
                         }
                         props.data.machine.is_first = false;
@@ -343,10 +344,6 @@ function onService(){
             if (request.data.code === 0) {
                 const data = request.data.data;
                 onSocket();
-                setTimeout(()=>{
-                    props.data.screen.width = window.innerWidth;
-                    props.data.screen.height = window.innerHeight;
-                }, 5000);
             }else{
                 props.data.tools.toast({
                     title: props.data.tools.language.t("status.toast.title"),

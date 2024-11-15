@@ -33,10 +33,6 @@ const data: any = ref({
     mode: import.meta.env.DEV,
     version: "-",
     platform: GetPlatform(),
-    screen: {
-        width: "-",
-        height: "-"
-    },
     backend: {
         status: false,
         socket: {
@@ -46,6 +42,7 @@ const data: any = ref({
     },
     current: "dashboard",
     machine: {
+        path: "-",
         file: "",
         data: false,
         is_first: true,

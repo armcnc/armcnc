@@ -3,7 +3,7 @@
         <div class="w-full flex flex-row items-center space-x-3">
             <div class="w-auto flex flex-row items-center">
                 <FileCogIcon class="w-3 h-3 mr-1" />
-                <span>default_ethercat_sim</span>
+                <span>{{props.data.machine.path}}</span>
             </div>
             <div class="w-auto flex flex-row items-center">
                 <ListCheckIcon class="w-3 h-3 mr-1" />
@@ -19,7 +19,7 @@
             </div>
             <div class="w-auto flex flex-row items-center">
                 <MonitorIcon class="w-3 h-3 mr-1" />
-                <span>{{props.data.platform}} {{props.data.screen.width + " " + props.data.screen.height}}</span>
+                <span>{{props.data.platform}}</span>
             </div>
             <div class="w-auto flex flex-row items-center">
                 <ShieldIcon class="w-3 h-3 mr-1" />
