@@ -28,8 +28,8 @@
         </div>
         <div class="w-full flex flex-row items-center justify-end space-x-2 pr-[14px]">
             <div class="w-auto">
-                <Button class="px-7 text-muted-foreground" variant="outline" size="lg" :class="props.data.machine.state.estop" :disabled="props.data.machine.state.estop === 'disabled'" @click="onEmergencyStop">
-                    <PowerOffIcon class="w-4 h-4 mr-2 text-red-500" />
+                <Button class="px-7" variant="destructive" size="lg" :class="props.data.machine.state.estop" :disabled="props.data.machine.state.estop === 'disabled'" @click="onEmergencyStop">
+                    <PowerOffIcon class="w-4 h-4 mr-2" />
                     <span>急停</span>
                 </Button>
             </div>
