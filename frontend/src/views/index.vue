@@ -1,6 +1,6 @@
 <template>
-    <div class="fixed w-[1280px] h-[800px] mx-auto top-[calc(50%-400px)] left-0 right-0 border border-zinc-900 z-[10000]">
-        <div class="grid gap-0 grid-cols-1 absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-zinc-950 z-[50000]" v-if="!props.data.backend.status">
+    <div class="fixed w-[1280px] h-[800px] mx-auto top-[calc(50%-400px)] left-0 right-0 border border-zinc-900 z-[1000]">
+        <div class="grid gap-0 grid-cols-1 absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-zinc-950 z-[2000]" v-if="!props.data.backend.status">
             <div class="w-5 h-5 m-auto items-center">
                 <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
