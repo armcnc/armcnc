@@ -81,8 +81,8 @@ function onDisconnectDevice(){
     props.data.middle.current = "dashboard";
 }
 
-function onProgram(){
-    
+function onProgram(file: string){
+    console.log(file);
 }
 
 function onSocket(){
@@ -241,6 +241,7 @@ function onSocket(){
                             let file_part = props.data.machine.data.file.split("/");
                             props.data.machine.data.file = file_part.pop();
                             // TODO 请求G代码
+                            onProgram(props.data.machine.data.file);
                         }
                         props.data.machine.is_first = false;
                     }
