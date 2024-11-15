@@ -1,7 +1,9 @@
-import { defineConfig } from "vite";
+import {fileURLToPath, URL} from "node:url";
+import {defineConfig} from "vite";
 import vue from "@vitejs/plugin-vue";
 import tailwind from "tailwindcss";
 import autoprefixer from "autoprefixer";
+import vueDevTools from "vite-plugin-vue-devtools";
 import Package from "./package.json";
 
 const timestamp = (length: number)=>{
@@ -20,6 +22,7 @@ export default defineConfig(({mode}) => ({
 		__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "true",
 		__APP_NAME__: JSON.stringify(Package.title),
 		__APP_VERSION__: JSON.stringify(Package.version),
+		__VITE_DEV_HOST__: JSON.stringify(Package.env.VITE_DEV_HOST),
 	},
 	esbuild: {
 		drop: mode === "production" ? ["console", "debugger"] : [],
@@ -34,13 +37,14 @@ export default defineConfig(({mode}) => ({
 				}
 			}
 		),
+		vueDevTools(),
 	],
 	server: {
 		host: Package.env.VITE_DEV_SERVER_HOST,
 		port: Package.env.VITE_DEV_SERVER_PORT,
 		proxy: {
 			"/backend": {
-				target: "http://192.168.31.58:1081",
+				target: "http://" + Package.env.VITE_DEV_HOST + ":1081",
 				secure: false,
 				changeOrigin: true,
 				rewrite: (path: any) => path.replace(/^\/backend/, '')
@@ -88,7 +92,9 @@ export default defineConfig(({mode}) => ({
 		}
 	},
 	resolve: {
-		alias: {}
+		alias: {
+			"@": fileURLToPath(new URL("./src", import.meta.url))
+		}
 	}
 }));
 

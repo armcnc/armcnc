@@ -60,7 +60,11 @@ class Framework:
         if message and message["command"] and message["command"] != "":
             if message["command"] == "client:machine:program:open":
                 if message["data"] != "":
-                    pass
+                    try:
+                        self.machine.command.api.program_open(self.config.get_workspace() + "/programs/" + message["data"])
+                    except linuxcnc.error as e:
+                        self.service.service_write({"command": "machine:program:open", "message": "", "data": {"status": False, "file": message["data"]}})
+                        self.machine.command.set_mode(linuxcnc.MODE_MANUAL, 0.5)
             if message["command"] == "client:machine:estop":
                 self.machine.stat.poll()
                 if self.machine.stat.task_state == linuxcnc.STATE_ESTOP:

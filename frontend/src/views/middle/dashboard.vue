@@ -11,7 +11,7 @@
                             <div class="w-auto">
                                 <Button class="w-auto px-2 text-muted-foreground" variant="outline" size="sm">
                                     <FileCogIcon class="w-4 h-4 mr-1" />
-                                    <span class="min-w-[120px] line-clamp-1 text-left">default_ethercat_sim</span>
+                                    <span class="min-w-[120px] line-clamp-1 text-left">armcnc.nc</span>
                                 </Button>
                             </div>
                             <div class="w-auto">
@@ -107,40 +107,20 @@
                             <TableHeader class="bg-violet-700/10 border border-violet-900/50 border-none">
                                 <TableRow class="border-none text-sm">
                                     <TableHead class="h-9 w-[50px] text-center">轴</TableHead>
-                                    <TableHead class="h-9 w-[100px] text-center">坐标(mm)</TableHead>
+                                    <TableHead class="h-9 w-[100px] text-center">坐标({{props.data.machine.linear_units}})</TableHead>
                                     <TableHead class="h-9 w-[80px] text-center">回零</TableHead>
                                     <TableHead class="h-9 w-[100px] text-center">原点偏移</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody class="text-base">
-                                <TableRow class="border-none hover:bg-violet-700/5">
-                                    <TableCell class="h-12 text-center">X</TableCell>
-                                    <TableCell class="h-12 text-center">-33.462</TableCell>
+                                <TableRow class="border-none hover:bg-violet-700/5" v-for="(item, index) in props.data.machine.axes" :key="index">
+                                    <TableCell class="h-12 text-center">{{item.name}}</TableCell>
+                                    <TableCell class="h-12 text-center">{{item.position.toFixed(3)}}</TableCell>
                                     <TableCell class="h-12">
                                         <MapPinIcon class="w-5 h-5 mx-auto" />
                                     </TableCell>
                                     <TableCell class="h-12 text-center p-1">
-                                        <div class="w-full h-8 rounded-md border border-violet-900/20 leading-8 text-center text-sm">0.000</div>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow class="border-none hover:bg-violet-700/5">
-                                    <TableCell class="h-12 text-center">Y</TableCell>
-                                    <TableCell class="h-12 text-center">-0.037</TableCell>
-                                    <TableCell class="h-12">
-                                        <MapPinIcon class="w-5 h-5 mx-auto" />
-                                    </TableCell>
-                                    <TableCell class="h-12 text-center p-1">
-                                        <div class="w-full h-8 rounded-md border border-violet-900/20 leading-8 text-center text-sm">0.000</div>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow class="border-none hover:bg-violet-700/5">
-                                    <TableCell class="text-center">Z</TableCell>
-                                    <TableCell class="h-12 text-center">0.273</TableCell>
-                                    <TableCell class="h-12">
-                                        <MapPinIcon class="w-5 h-5 mx-auto" />
-                                    </TableCell>
-                                    <TableCell class="h-12 text-center p-1">
-                                        <div class="w-full h-8 rounded-md border border-violet-900/20 leading-8 text-center text-sm">0.000</div>
+                                        <div class="w-full h-8 rounded-md border border-violet-900/20 leading-8 text-center text-sm">{{parseFloat(props.data.machine.g5x_offset[item.index]).toFixed(3)}}</div>
                                     </TableCell>
                                 </TableRow>
                             </TableBody>
@@ -169,84 +149,23 @@
                     </div>
                     <div class="w-full p-2">
                         <div class="w-[300px] grid grid-cols-4 gap-3 mx-auto">
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col border-none" disabled variant="outline" size="icon"></Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col" variant="outline" size="icon">
+                            <Button class="w-full h-[55px] text-muted-foreground flex-col" :class="item.hide ? 'border-none' : ''" :disabled="item.hide" variant="outline" size="icon" v-for="(item, index) in props.data.machine.rocker.items" :key="index">
                                 <span>
-                                    <ChevronUpIcon class="w-4 h-4" />
+                                    <ChevronUpIcon class="w-4 h-4" v-if="item.arrow === 'up'" />
+                                    <ChevronDownIcon class="w-4 h-4" v-if="item.arrow === 'down'" />
+                                    <ChevronLeftIcon class="w-4 h-4" v-if="item.arrow === 'left'" />
+                                    <ChevronRightIcon class="w-4 h-4" v-if="item.arrow === 'right'" />
                                 </span>
-                                <span>Y</span>
-                            </Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col border-none" disabled variant="outline" size="icon"></Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col" variant="outline" size="icon">
-                                <span>
-                                    <ChevronUpIcon class="w-4 h-4" />
-                                </span>
-                                <span>Z</span>
-                            </Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col" variant="outline" size="icon">
-                                <span>
-                                    <ChevronLeftIcon class="w-4 h-4" />
-                                </span>
-                                <span>X</span>
-                            </Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col" variant="outline" size="icon">
-                                <span>
-                                    <ChevronDownIcon class="w-4 h-4" />
-                                </span>
-                                <span>Y</span>
-                            </Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col" variant="outline" size="icon">
-                                <span>
-                                    <ChevronRightIcon class="w-4 h-4" />
-                                </span>
-                                <span>X</span>
-                            </Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col" variant="outline" size="icon">
-                                <span>
-                                    <ChevronDownIcon class="w-4 h-4" />
-                                </span>
-                                <span>Z</span>
-                            </Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col" variant="outline" size="icon">
-                                <span>
-                                    <ChevronLeftIcon class="w-4 h-4" />
-                                </span>
-                                <span>B</span>
-                            </Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col" variant="outline" size="icon">
-                                <span>
-                                    <ChevronRightIcon class="w-4 h-4" />
-                                </span>
-                                <span>B</span>
-                            </Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col" variant="outline" size="icon">
-                                <span>
-                                    <ChevronLeftIcon class="w-4 h-4" />
-                                </span>
-                                <span>C</span>
-                            </Button>
-                            <Button class="w-full h-[55px] text-muted-foreground flex-col" variant="outline" size="icon">
-                                <span>
-                                    <ChevronRightIcon class="w-4 h-4" />
-                                </span>
-                                <span>C</span>
+                                <span>{{item.name}}</span>
                             </Button>
                         </div>
                     </div>
                     <div class="w-full bg-zinc-900/50 rounded-md p-2 space-y-1">
-                        <div class="w-full h-8 leading-8 text-muted-foreground/50">步进长度(mm)</div>
+                        <div class="w-full h-8 leading-8 text-muted-foreground/50">步进长度({{props.data.machine.linear_units}})</div>
                         <div class="w-full grid grid-cols-6 gap-2 text-center text-sm">
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">10</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">5</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">1</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">0.5</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">0.1</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">0.05</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">0.01</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative">0.005</div>
-                            <div class="w-auto h-9 leading-9 bg-zinc-950 rounded-md px-3 relative">
-                                <span>连续</span>
-                                <span class="absolute w-[60%] rounded-md h-[2px] bg-primary left-0 right-0 bottom-1 mx-auto"></span>
+                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative" :class="props.data.machine.step.value === item.value ? 'bg-zinc-950' : ''" v-for="(item, index) in props.data.machine.step.items" :key="index">
+                                <span>{{item.label}}</span>
+                                <span class="absolute w-[60%] rounded-md h-[2px] bg-primary left-0 right-0 bottom-1 mx-auto" v-if="props.data.machine.step.value === item.value"></span>
                             </div>
                         </div>
                     </div>

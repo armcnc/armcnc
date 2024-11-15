@@ -12,19 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {createRouter, createWebHistory } from "vue-router";
-import Index from "../../views/index.vue";
+import {defineStore} from "pinia";
+import {ref} from "vue";
 
-const routes: any = [
-    {
-        path: "/",
-        name: "Index",
-        component: Index,
-        children:[]
+export const useBaseStore = defineStore("base", ()=>{
+    const store = ref({
+        count: 0
+    });
+
+    function $reset(){
+        store.value.count = 0;
     }
-]
 
-export const Router = createRouter({
-    history: createWebHistory(),
-    routes: routes
-});
+    return {store, $reset}
+})

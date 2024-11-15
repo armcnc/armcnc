@@ -24,18 +24,6 @@ export default {
         copy_error: "Copy Error",
         function_disabled: "This function is temporarily unavailable",
         service_exception: "Service exception",
-        illegal_request: "Illegal request",
-        authorization_failed: "Authorization failed",
-        not_account: "Account exception",
-        email_format_not: "Email format incorrect",
-        email_exists: "Email has already been used",
-        email_or_code_error: "Email or verification code error",
-        email_or_password_error: "Email or password error",
-        no_login: "Not logged in",
-        project_creation_failed: "Project creation failed",
-        please_create_project: "Please create a project",
-        please_select_project: "Please select a project",
-        connection_already_exists: "Connection already exists",
-        insufficient_points_balance: "Insufficient points balance"
+        illegal_request: "Illegal request"
     }
 }

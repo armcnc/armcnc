@@ -12,19 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {createRouter, createWebHistory } from "vue-router";
-import Index from "../../views/index.vue";
-
-const routes: any = [
-    {
-        path: "/",
-        name: "Index",
-        component: Index,
-        children:[]
-    }
-]
-
-export const Router = createRouter({
-    history: createWebHistory(),
-    routes: routes
-});
+export {useBaseStore} from "./base";

@@ -44,30 +44,187 @@ const data: any = ref({
             connect: false,
         },
     },
-    middle: {
-        current: "dashboard",
-        index: {
-            simulation: {
-                current_velocity: 0,
-                velocity: [],
-                g92_offset: [],
-                g5x_offset: [],
-                g_offset: [],
-                dtg_offset: [],
-                box: {
-                    x: 0,
-                    y: 0,
-                    z_min: 0,
-                    z_max: 0
-                },
-                tool: {
-                    id: 0,
-                    offset: 0.000,
-                    diameter: 0
-                },
-                time: Math.floor(Date.now() / 1000)
+    current: "dashboard",
+    machine: {
+        file: "",
+        data: false,
+        is_first: true,
+        axes: [],
+        home: "",
+        homed: false,
+        relative_offset: "",
+        linear_units: "-",
+        angular_units: "-",
+        current_velocity: 0,
+        velocity: [],
+        g92_offset: [],
+        g5x_offset: [],
+        g_offset: [],
+        dtg_offset: [],
+        box: {
+            x: 0,
+            y: 0,
+            z_min: 0,
+            z_max: 0
+        },
+        tool: {
+            id: 0,
+            offset: 0.000,
+            diameter: 0
+        },
+        offset: {
+            index: 0,
+            options: [
+                {
+                    label: "坐标系",
+                    value: 0,
+                    name: "",
+                    p_name: ""
+                }
+            ]
+        },
+        spindle: {
+            enabled: 0,
+            direction: 0,
+            min_velocity: 0,
+            max_velocity: 0,
+            default_speed: 0,
+            speed: 0,
+            min_override: 0,
+            max_override: 0,
+            override: 100
+        },
+        feed: {
+            override: 100,
+            max_override: 0
+        },
+        max_linear_velocity: 0,
+        max_velocity: 0,
+        default_linear_velocity: 0,
+        max_angular_velocity: 0,
+        default_angular_velocity: 0,
+        rocker: {
+            status: false,
+            items: [
+            {
+                name: "",
+                value: "",
+                arrow: "",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "up",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "up",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "left",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "down",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "right",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "down",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "left",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "right",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "left",
+                hide: true,
+            },
+            {
+                name: "",
+                value: "",
+                arrow: "right",
+                hide: true,
             }
-        }
+            ]
+        },
+        step: {
+            value: -1,
+            items: [
+                {
+                    label: "10",
+                    value: 10
+                },
+                {
+                    label: "5",
+                    value: 5
+                },
+                {
+                    label: "1",
+                    value: 1
+                },
+                {
+                    label: "0.5",
+                    value: 0.5
+                },
+                {
+                    label: "0.1",
+                    value: 0.1
+                },
+                {
+                    label: "0.05",
+                    value: 0.05
+                },
+                {
+                    label: "0.01",
+                    value: 0.01
+                }
+            ]
+        },
+        state: {
+            start: "disabled",
+            start_disabled: true,
+            pause: "disabled",
+            pause_disabled: true,
+            stop: "disabled",
+            stop_disabled: true,
+            estop: "",
+            enabled: "",
+            limit: ""
+        },
+        time: Math.floor(Date.now() / 1000)
     }
 });
 

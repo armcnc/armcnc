@@ -13,14 +13,9 @@
 // limitations under the License.
 
 import {createApp} from "vue";
-import App from "./app.vue";
+import {createPinia} from "pinia";
 import {Router as router} from "./packages";
 import {Language as language} from "./packages/language";
+import App from "./app.vue";
 
-const app = createApp(App);
-
-app.use(router);
-
-app.use(language);
-
-app.mount("#app");
+createApp(App).use(router).use(language).use(createPinia()).mount("#app");
