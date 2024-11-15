@@ -117,7 +117,8 @@
                                     <TableCell class="h-12 text-center">{{item.name}}</TableCell>
                                     <TableCell class="h-12 text-center">{{item.position.toFixed(3)}}</TableCell>
                                     <TableCell class="h-12">
-                                        <MapPinIcon class="w-5 h-5 mx-auto" :class="item.home === 1 ? 'homed' : ''" @click="onHome(item.index + '')"/>
+                                        <MapPinIcon class="w-5 h-5 mx-auto opacity-50" @click="onHome(item.index + '')" v-if="item.home === 0"/>
+                                        <MapPinCheckIcon class="w-5 h-5 mx-auto opacity-100" @click="onHome(item.index + '')" v-if="item.home === 1"/>
                                     </TableCell>
                                     <TableCell class="h-12 text-center p-1">
                                         <div class="w-full h-8 rounded-md border border-violet-900/20 leading-8 text-center text-sm">{{parseFloat(props.data.machine.g5x_offset[item.index]).toFixed(3)}}</div>
@@ -202,7 +203,7 @@ import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "
 import MiddleModuleSimulation from "./module/simulation.vue";
 import {Button} from "../../packages/york";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption} from "../../packages/york";
-import {MapPinIcon, MapPinnedIcon, FileCogIcon, RefreshCwIcon, ListEndIcon, ListVideoIcon} from "lucide-vue-next";
+import {MapPinIcon, MapPinCheckIcon, MapPinnedIcon, FileCogIcon, RefreshCwIcon, ListEndIcon, ListVideoIcon} from "lucide-vue-next";
 import {ChevronUpIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon} from "lucide-vue-next";
 import {UndoIcon, RedoIcon} from "lucide-vue-next";
 
