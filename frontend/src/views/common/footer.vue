@@ -7,7 +7,7 @@
             </div>
             <div class="w-auto flex flex-row items-center">
                 <ListCheckIcon class="w-3 h-3 mr-1" />
-                <span>1200/6500</span>
+                <span>{{props.data.machine.program.line}}/{{props.data.program.lines.length}}</span>
             </div>
         </div>
         <div class="w-full"></div>

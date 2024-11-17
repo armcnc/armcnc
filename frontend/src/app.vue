@@ -64,6 +64,9 @@ const data: any = ref({
         g5x_offset: [],
         g_offset: [],
         dtg_offset: [],
+        program: {
+            line: 0
+        },
         box: {
             x: 0,
             y: 0,

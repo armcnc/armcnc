@@ -333,6 +333,7 @@ function onSocket(){
                         props.data.machine.relative_offset = "allow";
                     }
                     // TODO 刀路实时渲染
+                    props.data.machine.program.line = props.data.machine.data.motion_line;
                 }
                 if(message_json.command === "machine:error"){
                     let kind = [11];
