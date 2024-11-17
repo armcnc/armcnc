@@ -54,6 +54,7 @@ function onSimulation(){
 function openProgram(){
     if((window as any).simulation){
         (window as any).simulation.clearToolLine();
+        (window as any).simulation.onLoadCode(props.data.program.lines);
     }
 }
 

@@ -82,12 +82,15 @@ function onDisconnectDevice(){
 }
 
 function onProgram(file: string){
-    console.log(file);
     props.data.tools.request("/backend/program/read", "GET", {file: file}, {}).then((request: any) => {
         if(request.status === 200){
             if (request.data.code === 0) {
                 const data = request.data.data;
-                console.log(data);
+                props.data.program.lines = data.lines;
+                if((window as any).simulation){
+                    (window as any).simulation.clearToolLine();
+                    (window as any).simulation.onLoadCode(props.data.program.lines);
+                }
             }else{
                 props.data.tools.toast({
                     title: props.data.tools.language.t("status.toast.title"),

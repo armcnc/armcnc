@@ -15,9 +15,10 @@
 package machine
 
 import (
-	"github.com/armcnc/armcnc/backend/utils/file"
-	"github.com/armcnc/armcnc/backend/utils/ini"
 	"path/filepath"
+
+	fileUtils "github.com/armcnc/armcnc/backend/utils/file"
+	iniUtils "github.com/armcnc/armcnc/backend/utils/ini"
 )
 
 var Get = &Machine{}
@@ -38,7 +39,7 @@ func (machine *Machine) Info(path string) INI {
 	if exists {
 		iniFile, err := iniUtils.Load(machine.Path + "/" + path + "/machine.ini")
 		if err == nil {
-			err = iniUtils.MapTo(iniFile, &data)
+			iniUtils.MapTo(iniFile, &data)
 			data = machine.Default(data)
 		}
 	}

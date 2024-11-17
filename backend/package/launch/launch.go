@@ -15,18 +15,18 @@
 package launch
 
 import (
-	"github.com/armcnc/armcnc/backend/utils"
-	"github.com/armcnc/armcnc/backend/utils/file"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"time"
+
+	"github.com/armcnc/armcnc/backend/utils"
+	fileUtils "github.com/armcnc/armcnc/backend/utils/file"
 )
 
 var Get = &Launch{}
 
-type Launch struct {
-}
+type Launch struct{}
 
 func New() *Launch {
 	return &Launch{}

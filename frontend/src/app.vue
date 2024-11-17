@@ -43,6 +43,10 @@ const data: any = ref({
         },
     },
     current: "dashboard",
+    program: {
+        data: "",
+        lines: []
+    },
     machine: {
         path: "-",
         file: "",
