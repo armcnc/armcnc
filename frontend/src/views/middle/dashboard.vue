@@ -21,27 +21,32 @@
                             </div>
                         </div>
                         <div class="w-full flex flex-row items-center justify-center space-x-2">
-                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm">
+                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm" @click="onSwitchView('x')">
                                 <span>X</span>
                             </Button>
-                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm">
+                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm" @click="onSwitchView('y')">
                                 <span>Y</span>
                             </Button>
-                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm">
+                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm" @click="onSwitchView('z')">
                                 <span>Z</span>
                             </Button>
-                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm">
+                            <Button class="w-auto px-3 text-muted-foreground" variant="outline" size="sm" @click="onSwitchView('p')">
                                 <span>P</span>
                             </Button>
                         </div>
                         <div class="w-full flex flex-row items-center justify-end space-x-2">
                             <div class="w-auto">
                                 <Button class="w-auto px-2 text-muted-foreground" variant="outline" size="sm">
-                                    <ListEndIcon class="w-4 h-4" />
+                                    <MapPinMinusIcon class="w-4 h-4" />
                                 </Button>
                             </div>
                             <div class="w-auto">
                                 <Button class="w-auto px-2 text-muted-foreground" variant="outline" size="sm">
+                                    <ListEndIcon class="w-4 h-4" />
+                                </Button>
+                            </div>
+                            <div class="w-auto">
+                                <Button class="w-auto px-2 text-muted-foreground" variant="outline" size="sm" @click="onClearLine">
                                     <ListVideoIcon class="w-4 h-4" />
                                 </Button>
                             </div>
@@ -124,7 +129,7 @@
                     <div class="w-full bg-zinc-900/50 rounded-md p-2 space-y-1">
                         <div class="w-full h-8 leading-8 text-muted-foreground/50">步进长度({{props.data.machine.linear_units}})</div>
                         <div class="w-full grid grid-cols-6 gap-2 text-center text-sm">
-                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative" :class="props.data.machine.step.value === item.value ? 'bg-zinc-950' : ''" v-for="(item, index) in props.data.machine.step.items" :key="index">
+                            <div class="w-auto h-9 leading-9 bg-zinc-950/40 rounded-md px-3 relative" :class="props.data.machine.step.value === item.value ? 'bg-zinc-950' : ''" v-for="(item, index) in props.data.machine.step.items" :key="index" @click="setStep(item)">
                                 <span>{{item.label}}</span>
                                 <span class="absolute w-[60%] rounded-md h-[2px] bg-primary left-0 right-0 bottom-1 mx-auto" v-if="props.data.machine.step.value === item.value"></span>
                             </div>
@@ -133,18 +138,18 @@
                     <div class="w-full bg-zinc-900/50 rounded-md p-2 space-y-1">
                         <div class="w-full flex flex-row items-center space-x-2">
                             <div class="w-full">
-                                <Button class="w-full px-3 text-muted-foreground hover:bg-transparent active:bg-primary" variant="outline" size="lg">
+                                <Button class="w-full px-3 text-muted-foreground hover:bg-transparent active:bg-primary" variant="outline" size="lg" :disabled="props.data.machine.state.enabled === 'disabled' || props.data.machine.data.state === 2" @click="setSpindleRight">
                                     <UndoIcon class="w-4 h-4 mr-2" />
                                     <span>反转</span>
                                 </Button>
                             </div>
                             <div class="w-full">
-                                <Button class="w-full px-3 text-muted-foreground hover:bg-transparent active:bg-primary" variant="outline" size="lg">
+                                <Button class="w-full px-3 text-muted-foreground hover:bg-transparent active:bg-primary" variant="outline" size="lg" :class="props.data.machine.spindle.enabled === 'active' ? 'bg-primary hover:bg-primary' : ''" :disabled="props.data.machine.state.enabled === 'disabled' || props.data.machine.data.state === 2" @click="setSpindleEnabled">
                                     <span>启动主轴</span>
                                 </Button>
                             </div>
                             <div class="w-full">
-                                <Button class="w-full px-3 text-muted-foreground hover:bg-transparent active:bg-primary" variant="outline" size="lg">
+                                <Button class="w-full px-3 text-muted-foreground hover:bg-transparent active:bg-primary" variant="outline" size="lg" :disabled="props.data.machine.state.enabled === 'disabled' || props.data.machine.data.state === 2" @click="setSpindleLeft">
                                     <RedoIcon class="w-4 h-4 mr-2" />
                                     <span>正转</span>
                                 </Button>
@@ -163,7 +168,7 @@ import {nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted} from "
 import MiddleModuleSimulation from "./module/simulation.vue";
 import {Button} from "../../packages/york";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption} from "../../packages/york";
-import {MapPinIcon, MapPinCheckIcon, MapPinnedIcon, FileCogIcon, RefreshCwIcon, ListEndIcon, ListVideoIcon} from "lucide-vue-next";
+import {MapPinIcon, MapPinCheckIcon, MapPinnedIcon, FileCogIcon, RefreshCwIcon, MapPinMinusIcon, ListEndIcon, ListVideoIcon} from "lucide-vue-next";
 import {ChevronUpIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon} from "lucide-vue-next";
 import {UndoIcon, RedoIcon} from "lucide-vue-next";
 
@@ -227,6 +232,50 @@ function setRelativeOffset(current: string){
             message.data.z = "-" + parseFloat(props.data.machine.g5x_offset[2]).toFixed(3);
             props.data.backend.socket.connect.send(JSON.stringify(message));
         }
+    }
+}
+
+function setStep(item: any){
+    if(props.data.machine.step !== item.value){
+        props.data.machine.step.value = item.value;
+    }
+}
+
+function setSpindleRight(){
+    if(props.data.machine.state.enabled === "active" && props.data.machine.data.state !== 2) {
+        let message = {command: "client:machine:spindle", data: {value: "reverse", speed: props.data.machine.spindle.speed}};
+        props.data.backend.socket.connect.send(JSON.stringify(message));
+    }
+}
+
+function setSpindleEnabled(){
+    if(props.data.machine.state.enabled === "active" && props.data.machine.data.state !== 2) {
+        if(props.data.machine.spindle.enabled === 0){
+            let message = {command: "client:machine:spindle", data: {value: "on", speed: props.data.machine.spindle.speed}};
+            props.data.backend.socket.connect.send(JSON.stringify(message));
+        }else{
+            let message = {command: "client:machine:spindle", data: {value: "off", speed: 1}};
+            props.data.backend.socket.connect.send(JSON.stringify(message));
+        }
+    }
+}
+
+function setSpindleLeft(){
+    if(props.data.machine.state.enabled === "active" && props.data.machine.data.state !== 2) {
+        let message = {command: "client:machine:spindle", data: {value: "forward", speed: props.data.machine.spindle.speed}};
+        props.data.backend.socket.connect.send(JSON.stringify(message));
+    }
+}
+
+function onSwitchView(value: string){
+    if((window as any).simulation){
+        (window as any).simulation.setView(value);
+    }
+}
+
+function onClearLine(){
+    if((window as any).simulation){
+        (window as any).simulation.clearToolLine();
     }
 }
 

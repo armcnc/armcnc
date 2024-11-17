@@ -242,17 +242,24 @@ export class Simulation {
             x: new THREE.Vector3(-1, 0, 0),
             y: new THREE.Vector3(0, -1, 0),
             z: new THREE.Vector3(0, 0, 1),
-            p: new THREE.Vector3(0, -30, 15),
+            p: new THREE.Vector3(0, -10, 5),
         };
         const new_view = views[view];
         if (!new_view){
             return;
         }
-        const newPosition = new_view.clone().multiplyScalar(distance).add(center);
-        _this.engine.control_camera.position.copy(newPosition);
-        _this.engine.control_camera.lookAt(center);
-        _this.engine.control.target.copy(center);
-        _this.engine.control.update();
+        if(view === "p"){
+            _this.engine.control_camera.position.set(0, -10, 5);
+            _this.engine.control_camera.lookAt(0, 0, 0);
+            _this.engine.control_camera.up.set(0, 0, 1);
+            _this.engine.control.update();
+        }else{
+            const newPosition = new_view.clone().multiplyScalar(distance).add(center);
+            _this.engine.control_camera.position.copy(newPosition);
+            _this.engine.control_camera.lookAt(center);
+            _this.engine.control.target.copy(center);
+            _this.engine.control.update();
+        }
         _this.view = view;
         _this.loading_callback({
             type: "resource:update:data",
