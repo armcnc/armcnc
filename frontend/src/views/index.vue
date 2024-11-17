@@ -256,7 +256,7 @@ function onSocket(){
                         props.data.machine.max_angular_velocity = Math.round(props.data.machine.data.format_data.max_angular_velocity * 60);
                         props.data.machine.default_angular_velocity = Math.round(props.data.machine.data.format_data.default_angular_velocity * 60);
                         if(props.data.machine.data.file === ""){
-                            props.data.machine.data.file = "armcnc.ngc";
+                            props.data.machine.data.file = "ultraman.ngc";
                             let file_part = props.data.machine.data.file.split("/");
                             props.data.machine.file = file_part.pop();
                             let message = {command: "client:machine:program:open", data: props.data.machine.data.file};
