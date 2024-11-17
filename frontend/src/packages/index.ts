@@ -12,30 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export {Request} from "./request";
-export {Router} from "./router";
-export {Language, useI18n, Format} from "./language";
 export {Simulation} from "./simulation";
-
-export function RemoveTrim(value: string): string {
-    return (value.replace(/[\n\r]/g, "")).trim();
-}
-
-export function CheckEmail(email: string): boolean {
-    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regex.test(email);
-}
-
-export function GetPlatform(): string {
-    const userAgent = (navigator as any).userAgent;
-    if (userAgent.includes("Windows")) {
-        return "Windows";
-    }
-    if (userAgent.includes("Mac")) {
-        return "MacOS";
-    }
-    if (userAgent.includes("Linux")) {
-        return "Linux";
-    }
-    return "-";
-}

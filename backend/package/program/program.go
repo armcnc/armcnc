@@ -52,7 +52,7 @@ func New(workspace string) *Program {
 func (program *Program) Select() []Item {
 	items := make([]Item, 0)
 
-	files, err := os.ReadDir(program.Path)
+	files, err := os.ReadDir(program.Path + "/")
 	if err != nil {
 		return items
 	}
@@ -61,7 +61,7 @@ func (program *Program) Select() []Item {
 		item := Item{}
 		if !file.IsDir() {
 			item.Path = file.Name()
-			timeData, _ := times.Stat(program.Path + file.Name())
+			timeData, _ := times.Stat(program.Path + "/" + file.Name())
 			item.Time = timeData.BirthTime()
 			if file.Name() == "armcnc.ngc" || file.Name() == "demo.ngc" || file.Name() == "linuxcnc.ngc" {
 				item.Time = item.Time.Add(-525600 * time.Minute)
@@ -85,9 +85,9 @@ func (program *Program) Select() []Item {
 
 func (program *Program) ReadContent(fileName string) string {
 	content := ""
-	exists, _ := fileUtils.PathExist(program.Path + fileName)
+	exists, _ := fileUtils.PathExist(program.Path + "/" + fileName)
 	if exists {
-		contentByte, err := fileUtils.ReadFile(program.Path + fileName)
+		contentByte, err := fileUtils.ReadFile(program.Path + "/" + fileName)
 		if err == nil {
 			content = string(contentByte)
 		}
@@ -99,7 +99,7 @@ func (program *Program) ReadLine(fileName string) Item {
 	item := Item{}
 	item.Lines = make([]string, 0)
 
-	file, err := os.Open(program.Path + fileName)
+	file, err := os.Open(program.Path + "/" + fileName)
 	if err != nil {
 		return item
 	}
@@ -116,7 +116,7 @@ func (program *Program) ReadLine(fileName string) Item {
 func (program *Program) ReadFirstLine(fileName string) Item {
 	item := Item{}
 
-	file, err := os.Open(program.Path + fileName)
+	file, err := os.Open(program.Path + "/" + fileName)
 	if err != nil {
 		return item
 	}
@@ -141,9 +141,9 @@ func (program *Program) ReadFirstLine(fileName string) Item {
 
 func (program *Program) UpdateContent(fileName string, content string) bool {
 	status := false
-	exists, _ := fileUtils.PathExist(program.Path + fileName)
+	exists, _ := fileUtils.PathExist(program.Path + "/" + fileName)
 	if exists {
-		write := fileUtils.WriteFile(content, program.Path+fileName)
+		write := fileUtils.WriteFile(content, program.Path+"/"+fileName)
 		if write == nil {
 			status = true
 		}
@@ -153,9 +153,9 @@ func (program *Program) UpdateContent(fileName string, content string) bool {
 
 func (program *Program) Delete(fileName string) bool {
 	status := false
-	exists, _ := fileUtils.PathExist(program.Path + fileName)
+	exists, _ := fileUtils.PathExist(program.Path + "/" + fileName)
 	if exists {
-		err := os.RemoveAll(program.Path + fileName)
+		err := os.RemoveAll(program.Path + "/" + fileName)
 		if err == nil {
 			status = true
 		}

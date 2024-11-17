@@ -7,32 +7,34 @@
 
 <script setup lang="ts">
 import {onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, nextTick, ref} from "vue";
-import {useRoute, useRouter} from "vue-router";
-import {Request, useI18n, Format, GetPlatform, Simulation} from "./packages";
+import {useBaseStore, useLanguageStore, useRequestStore} from "./stores";
+import {Simulation} from "./packages";
 import {Toaster, useToast} from "./packages/york";
 
-const i18n = useI18n();
-const $route = useRoute();
-const $router = useRouter();
+const base = useBaseStore();
+const language = useLanguageStore();
+const request = useRequestStore();
 const {toast} = useToast();
 
 const data: any = ref({
-    route: $route,
-    router: $router,
+    base: {
+        route: base.$useRoute,
+        router: base.$useRouter
+    },
     tools: {
         language: {
             current: (navigator as any).language,
-            locale: i18n.locale,
-            t: i18n.t,
-            f: Format
+            locale: language.$I18n.useI18n().locale,
+            t: language.$I18n.useI18n().t,
+            f: language.$Format
         },
-        request: Request,
+        request: request.$Request,
         simulation: Simulation,
         toast: toast
     },
     mode: import.meta.env.DEV,
     version: "-",
-    platform: GetPlatform(),
+    platform: base.$GetPlatform(),
     backend: {
         status: false,
         socket: {

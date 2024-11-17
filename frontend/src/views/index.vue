@@ -83,6 +83,26 @@ function onDisconnectDevice(){
 
 function onProgram(file: string){
     console.log(file);
+    props.data.tools.request("/backend/program/read", "GET", {file: file}, {}).then((request: any) => {
+        if(request.status === 200){
+            if (request.data.code === 0) {
+                const data = request.data.data;
+                console.log(data);
+            }else{
+                props.data.tools.toast({
+                    title: props.data.tools.language.t("status.toast.title"),
+                    description: props.data.tools.language.t("status." + props.data.tools.language.f(request.data.message)),
+                    variant: "warning",
+                });
+            }
+        }else{
+            props.data.tools.toast({
+                title: props.data.tools.language.t("status.toast.title"),
+                description: props.data.tools.language.t("status.service_exception"),
+                variant: "error",
+            });
+        }
+    });
 }
 
 function onSocket(){
@@ -106,8 +126,7 @@ function onSocket(){
                 }
                 if(message_json.command === "machine:program:open"){
                     if(message_json.data.status){
-                        props.data.machine.data.file = message_json.data.file;
-                        onProgram(props.data.machine.data.file);
+                        onProgram(message_json.data.file);
                     }else{
                         props.data.tools.toast({
                             title: props.data.tools.language.t("status.toast.title"),
@@ -242,7 +261,7 @@ function onSocket(){
                         }else{
                             let file_part = props.data.machine.data.file.split("/");
                             props.data.machine.file = file_part.pop();
-                            onProgram(props.data.machine.data.file);
+                            onProgram(props.data.machine.file);
                         }
                         props.data.machine.is_first = false;
                     }

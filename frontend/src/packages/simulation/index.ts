@@ -20,7 +20,7 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {ViewHelper} from "three/examples/jsm/helpers/ViewHelper";
 // @ts-ignore
 import {TransformControls} from "three/examples/jsm/controls/TransformControls.js";
-import Gcode from "./gcode";
+import Gcode from "./plugins/gcode";
 
 export class Simulation {
 

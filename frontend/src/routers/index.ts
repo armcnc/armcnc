@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import {createRouter, createWebHistory } from "vue-router";
-import Index from "../../views/index.vue";
+import Index from "../views/index.vue";
 
 const routes: any = [
     {

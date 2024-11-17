@@ -13,3 +13,5 @@
 // limitations under the License.
 
 export {useBaseStore} from "./base";
+export {useRequestStore} from "./request";
+export {useLanguageStore} from "./language";
