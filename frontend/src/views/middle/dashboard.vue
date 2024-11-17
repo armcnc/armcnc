@@ -55,7 +55,7 @@
                 </div>
                 <div class="w-full h-[calc(100%-45px)] overflow-y-auto scrollbar-hide">
                     <div class="w-full p-1 text-muted-foreground/50">
-                        <div class="w-full h-6 flex flex-row items-center text-sm" :class="props.data.machine.program.line === index ? 'text-muted-foreground' : ''" v-for="(item, index) in props.data.program.lines" :key="index">
+                        <div class="w-full h-6 flex flex-row items-center text-sm" :class="props.data.machine.program.line === index ? 'text-muted-foreground' : ''" v-for="(item, index) in []" :key="index">
                             <div class="w-full">{{item}}</div>
                             <div class="w-auto text-xs">{{index + 1}}</div>
                         </div>
@@ -171,6 +171,7 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCapt
 import {MapPinIcon, MapPinCheckIcon, MapPinnedIcon, FileCogIcon, RefreshCwIcon, MapPinMinusIcon, ListEndIcon, ListVideoIcon} from "lucide-vue-next";
 import {ChevronUpIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon} from "lucide-vue-next";
 import {UndoIcon, RedoIcon} from "lucide-vue-next";
+import { split } from "postcss/lib/list";
 
 const props: any = defineProps<{
     data: any

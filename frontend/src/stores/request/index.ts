@@ -24,7 +24,7 @@ export const useRequestStore = defineStore("request", ()=>{
         local_storage_name: "armcnc:login:token",
         request: Axios.create({
             baseURL: "",
-            timeout: 5000,
+            timeout: 60000,
         })
     });
 
