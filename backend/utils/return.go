@@ -17,14 +17,15 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/armcnc/armcnc/backend/package/config"
-	"github.com/gin-gonic/gin"
-	"github.com/gookit/color"
 	"log"
 	"net/http"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/armcnc/armcnc/backend/package/config"
+	"github.com/gin-gonic/gin"
+	"github.com/gookit/color"
 )
 
 type logData struct {

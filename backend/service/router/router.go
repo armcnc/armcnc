@@ -50,5 +50,9 @@ func (r *Router) InitHandler() *gin.Engine {
 	{
 		message.GET("/index", handler.MessageIndex)
 	}
+	program := r.engine.Group("/program")
+	{
+		program.GET("/read", handler.ProgramRead)
+	}
 	return r.engine
 }

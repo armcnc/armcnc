@@ -17,13 +17,14 @@ package program
 import (
 	"bufio"
 	"encoding/json"
-	"github.com/armcnc/armcnc/backend/utils/file"
-	"github.com/djherbis/times"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
 	"time"
+
+	fileUtils "github.com/armcnc/armcnc/backend/utils/file"
+	"github.com/djherbis/times"
 )
 
 var Get = &Program{}
@@ -37,7 +38,7 @@ type Item struct {
 	Path     string    `json:"path"`
 	Describe string    `json:"describe"`
 	Version  string    `json:"version"`
-	Line     []string  `json:"line"`
+	Lines    []string  `json:"lines"`
 	Content  string    `json:"content"`
 	Time     time.Time `json:"-"`
 }
@@ -70,7 +71,7 @@ func (program *Program) Select() []Item {
 				item.Name = firstLine.Name
 				item.Describe = firstLine.Describe
 				item.Version = firstLine.Version
-				item.Line = make([]string, 0)
+				item.Lines = make([]string, 0)
 				item.Content = ""
 				items = append(items, item)
 			}
@@ -96,7 +97,7 @@ func (program *Program) ReadContent(fileName string) string {
 
 func (program *Program) ReadLine(fileName string) Item {
 	item := Item{}
-	item.Line = make([]string, 0)
+	item.Lines = make([]string, 0)
 
 	file, err := os.Open(program.Path + fileName)
 	if err != nil {
@@ -107,7 +108,7 @@ func (program *Program) ReadLine(fileName string) Item {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		line := scanner.Text()
-		item.Line = append(item.Line, line)
+		item.Lines = append(item.Lines, line)
 	}
 	return item
 }
