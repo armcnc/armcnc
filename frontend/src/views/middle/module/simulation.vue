@@ -67,7 +67,7 @@ onMounted(() => {
         console.log("[pages:middle:module:simulation]", props);
         setTimeout(()=>{
             onSimulation();
-        }, 2000);
+        }, 1000);
     });
 });
 
