@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {ref} from "vue";
-import Axios from "axios";
-import {defineStore} from "pinia";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
+import Axios from "axios";
+import { defineStore } from "pinia";
+import { ref } from "vue";
 
 export const useRequestStore = defineStore("request", ()=>{
     const $Store = ref({
@@ -56,9 +56,9 @@ export const useRequestStore = defineStore("request", ()=>{
                         "Content-X-Time": Date.now().toString(),
                         "Content-X-Device": result.visitorId,
                         "Content-X-Referer": $Store.value.referer,
-                        "Content-X-Source": $Store.value.local_storage_name,
+                        "Content-X-Source": "browser",
                         "Content-X-IP": "0.0.0.0",
-                        "Content-X-Sign": localStorage.getItem("armcnc:login:token") ? localStorage.getItem("armcnc:login:token") : ""
+                        "Content-X-Sign": localStorage.getItem($Store.value.local_storage_name) ? localStorage.getItem($Store.value.local_storage_name) : ""
                     },
                     url: path,
                     method: method,

@@ -6,10 +6,10 @@
 </template>
 
 <script setup lang="ts">
-import {onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, nextTick, ref} from "vue";
-import {useBaseStore, useLanguageStore, useRequestStore} from "./stores";
-import {Simulation} from "./packages";
-import {Toaster, useToast} from "./packages/york";
+import { nextTick, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted, ref } from "vue";
+import { Simulation } from "./packages";
+import { Toaster, useToast } from "./packages/york";
+import { useBaseStore, useLanguageStore, useRequestStore } from "./stores";
 
 const base = useBaseStore();
 const language = useLanguageStore();

@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {createApp} from "vue";
-import {createPinia} from "pinia";
-import {Router as router} from "./routers";
-import {useLanguageStore} from "./stores";
+import { createPinia } from "pinia";
+import { createApp } from "vue";
 import App from "./app.vue";
+import { Router as router } from "./routers";
+import { useLanguageStore } from "./stores";
 
 createApp(App).use(router).use(createPinia()).use(useLanguageStore().$Store.api).mount("#app");
