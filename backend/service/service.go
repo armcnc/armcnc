@@ -17,18 +17,19 @@ package service
 import (
 	"context"
 	"fmt"
-	"github.com/armcnc/armcnc/backend/package/config"
-	"github.com/armcnc/armcnc/backend/package/launch"
-	"github.com/armcnc/armcnc/backend/package/machine"
-	"github.com/armcnc/armcnc/backend/service/router"
-	"github.com/armcnc/armcnc/backend/utils/file"
-	"github.com/gookit/color"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"path/filepath"
 	"time"
+
+	"github.com/armcnc/armcnc/backend/package/config"
+	"github.com/armcnc/armcnc/backend/package/launch"
+	"github.com/armcnc/armcnc/backend/package/machine"
+	"github.com/armcnc/armcnc/backend/service/router"
+	"github.com/armcnc/armcnc/backend/utils"
+	"github.com/gookit/color"
 )
 
 var Get = &Service{}
@@ -61,7 +62,7 @@ func (s *Service) Start() {
 	}()
 
 	if config.Get.Machine.Path != "" {
-		write := fileUtils.WriteFile("MACHINE_PATH="+config.Get.Machine.Path, filepath.Join(config.Get.Runtime, "/environment"))
+		write := utils.WriteFile("MACHINE_PATH="+config.Get.Machine.Path, filepath.Join(config.Get.Runtime, "/environment"))
 		if write == nil {
 			check := machine.Get.Info(config.Get.Machine.Path)
 			fmt.Println(color.Yellow.Text(fmt.Sprintf("%q %s", machine.Get, check)))

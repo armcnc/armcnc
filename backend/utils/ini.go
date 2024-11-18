@@ -12,31 +12,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package iniUtils
+package utils
 
 import "gopkg.in/ini.v1"
 
-func Empty() *ini.File {
+func IniEmpty() *ini.File {
 	iniFile := ini.Empty()
 	return iniFile
 }
 
-func ReflectFrom(cfg *ini.File, v interface{}) error {
+func IniReflectFrom(cfg *ini.File, v interface{}) error {
 	err := ini.ReflectFrom(cfg, v)
 	return err
 }
 
-func Load(source interface{}) (*ini.File, error) {
+func IniLoad(source interface{}) (*ini.File, error) {
 	iniFile, err := ini.Load(source)
 	return iniFile, err
 }
 
-func SaveTo(cfg *ini.File, filename string) error {
+func IniSaveTo(cfg *ini.File, filename string) error {
 	err := cfg.SaveTo(filename)
 	return err
 }
 
-func MapTo(cfg *ini.File, v interface{}) error {
+func IniMapTo(cfg *ini.File, v interface{}) error {
 	err := cfg.MapTo(v)
 	return err
 }

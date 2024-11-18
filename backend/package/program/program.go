@@ -23,7 +23,7 @@ import (
 	"strings"
 	"time"
 
-	fileUtils "github.com/armcnc/armcnc/backend/utils/file"
+	"github.com/armcnc/armcnc/backend/utils"
 	"github.com/djherbis/times"
 )
 
@@ -85,9 +85,9 @@ func (program *Program) Select() []Item {
 
 func (program *Program) ReadContent(fileName string) string {
 	content := ""
-	exists, _ := fileUtils.PathExist(program.Path + "/" + fileName)
+	exists, _ := utils.PathExist(program.Path + "/" + fileName)
 	if exists {
-		contentByte, err := fileUtils.ReadFile(program.Path + "/" + fileName)
+		contentByte, err := utils.ReadFile(program.Path + "/" + fileName)
 		if err == nil {
 			content = string(contentByte)
 		}
@@ -141,9 +141,9 @@ func (program *Program) ReadFirstLine(fileName string) Item {
 
 func (program *Program) UpdateContent(fileName string, content string) bool {
 	status := false
-	exists, _ := fileUtils.PathExist(program.Path + "/" + fileName)
+	exists, _ := utils.PathExist(program.Path + "/" + fileName)
 	if exists {
-		write := fileUtils.WriteFile(content, program.Path+"/"+fileName)
+		write := utils.WriteFile(content, program.Path+"/"+fileName)
 		if write == nil {
 			status = true
 		}
@@ -153,7 +153,7 @@ func (program *Program) UpdateContent(fileName string, content string) bool {
 
 func (program *Program) Delete(fileName string) bool {
 	status := false
-	exists, _ := fileUtils.PathExist(program.Path + "/" + fileName)
+	exists, _ := utils.PathExist(program.Path + "/" + fileName)
 	if exists {
 		err := os.RemoveAll(program.Path + "/" + fileName)
 		if err == nil {

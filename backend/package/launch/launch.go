@@ -21,7 +21,6 @@ import (
 	"time"
 
 	"github.com/armcnc/armcnc/backend/utils"
-	fileUtils "github.com/armcnc/armcnc/backend/utils/file"
 )
 
 var Get = &Launch{}
@@ -33,7 +32,7 @@ func New() *Launch {
 }
 
 func (launch *Launch) Start() {
-	exist, _ := fileUtils.PathExist("/tmp/linuxcnc.lock")
+	exist, _ := utils.PathExist("/tmp/linuxcnc.lock")
 	if !exist {
 		launch.Remove()
 		cmd := exec.Command("systemctl", "start", "armcnc_linuxcnc.service")
