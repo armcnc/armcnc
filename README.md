@@ -18,7 +18,7 @@ sudo curl -s https://mirrors.armcnc.org/install/install.sh|bash
 
 If you encounter any issues, you can obtain assistance through `issues` or the following methods.
 
-- Documents https://docs.armcnc.org
+- Documents https://doc.armcnc.org
 
 - Forum https://forum.armcnc.org
 
