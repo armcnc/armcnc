@@ -4,7 +4,7 @@
 
 ## Install
 
-Quick installation and deployment.
+Start the installation and deployment process on your device.
 
 ```shell
 sudo curl -s https://mirrors.armcnc.org/install/install.sh|bash
